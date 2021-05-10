@@ -9,4 +9,4 @@ redux - 상태관리 관련(하위에 reducers 와 sagas 폴더 있음)
 
 routes - 라우터 관련(각 페이지 기준으로 일단 나눴어요)
 
-
+store.js - 미들웨어 저장소
