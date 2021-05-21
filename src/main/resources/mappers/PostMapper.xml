@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.PostMapper">
+
+	<sql id="postColumns">
+		 blog_id
+		 ,category
+		 ,post_title
+		 ,post_content
+		 ,open_yn
+		 ,views
+		 ,like_count
+	</sql>
+
+	<insert id="insert" parameterType="com.model.PostDto">
+		INSERT INTO POST (
+			<include refid="postColumns" />
+		) VALUES (
+			  #{blogId}
+			, #{category}
+			, #{postTitle}
+			, #{postContent}
+			, #{openYn}
+			, 0
+			, 0
+		)
+	</insert>
+	<select id="select" resultType="com.model.PostDto">
+		SELECT * FROM POST WHERE POST_ID = #{postId}
+	</select>
+	<select id="getList" resultType="com.model.PostDto">
+		SELECT * FROM POST
+	</select>
+	<select id="getCount" resultType="com.model.PostDto">
+		SELECT COUNT(*) FROM POST
+	</select>
+	<update id="update" parameterType="com.model.PostDto">
+		UPDATE POST SET
+			CATEGORY = #{category}
+			,CONTENT = #{postContent}
+			,TITLE = #{postTitle}
+		WHERE POST_ID = #{postId}
+	</update>
+	<update id="delete" parameterType="com.model.PostDto">
+		UPDATE POST SET
+			DELETE_YN = 'Y'
+		WHERE POST_ID = #{postId}
+	</update>
+
+</mapper>
