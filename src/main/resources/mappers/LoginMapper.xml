@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.LoginMapper">
+
+	<sql id="userColumns">
+		 email
+		 ,password
+		 ,phone
+		 ,birthday
+		 ,profile
+		 ,profile_picture
+		 ,join_type
+		 ,join_token
+	</sql>
+
+	<insert id="googleInsert" parameterType="String">
+		INSERT INTO USER (
+			<include refid="userColumns" />
+		) VALUES (
+			  #{email}
+			, 'GOOGLE'
+			, 's'
+			, NOW()
+			, ''
+			, ''
+			, 'GOOGLE'
+			, #{accessToken}
+		)
+		 ON DUPLICATE KEY UPDATE join_token = #{accessToken}, last_login_date=NOW()
+	</insert>
+
+</mapper>
