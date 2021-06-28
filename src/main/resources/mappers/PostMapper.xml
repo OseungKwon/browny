@@ -29,6 +29,9 @@
 	<select id="select" resultType="com.model.PostDto">
 		SELECT * FROM POST WHERE POST_ID = #{postId}
 	</select>
+	<select id="getMaxId" resultType="int">
+		SELECT MAX(POST_ID) FROM POST WHERE delete_yn!='Y'
+	</select>
 	<select id="confirmCreate" resultType="int">
 		SELECT COUNT(*) FROM POST WHERE created_email=#{email} AND post_id=#{postId} 
 	</select>

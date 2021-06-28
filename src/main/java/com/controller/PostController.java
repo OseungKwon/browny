@@ -39,8 +39,14 @@ public class PostController {
 	@ResponseBody
 	public Map<String, Object> view(PostDto post) {
 		Map<String, Object> data = new HashMap<>();
-		//등록
+		//읽어오기
 		post = postService.select(post);
+		//삭제되었을 경우
+		if(post.getDeleteYn().equals("Y")) {
+			data.put("status", 404);
+			data.put("msg", "deleted post");
+			return data;
+		}
 		//성공 출력
 		data.put("data", post);
 		data.put("status", 200);
@@ -144,6 +150,63 @@ public class PostController {
 		json.put("status", 200);
 		json.put("msg", "success");
 		return json;
+	}
+	//이전 글 보기
+	@GetMapping(value="/post/view/prev")
+	@ResponseBody
+	public Map<String, Object> viewPrev(PostDto post) {
+		Map<String, Object> data = new HashMap<>();
+		//없으면 그 이전으로
+		while(post.getDeleteYn().equals("Y")) {
+			post.setPostId(post.getPostId()-1);
+			//첫번째 글일 경우
+			if(post.getPostId()<=0) {
+				data.put("status", 404);
+				data.put("msg", "previous post not exist");
+				return data;
+			}
+			post = postService.select(post);
+			//너무 큰값을 넣었다면
+			if(post==null) {
+				data.put("status", 404);
+				data.put("msg", "previous post not exist");
+				return data;
+			}
+		}
+		//성공 출력
+		data.put("data", post);
+		data.put("status", 200);
+		data.put("msg", "success");
+		return data;
+	}
+	//이전 글 보기
+	@GetMapping(value="/post/view/next")
+	@ResponseBody
+	public Map<String, Object> viewNext(PostDto post) {
+		Map<String, Object> data = new HashMap<>();
+		//최대값을 구함
+		int maximum=postService.getMaxId();
+		//최대값일 경우
+		if(post.getPostId()>=maximum) {
+			data.put("status", 404);
+			data.put("msg", "next post not exist");
+			return data;
+		}
+		while(maximum>post.getPostId()) {
+			post.setPostId(post.getPostId()+1);
+			post = postService.select(post);
+			//너무 작은 값을 넣었다면
+			if(post==null) {
+				data.put("status", 404);
+				data.put("msg", "next post not exist");
+				return data;
+			}
+		}
+		//성공 출력
+		data.put("data", post);
+		data.put("status", 200);
+		data.put("msg", "success");
+		return data;
 	}
 
 }

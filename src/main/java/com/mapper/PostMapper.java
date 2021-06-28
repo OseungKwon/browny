@@ -16,5 +16,6 @@ public interface PostMapper{
 	public List<PostDto> getList(PostDto data);
 	public int getCount(PostDto data);
 	public int confirmCreate(String email, Integer postId);
+	public int getMaxId();
 	
 }

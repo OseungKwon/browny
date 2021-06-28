@@ -35,5 +35,8 @@ public class PostService{
 	public boolean confirmCreate(String email, Integer postId) {
 		return postMapper.confirmCreate(email, postId)>0;
 	}
+	public int getMaxId() {
+		return postMapper.getMaxId();
+	}
 	
 }

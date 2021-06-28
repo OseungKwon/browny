@@ -8,6 +8,7 @@ public class PostDto{
 	private String title="";
 	private String content="";
 	private String openYn="Y";
+	private String deleteYn="Y";
 	private Integer views=0;
 	private Integer likeCount=0;
 	private String email;
@@ -81,6 +82,12 @@ public class PostDto{
 	}
 	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
+	}
+	public String getDeleteYn() {
+		return deleteYn;
+	}
+	public void setDeleteYn(String deleteYn) {
+		this.deleteYn = deleteYn;
 	}
 	
 }
