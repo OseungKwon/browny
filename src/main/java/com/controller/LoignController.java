@@ -39,7 +39,8 @@ public class LoignController {
 		
 		Map<String, Object> json = new HashMap<>();
 		Map<String, Object> data = new HashMap<>();
-		json.put("success", 200);
+		json.put("status", 200);
+		json.put("msg", "success");
 		String url = loginService.socialLogin(type);
 		data.put("url", url);
 		json.put("data", data);
@@ -53,10 +54,11 @@ public class LoignController {
 		Map<String, Object> json = new HashMap<>();
 		Map<String, Object> data = loginService.socialToken(type,code);
 		if((int)data.get("result")<0) {
-			json.put("error", 500);
-			json.put("msg", "server connection error");
+			json.put("status", 500);
+			json.put("msg", "server error");
 		}else {
-			json.put("success", 200);
+			json.put("status", 200);
+			json.put("msg", "success");
 		}
 		json.put("data", data);
 		return json;

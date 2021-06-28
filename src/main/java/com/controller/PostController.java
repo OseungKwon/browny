@@ -26,7 +26,7 @@ public class PostController {
 	
 	@PostMapping(value="/post/list")
 	@ResponseBody
-	public Map<String, Object> getPostListJson(@RequestParam(name="email")String email,@RequestParam(name="token")String token) {
+	public Map<String, Object> getPostListJson() {
 		Map<String, Object> data = new HashMap<>();
 		List<PostDto> list = postService.getList(new PostDto());
 		data.put("data", list);
@@ -35,7 +35,7 @@ public class PostController {
 		return data;
 	}
 	//포스트뷰
-	@PostMapping(value="/post/view")
+	@GetMapping(value="/post/view")
 	@ResponseBody
 	public Map<String, Object> view(PostDto post) {
 		Map<String, Object> data = new HashMap<>();
@@ -117,31 +117,33 @@ public class PostController {
 	@PostMapping(value="/post/delete")
 	@ResponseBody
 	public Map<String, Object> delete(@RequestParam(name="email")String email,@RequestParam(name="token")String token, PostDto post) {
+		Map<String, Object> json = new HashMap<>();
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
 		if(!loginService.confirmLogin(email,token)) {
-			data.put("status", 403);
-			data.put("msg", "no permission");
-			return data;
+			json.put("status", 403);
+			json.put("msg", "no permission");
+			return json;
 		}
 		//작성자 체크
 		if(!postService.confirmCreate(email,post.getPostId())) {
-			data.put("status", 403);
-			data.put("msg", "no permission");
-			return data;
+			json.put("status", 403);
+			json.put("msg", "no permission");
+			return json;
 		}
 		//등록
 		Integer result = postService.delete(post);
 		//등록 성공 여부 체크
 		if(result<=0) {
-			data.put("status", 500);
-			data.put("msg", "server error");
+			json.put("status", 500);
+			json.put("msg", "server error");
 		}
 		//성공 출력
-		data.put("data", post);
-		data.put("status", 200);
-		data.put("msg", "success");
-		return data;
+		data.put("postId",post.getPostId());
+		json.put("data", data);
+		json.put("status", 200);
+		json.put("msg", "success");
+		return json;
 	}
 
 }
