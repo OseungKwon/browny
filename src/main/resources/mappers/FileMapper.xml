@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.FileMapper">
+
+	<sql id="fileSubColumns">
+		 file_type
+		 ,file_ext
+		 ,file_size
+		 ,origin_file_name
+		 ,server_file_path
+		 ,server_file_name
+		 ,display_order
+	</sql>
+
+	<insert id="saveFile" parameterType="HashMap">
+		INSERT INTO FILE_SUB (
+			<include refid="fileSubColumns" />
+		) VALUES (
+			#{fileType}
+			, #{fileExt}
+			, #{fileSize}
+			, #{originFileName}
+			, #{serverFilePath}
+			, #{serverFileName}
+			, 0
+		)
+	</insert>
+
+</mapper>
