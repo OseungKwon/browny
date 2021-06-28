@@ -15,5 +15,6 @@ public interface PostMapper{
 	public int delete(PostDto data);
 	public List<PostDto> getList(PostDto data);
 	public int getCount(PostDto data);
+	public int confirmCreate(String email, Integer postId);
 	
 }

@@ -32,5 +32,8 @@ public class PostService{
 	public int getCount(PostDto data) {
 		return postMapper.getCount(data);
 	}
+	public boolean confirmCreate(String email, Integer postId) {
+		return postMapper.confirmCreate(email, postId)>0;
+	}
 	
 }

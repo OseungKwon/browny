@@ -18,13 +18,13 @@
 	</table>
 	<script>
 		$(function(){
-			getList(1);	
+			getList(1,'','');	
 		})
 		
-		function getList(page){
+		function getList(page, token, email){
 			$list=$('#list');
 // 			$list.empty();
-			$.get('/post/list/json',function(result){
+			$.post('/post/list/json',{'token':token,'email':email},function(result){
 				console.log(result);
 				$.each(result.data,function(i,oDATA){
 					var tags='';

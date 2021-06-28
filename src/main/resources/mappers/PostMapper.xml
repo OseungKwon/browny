@@ -4,47 +4,50 @@
 <mapper namespace="com.mapper.PostMapper">
 
 	<sql id="postColumns">
-		 blog_id
-		 ,category
+		 category
 		 ,post_title
 		 ,post_content
 		 ,open_yn
 		 ,views
 		 ,like_count
+		 ,created_email
 	</sql>
 
-	<insert id="insert" parameterType="com.model.PostDto">
+	<insert id="insert" parameterType="com.model.PostDto" useGeneratedKeys="true" keyProperty="postId">
 		INSERT INTO POST (
 			<include refid="postColumns" />
 		) VALUES (
-			  #{blogId}
-			, #{category}
-			, #{postTitle}
-			, #{postContent}
+			#{category}
+			, #{title}
+			, #{content}
 			, #{openYn}
 			, 0
 			, 0
+			, #{email}
 		)
 	</insert>
 	<select id="select" resultType="com.model.PostDto">
 		SELECT * FROM POST WHERE POST_ID = #{postId}
 	</select>
+	<select id="confirmCreate" resultType="int">
+		SELECT COUNT(*) FROM POST WHERE created_email=#{email} AND post_id=#{postId} 
+	</select>
 	<select id="getList" resultType="com.model.PostDto">
-		SELECT * FROM POST
+		SELECT * FROM POST WHERE delete_yn!='Y'
 	</select>
 	<select id="getCount" resultType="com.model.PostDto">
 		SELECT COUNT(*) FROM POST
 	</select>
 	<update id="update" parameterType="com.model.PostDto">
 		UPDATE POST SET
-			CATEGORY = #{category}
-			,CONTENT = #{postContent}
-			,TITLE = #{postTitle}
-		WHERE POST_ID = #{postId}
+			category = #{category}
+			,post_content = #{content}
+			,post_title = #{title}
+		WHERE post_id = #{postId}
 	</update>
 	<update id="delete" parameterType="com.model.PostDto">
 		UPDATE POST SET
-			DELETE_YN = 'Y'
+			delete_yn = 'Y'
 		WHERE POST_ID = #{postId}
 	</update>
 

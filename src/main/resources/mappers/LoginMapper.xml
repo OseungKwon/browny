@@ -25,9 +25,12 @@
 			, ''
 			, ''
 			, 'GOOGLE'
-			, #{accessToken}
+			, #{token}
 		)
-		 ON DUPLICATE KEY UPDATE join_token = #{accessToken}, last_login_date=NOW()
+		 ON DUPLICATE KEY UPDATE join_token = #{token}, last_login_date=NOW()
 	</insert>
+	<select id="countEmailAndToken" parameterType="hashMap" resultType="int">
+		SELECT COUNT(*) FROM USER WHERE email=#{email} AND join_token=#{token} 
+	</select>
 
 </mapper>

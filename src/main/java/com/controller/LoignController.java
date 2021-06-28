@@ -37,24 +37,29 @@ public class LoignController {
 	@ResponseBody
 	public Map<String, Object> getUrl(@PathVariable(name="type")String type) {
 		
+		Map<String, Object> json = new HashMap<>();
 		Map<String, Object> data = new HashMap<>();
-		data.put("success", 200);
+		json.put("success", 200);
 		String url = loginService.socialLogin(type);
 		data.put("url", url);
-		return data;
+		json.put("data", data);
+		return json;
 	}
 	
 	
 	@GetMapping(value="/login/{type}/token")
 	@ResponseBody
 	public Map<String, Object> getToken(@PathVariable(name="type")String type,@RequestParam(name="code")String code) {
-		System.out.println("################# [s] GET TOKEN CONTROLLER #####################");
-		System.out.println("################# code ::" +code);
-		Map<String, Object> data = new HashMap<>();
-		data.put("success", 200);
-		int result = loginService.socialToken(type,code);
-		data.put("result", result);
-		return data;
+		Map<String, Object> json = new HashMap<>();
+		Map<String, Object> data = loginService.socialToken(type,code);
+		if((int)data.get("result")<0) {
+			json.put("error", 500);
+			json.put("msg", "server connection error");
+		}else {
+			json.put("success", 200);
+		}
+		json.put("data", data);
+		return json;
 	}
 
 }

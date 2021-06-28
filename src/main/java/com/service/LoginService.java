@@ -52,7 +52,7 @@ public class LoginService{
 		return url;
 	}
 	//토큰 요청
-	public int socialToken(String type, String code) {
+	public Map<String, Object> socialToken(String type, String code) {
 		String url="";
 		if(type.equals("google")) {
 			RestTemplate restTemplate = new RestTemplate();
@@ -79,12 +79,18 @@ public class LoginService{
 	        	e.printStackTrace();
 	        }
 		}
-		return 0;
+		//통신 실패시
+		Map<String, Object> data = new HashMap<>();
+		int result=-1;
+		data.put("result", result);
+		return data;
 		
 	}
 	
 	//핵심 정보 가져오기
-	public int googleInfo(String token, String accessToken) {
+	public Map<String, Object> googleInfo(String token, String accessToken) {
+		Map<String, Object> data = new HashMap<>();
+		int result=0;
 		RestTemplate restTemplate = new RestTemplate();
 		 
         Map<String, Object> params = new HashMap<>();
@@ -95,12 +101,23 @@ public class LoginService{
 	                restTemplate.postForEntity("https://oauth2.googleapis.com/tokeninfo", params, String.class);
 	 
 	        if (responseEntity.getStatusCode() == HttpStatus.OK) {
-	        	String email=responseEntity.getBody().split("\"email\": \"")[1].split("\"")[0];
-	            return loginMapper.googleInsert(email, accessToken);
+	        	String email = responseEntity.getBody().split("\"email\": \"")[1].split("\"")[0];
+	            result = loginMapper.googleInsert(email, accessToken);
+	            data.put("email", email);
+	            data.put("token", accessToken);
+	            
 	        }	
         }catch(Exception e) {
         	e.printStackTrace();
         }
-        return 0;
+        data.put("result", result);
+        return data;
+	}
+	public boolean confirmLogin(String email, String token) {
+		Map<String, Object> data = new HashMap<>();
+		data.put("email",email);
+		data.put("token",token);
+		Integer result =loginMapper.countEmailAndToken(data); 
+		return result!=null&&result>0;
 	}
 }

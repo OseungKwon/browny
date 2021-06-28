@@ -2,14 +2,16 @@ package com.model;
 
 public class PostDto{
 	
-	private Integer postId;
+	private Integer postId=0;
 	private Integer blogId;
-	private String category;
-	private String postTitle;
-	private String postContent;
-	private String openYn;
-	private Integer views;
-	private Integer likeCount;
+	private String category="";
+	private String title="";
+	private String content="";
+	private String openYn="Y";
+	private Integer views=0;
+	private Integer likeCount=0;
+	private String email;
+	private String createdDate;
 	
 	public Integer getPostId() {
 		return postId;
@@ -29,17 +31,23 @@ public class PostDto{
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getPostTitle() {
-		return postTitle;
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String postTitle) {
+		this.title = postTitle;
 	}
 	public void setPostTitle(String postTitle) {
-		this.postTitle = postTitle;
+		this.title = postTitle;
 	}
-	public String getPostContent() {
-		return postContent;
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String postContent) {
+		this.content = postContent;
 	}
 	public void setPostContent(String postContent) {
-		this.postContent = postContent;
+		this.content = postContent;
 	}
 	public Integer getLikeCount() {
 		return likeCount;
@@ -59,4 +67,20 @@ public class PostDto{
 	public void setViews(Integer views) {
 		this.views = views;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setCreatedEmail(String email) {
+		this.email = email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(String createdDate) {
+		this.createdDate = createdDate;
+	}
+	
 }
