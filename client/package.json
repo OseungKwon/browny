@@ -35,6 +35,9 @@
     "file-loader": "4.3.0",
     "html-loader": "^1.1.2",
     "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^11.0.1",
+    "prettier": "^2.3.2",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
     "webpack": "^4.36.0",
@@ -45,9 +48,16 @@
     "start": "webpack-dev-server --open --hot",
     "build": "webpack"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
+  "lint-staged": {
+    "*.{js,jsx,json,tsx}": [
+      "prettier --write",
+      "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
+    }
   }
 }
