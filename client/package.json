@@ -1,0 +1,63 @@
+{
+  "name": "brownie",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/runtime": "^7.14.6",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@material-ui/core": "^4.11.4",
+    "@popperjs/core": "^2.9.2",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.0",
+    "connected-react-router": "^6.9.1",
+    "dotenv": "^8.2.0",
+    "history": "^4.10.1",
+    "node-sass": "^4.14.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "reactstrap": "^8.9.0",
+    "redux": "^4.1.0",
+    "redux-saga": "^1.1.3",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.0",
+    "file-loader": "4.3.0",
+    "html-loader": "^1.1.2",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^11.0.1",
+    "prettier": "^2.3.2",
+    "sass-loader": "^10.1.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.36.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --open --hot",
+    "build": "webpack"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
+    }
+  }
+}
