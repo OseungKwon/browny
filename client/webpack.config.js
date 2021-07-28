@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js', // 리액트 파일이 시작하는 곳
   output: {
     // bundled compiled 파일
-    path: path.join(__dirname, '/build'), //__dirname : 현재 디렉토리, build 폴더에 모든 컴파일된 하나의 번들파일을 넣을 예정
+    path: path.join(__dirname, '/public'), //__dirname : 현재 디렉토리, build 폴더에 모든 컴파일된 하나의 번들파일을 넣을 예정
     filename: 'bundle.js',
   },
   module: {
@@ -29,11 +29,10 @@ module.exports = {
       },
       {
         test: /\.css|.s[ac]ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['css-loader', 'sass-loader'],
       },
       {
-        test: /\.(gif|svg|jpe?g|png|ico)$/i,
-        exclude: /node_modules/,
+        test: /\.(gif|svg|jpe?g|png|ico|woff|woff2|eot|ttf|otf)$/i,
         loader: 'file-loader',
       },
     ],
@@ -47,10 +46,10 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'build'),
+    contentBase: path.join(__dirname, 'public'),
     publicPath: '/',
     overlay: true,
-    port: 8080,
+    port: 3000,
     stats: 'errors-only',
     historyApiFallback: true,
     hot: true,

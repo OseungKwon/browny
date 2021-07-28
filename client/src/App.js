@@ -1,19 +1,36 @@
+// routes
+import Router from './routes';
+// theme
+import ThemeConfig from './theme';
+// hooks
+import useAuth from './hooks/useAuth';
+
+// components
+import Settings from './components/settings';
+import RtlLayout from './components/RtlLayout';
+import ScrollToTop from './components/ScrollToTop';
+import LoadingScreen from './components/LoadingScreen';
+import GoogleAnalytics from './components/GoogleAnalytics';
+import NotistackProvider from './components/NotistackProvider';
+import ThemePrimaryColor from './components/ThemePrimaryColor';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import store, { history } from './store';
-import MyRouter from './routes/Router';
+// ----------------------------------------------------------------------
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/custom.scss';
-const App = () => {
+export default function App() {
+  const { isInitialized } = useAuth();
+
   return (
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <MyRouter />
-      </ConnectedRouter>
-    </Provider>
+    <ThemeConfig>
+      <ThemePrimaryColor>
+        <RtlLayout>
+          <NotistackProvider>
+            <Settings />
+            <ScrollToTop />
+            <GoogleAnalytics />
+            {isInitialized ? <Router /> : <LoadingScreen />}
+          </NotistackProvider>
+        </RtlLayout>
+      </ThemePrimaryColor>
+    </ThemeConfig>
   );
-};
-
-export default App;
+}
