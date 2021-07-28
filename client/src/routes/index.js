@@ -204,7 +204,6 @@ export default function Router() {
             { path: 'transfer-list', element: <TransferList /> },
             { path: 'tree-view', element: <TreeView /> },
             // EXTRA COMPONENTS
-            { path: 'chart', element: <Charts /> },
             { path: 'map', element: <Map /> },
             { path: 'editor', element: <Editor /> },
             { path: 'copy-to-clipboard', element: <CopyToClipboard /> },
@@ -297,7 +296,6 @@ const Timeline = Loadable(lazy(() => import('../pages/components-overview/materi
 const Tooltip = Loadable(lazy(() => import('../pages/components-overview/material-ui/Tooltip')));
 const TransferList = Loadable(lazy(() => import('../pages/components-overview/material-ui/transfer-list')));
 const TreeView = Loadable(lazy(() => import('../pages/components-overview/material-ui/TreeView')));
-const Charts = Loadable(lazy(() => import('../pages/components-overview/extra/Charts')));
 const Map = Loadable(lazy(() => import('../pages/components-overview/extra/Map')));
 const Editor = Loadable(lazy(() => import('../pages/components-overview/extra/Editor')));
 const CopyToClipboard = Loadable(lazy(() => import('../pages/components-overview/extra/CopyToClipboard')));

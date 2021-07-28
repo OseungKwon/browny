@@ -5,12 +5,7 @@ import Page from '../../components/Page';
 import {
   EcommerceWelcome,
   EcommerceNewProducts,
-  EcommerceProductSold,
-  EcommerceSalesProfit,
-  EcommerceYearlySales,
   EcommerceBestSalesman,
-  EcommerceTotalBalance,
-  EcommerceSaleByGender,
   EcommerceSalesOverview,
   EcommerceLatestProducts,
   EcommerceCurrentBalance,
@@ -29,24 +24,6 @@ export default function GeneralEcommerce() {
 
           <Grid item xs={12} md={4}>
             <EcommerceNewProducts />
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <EcommerceProductSold />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <EcommerceTotalBalance />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <EcommerceSalesProfit />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <EcommerceSaleByGender />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <EcommerceYearlySales />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
