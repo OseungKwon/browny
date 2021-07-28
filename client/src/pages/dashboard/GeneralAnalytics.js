@@ -10,11 +10,7 @@ import {
   AnalyticsNewsUpdate,
   AnalyticsWeeklySales,
   AnalyticsOrderTimeline,
-  AnalyticsCurrentVisits,
-  AnalyticsWebsiteVisits,
   AnalyticsTrafficBySite,
-  AnalyticsCurrentSubject,
-  AnalyticsConversionRates,
 } from '../../components/_dashboard/general-analytics';
 
 // ----------------------------------------------------------------------
@@ -38,22 +34,6 @@ export default function GeneralAnalytics() {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <AnalyticsBugReports />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AnalyticsWebsiteVisits />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AnalyticsCurrentVisits />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AnalyticsConversionRates />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AnalyticsCurrentSubject />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
