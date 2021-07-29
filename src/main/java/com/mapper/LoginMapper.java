@@ -13,5 +13,7 @@ public interface LoginMapper{
 	public int googleInsert(String email, String token);
 
 	public Integer countEmailAndToken(Map<String, Object> data);
+
+	public int githubInsert(String email, String token);
 	
 }

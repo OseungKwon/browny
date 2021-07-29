@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.model.PostDto;
 import com.service.FileService;
-import com.service.LoginService;
+import com.service.GoogleLoginService;
 
 
 @Controller
@@ -21,7 +21,7 @@ public class FileController {
 	@Autowired
 	private FileService fileService;
 	@Autowired
-	private LoginService loginService;
+	private GoogleLoginService loginService;
 
 	@PostMapping(value="/file/image")
 	@ResponseBody

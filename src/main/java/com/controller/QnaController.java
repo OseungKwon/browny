@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.model.QnaDto;
-import com.service.LoginService;
+import com.service.GoogleLoginService;
 import com.service.QnaService;
 
 
@@ -21,7 +21,7 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	@Autowired
-	private LoginService loginService;
+	private GoogleLoginService loginService;
 	
 	@PostMapping(value="/qna/list")
 	@ResponseBody

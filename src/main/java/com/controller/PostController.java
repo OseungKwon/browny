@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.model.PostDto;
-import com.service.LoginService;
+import com.service.GoogleLoginService;
 import com.service.PostService;
 
 
@@ -22,7 +22,7 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 	@Autowired
-	private LoginService loginService;
+	private GoogleLoginService loginService;
 	
 	@PostMapping(value="/post/list")
 	@ResponseBody
