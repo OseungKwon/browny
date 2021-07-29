@@ -18,7 +18,7 @@ import com.mapper.LoginMapper;
 
 @Service
 @Transactional
-public class LoginService{
+public class GoogleLoginService{
 	@Autowired
 	private LoginMapper loginMapper;
 	private HttpServletResponse response;
