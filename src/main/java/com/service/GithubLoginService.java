@@ -76,11 +76,7 @@ public class GithubLoginService{
 	        	}
 	        	String accessToken=responseEntity.getBody().split("access_token=")[1].split("&")[0];
 //	        	String idToken=responseEntity.getBody().split("\"id_token\": \"")[1].split("\"")[0];
-	        	data.put("body", responseEntity.getBody());
-	        	data.put("accessToken", accessToken);
-	        	data.put("result", 1);
-	            data.put("email", githubInfo(accessToken));
-	        	return data;
+	        	return githubInfo(accessToken);
 	        }	
         }catch(Exception e) {
         	e.printStackTrace();
@@ -107,7 +103,6 @@ public class GithubLoginService{
 		try {
 			ResponseEntity<String> responseEntity = restTemplate.exchange(
 				"https://api.github.com/user/public_emails", HttpMethod.GET, entity,String.class);
-			System.out.println("#################"+responseEntity.getBody());
 			String email = responseEntity.getBody().split("\"email\":\"")[2].split("\"")[0];
             result = loginMapper.githubInsert(email, accessToken);
 			data.put("email", email);
