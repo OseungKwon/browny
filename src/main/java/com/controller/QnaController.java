@@ -8,55 +8,54 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.model.PostDto;
+import com.model.QnaDto;
 import com.service.LoginService;
-import com.service.PostService;
+import com.service.QnaService;
 
 
 @Controller
 public class QnaController {
 	@Autowired
-	private PostService postService;
+	private QnaService qnaService;
 	@Autowired
 	private LoginService loginService;
 	
 	@PostMapping(value="/qna/list")
 	@ResponseBody
-	public Map<String, Object> getPostListJson() {
+	public Map<String, Object> getQnaListJson() {
 		Map<String, Object> data = new HashMap<>();
-		List<PostDto> list = postService.getList(new PostDto());
+		List<QnaDto> list = qnaService.getList(new QnaDto());
 		data.put("data", list);
 		data.put("status", 200);
 		data.put("msg", "success");
 		return data;
 	}
 	//포스트뷰
-	@GetMapping(value="/post/view")
+	@GetMapping(value="/qna/view")
 	@ResponseBody
-	public Map<String, Object> view(PostDto post) {
+	public Map<String, Object> view(QnaDto param) {
 		Map<String, Object> data = new HashMap<>();
 		//읽어오기
-		post = postService.select(post);
+		param = qnaService.select(param);
 		//삭제되었을 경우
-		if(post.getDeleteYn().equals("Y")) {
+		if(param.getDeleteYn().equals("Y")) {
 			data.put("status", 404);
-			data.put("msg", "deleted post");
+			data.put("msg", "deleted qna");
 			return data;
 		}
 		//성공 출력
-		data.put("data", post);
+		data.put("data", param);
 		data.put("status", 200);
 		data.put("msg", "success");
 		return data;
 	}
 	//포스트 등록
-	@PostMapping(value="/post/insert")
+	@PostMapping(value="/qna/insert")
 	@ResponseBody
-	public Map<String, Object> insert(@RequestParam(name="email")String email,@RequestParam(name="token")String token,PostDto post) {
+	public Map<String, Object> insert(@RequestParam(name="email")String email,@RequestParam(name="token")String token,QnaDto param) {
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
 		if(!loginService.confirmLogin(email,token)) {
@@ -65,28 +64,28 @@ public class QnaController {
 			return data;
 		}
 		//필수값 체크
-		if(post.getCategory().equals("")||post.getTitle().equals("")||post.getContent().equals("")) {
+		if(param.getCategory().equals("")||param.getTitle().equals("")||param.getContent().equals("")) {
 			data.put("status", 404);
 			data.put("msg", "bad request");
 			return data;
 		}
 		//등록
-		Integer result = postService.insert(post);
+		Integer result = qnaService.insert(param);
 		//등록 성공 여부 체크
 		if(result<=0) {
 			data.put("status", 500);
 			data.put("msg", "server error");
 		}
 		//성공 출력
-		data.put("data", post);
+		data.put("data", param);
 		data.put("status", 200);
 		data.put("msg", "success");
 		return data;
 	}
 	//포스트 수정
-	@PostMapping(value="/post/update")
+	@PostMapping(value="/qna/update")
 	@ResponseBody
-	public Map<String, Object> update(@RequestParam(name="email")String email,@RequestParam(name="token")String token, PostDto post) {
+	public Map<String, Object> update(@RequestParam(name="email")String email,@RequestParam(name="token")String token, QnaDto qna) {
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
 		if(!loginService.confirmLogin(email,token)) {
@@ -95,34 +94,70 @@ public class QnaController {
 			return data;
 		}
 		//작성자 체크
-		if(!postService.confirmCreate(email,post.getPostId())) {
+		if(!qnaService.confirmCreate(email,qna.getQnaId())) {
 			data.put("status", 403);
 			data.put("msg", "no permission");
 			return data;
 		}
 		//필수값 체크
-		if(post.getCategory().equals("")||post.getTitle().equals("")||post.getContent().equals("")) {
+		if(qna.getCategory().equals("")||qna.getTitle().equals("")||qna.getContent().equals("")) {
 			data.put("status", 404);
 			data.put("msg", "required resource not available");
 			return data;
 		}
 		//등록
-		Integer result = postService.update(post);
+		Integer result = qnaService.update(qna);
 		//등록 성공 여부 체크
 		if(result<=0) {
 			data.put("status", 500);
 			data.put("msg", "server error");
 		}
 		//성공 출력
-		data.put("data", post);
+		data.put("data", qna);
+		data.put("status", 200);
+		data.put("msg", "success");
+		return data;
+	}
+	//답변 등록 /수정
+	@PostMapping(value="/qna/answer")
+	@ResponseBody
+	public Map<String, Object> answer(@RequestParam(name="email")String email,@RequestParam(name="token")String token, QnaDto qna) {
+		Map<String, Object> data = new HashMap<>();
+		//로그인 체크
+		if(!loginService.confirmLogin(email,token)) {
+			data.put("status", 403);
+			data.put("msg", "no permission");
+			return data;
+		}
+		//작성자가 아닌지 체크
+		if(qnaService.confirmCreate(email,qna.getQnaId())) {
+			data.put("status", 403);
+			data.put("msg", "no permission");
+			return data;
+		}
+		//필수값 체크
+		if(qna.getAnswerTitle().equals("")||qna.getAnswerContent().equals("")) {
+			data.put("status", 404);
+			data.put("msg", "required resource not available");
+			return data;
+		}
+		//등록
+		Integer result = qnaService.answer(qna);
+		//등록 성공 여부 체크
+		if(result<=0) {
+			data.put("status", 500);
+			data.put("msg", "server error");
+		}
+		//성공 출력
+		data.put("data", qna);
 		data.put("status", 200);
 		data.put("msg", "success");
 		return data;
 	}
 	//포스트 삭제
-	@PostMapping(value="/post/delete")
+	@PostMapping(value="/qna/delete")
 	@ResponseBody
-	public Map<String, Object> delete(@RequestParam(name="email")String email,@RequestParam(name="token")String token, PostDto post) {
+	public Map<String, Object> delete(@RequestParam(name="email")String email,@RequestParam(name="token")String token, QnaDto qna) {
 		Map<String, Object> json = new HashMap<>();
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
@@ -132,78 +167,78 @@ public class QnaController {
 			return json;
 		}
 		//작성자 체크
-		if(!postService.confirmCreate(email,post.getPostId())) {
+		if(!qnaService.confirmCreate(email,qna.getQnaId())) {
 			json.put("status", 403);
 			json.put("msg", "no permission");
 			return json;
 		}
 		//등록
-		Integer result = postService.delete(post);
+		Integer result = qnaService.delete(qna);
 		//등록 성공 여부 체크
 		if(result<=0) {
 			json.put("status", 500);
 			json.put("msg", "server error");
 		}
 		//성공 출력
-		data.put("postId",post.getPostId());
+		data.put("qnaId",qna.getQnaId());
 		json.put("data", data);
 		json.put("status", 200);
 		json.put("msg", "success");
 		return json;
 	}
 	//이전 글 보기
-	@GetMapping(value="/post/view/prev")
+	@GetMapping(value="/qna/view/prev")
 	@ResponseBody
-	public Map<String, Object> viewPrev(PostDto post) {
+	public Map<String, Object> viewPrev(QnaDto qna) {
 		Map<String, Object> data = new HashMap<>();
 		//없으면 그 이전으로
-		while(post.getDeleteYn().equals("Y")) {
-			post.setPostId(post.getPostId()-1);
+		while(qna.getDeleteYn().equals("Y")) {
+			qna.setQnaId(qna.getQnaId()-1);
 			//첫번째 글일 경우
-			if(post.getPostId()<=0) {
+			if(qna.getQnaId()<=0) {
 				data.put("status", 404);
-				data.put("msg", "previous post not exist");
+				data.put("msg", "previous qna not exist");
 				return data;
 			}
-			post = postService.select(post);
+			qna = qnaService.select(qna);
 			//너무 큰값을 넣었다면
-			if(post==null) {
+			if(qna==null) {
 				data.put("status", 404);
-				data.put("msg", "previous post not exist");
+				data.put("msg", "previous qna not exist");
 				return data;
 			}
 		}
 		//성공 출력
-		data.put("data", post);
+		data.put("data", qna);
 		data.put("status", 200);
 		data.put("msg", "success");
 		return data;
 	}
 	//이전 글 보기
-	@GetMapping(value="/post/view/next")
+	@GetMapping(value="/qna/view/next")
 	@ResponseBody
-	public Map<String, Object> viewNext(PostDto post) {
+	public Map<String, Object> viewNext(QnaDto param) {
 		Map<String, Object> data = new HashMap<>();
 		//최대값을 구함
-		int maximum=postService.getMaxId();
+		int maximum=qnaService.getMaxId();
 		//최대값일 경우
-		if(post.getPostId()>=maximum) {
+		if(param.getQnaId()>=maximum) {
 			data.put("status", 404);
-			data.put("msg", "next post not exist");
+			data.put("msg", "next qna not exist");
 			return data;
 		}
-		while(maximum>post.getPostId()) {
-			post.setPostId(post.getPostId()+1);
-			post = postService.select(post);
+		while(maximum>param.getQnaId()) {
+			param.setQnaId(param.getQnaId()+1);
+			param = qnaService.select(param);
 			//너무 작은 값을 넣었다면
-			if(post==null) {
+			if(param==null) {
 				data.put("status", 404);
-				data.put("msg", "next post not exist");
+				data.put("msg", "next qna not exist");
 				return data;
 			}
 		}
 		//성공 출력
-		data.put("data", post);
+		data.put("data", param);
 		data.put("status", 200);
 		data.put("msg", "success");
 		return data;

@@ -5,8 +5,8 @@
 
 	<sql id="qnaColumns">
 		 category
-		 ,post_title
-		 ,post_content
+		 ,question_title
+		 ,question_content
 		 ,open_yn
 		 ,views
 		 ,like_count
@@ -14,7 +14,7 @@
 	</sql>
 
 	<insert id="insert" parameterType="com.model.QnaDto" useGeneratedKeys="true" keyProperty="qnaId">
-		INSERT INTO POST (
+		INSERT INTO QNA (
 			<include refid="qnaColumns" />
 		) VALUES (
 			#{category}
@@ -27,31 +27,38 @@
 		)
 	</insert>
 	<select id="select" resultType="com.model.QnaDto">
-		SELECT * FROM POST WHERE POST_ID = #{postId}
+		SELECT * FROM QNA WHERE QNA_ID = #{qnaId}
 	</select>
 	<select id="getMaxId" resultType="int">
-		SELECT MAX(POST_ID) FROM POST WHERE delete_yn!='Y'
+		SELECT MAX(QNA_ID) FROM QNA WHERE delete_yn!='Y'
 	</select>
 	<select id="confirmCreate" resultType="int">
-		SELECT COUNT(*) FROM POST WHERE created_email=#{email} AND post_id=#{postId} 
+		SELECT COUNT(*) FROM QNA WHERE created_email=#{email} AND QNA_ID=#{qnaId} 
 	</select>
 	<select id="getList" resultType="com.model.QnaDto">
-		SELECT * FROM POST WHERE delete_yn!='Y'
+		SELECT * FROM QNA WHERE delete_yn!='Y'
 	</select>
 	<select id="getCount" resultType="com.model.QnaDto">
-		SELECT COUNT(*) FROM POST
+		SELECT COUNT(*) FROM QNA
 	</select>
 	<update id="update" parameterType="com.model.QnaDto">
-		UPDATE POST SET
+		UPDATE QNA SET
 			category = #{category}
-			,post_content = #{content}
-			,post_title = #{title}
-		WHERE post_id = #{postId}
+			,question_title = #{title}
+			,question_content = #{content}
+		WHERE QNA_ID = #{qnaId}
+	</update>
+	<update id="answer" parameterType="com.model.QnaDto">
+		UPDATE QNA SET
+			answer_title = #{answerTitle}
+			,answer_content = #{answerContent}
+			,answer_date = now()
+		WHERE QNA_ID = #{qnaId}
 	</update>
 	<update id="delete" parameterType="com.model.QnaDto">
-		UPDATE POST SET
+		UPDATE QNA SET
 			delete_yn = 'Y'
-		WHERE POST_ID = #{postId}
+		WHERE QNA_ID = #{qnaId}
 	</update>
 
 </mapper>
