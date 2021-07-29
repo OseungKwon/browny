@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.QnaMapper">
+
+	<sql id="qnaColumns">
+		 category
+		 ,post_title
+		 ,post_content
+		 ,open_yn
+		 ,views
+		 ,like_count
+		 ,created_email
+	</sql>
+
+	<insert id="insert" parameterType="com.model.QnaDto" useGeneratedKeys="true" keyProperty="qnaId">
+		INSERT INTO POST (
+			<include refid="qnaColumns" />
+		) VALUES (
+			#{category}
+			, #{title}
+			, #{content}
+			, #{openYn}
+			, 0
+			, 0
+			, #{email}
+		)
+	</insert>
+	<select id="select" resultType="com.model.QnaDto">
+		SELECT * FROM POST WHERE POST_ID = #{postId}
+	</select>
+	<select id="getMaxId" resultType="int">
+		SELECT MAX(POST_ID) FROM POST WHERE delete_yn!='Y'
+	</select>
+	<select id="confirmCreate" resultType="int">
+		SELECT COUNT(*) FROM POST WHERE created_email=#{email} AND post_id=#{postId} 
+	</select>
+	<select id="getList" resultType="com.model.QnaDto">
+		SELECT * FROM POST WHERE delete_yn!='Y'
+	</select>
+	<select id="getCount" resultType="com.model.QnaDto">
+		SELECT COUNT(*) FROM POST
+	</select>
+	<update id="update" parameterType="com.model.QnaDto">
+		UPDATE POST SET
+			category = #{category}
+			,post_content = #{content}
+			,post_title = #{title}
+		WHERE post_id = #{postId}
+	</update>
+	<update id="delete" parameterType="com.model.QnaDto">
+		UPDATE POST SET
+			delete_yn = 'Y'
+		WHERE POST_ID = #{postId}
+	</update>
+
+</mapper>
