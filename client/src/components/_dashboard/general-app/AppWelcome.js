@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Typography, Button, Card, CardContent } from '@material-ui/core';
 import { SeoIllustration } from '../../../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Card)(({ theme }) => ({

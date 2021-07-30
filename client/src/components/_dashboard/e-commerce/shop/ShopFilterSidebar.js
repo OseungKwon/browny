@@ -23,7 +23,7 @@ import {
 import { MIconButton } from '../../../@material-extend';
 import Scrollbar from '../../../Scrollbar';
 import ColorManyPicker from '../../../ColorManyPicker';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export const SORT_BY_OPTIONS = [

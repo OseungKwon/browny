@@ -5,7 +5,7 @@ import { Grid, Paper } from '@material-ui/core';
 import { MCircularProgress } from '../../../../components/@material-extend';
 //
 import { Label } from '../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

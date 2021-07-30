@@ -13,7 +13,7 @@ import Page from '../../components/Page';
 import Markdown from '../../components/Markdown';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { BlogPostHero, BlogPostTags, BlogPostRecent, BlogPostCommentList, BlogPostCommentForm } from '../../components/_dashboard/blog';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SkeletonLoad = (

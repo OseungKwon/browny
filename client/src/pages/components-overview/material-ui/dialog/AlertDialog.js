@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@material-ui/core';
 //
 import { MButton } from '../../../../components/@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function AlertDialog() {

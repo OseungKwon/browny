@@ -32,7 +32,7 @@ import { PATH_DASHBOARD } from '../../../routes/paths';
 //
 import { QuillEditor } from '../../editor';
 import { UploadMultiFile } from '../../upload';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const GENDER_OPTION = ['Men', 'Women', 'Kids'];

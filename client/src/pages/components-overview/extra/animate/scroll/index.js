@@ -6,7 +6,7 @@ import Toolbar from './Toolbar';
 import variantTypes from './types';
 import ControlPanel from '../ControlPanel';
 import ContainerView from './ContainerView';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function Scroll() {

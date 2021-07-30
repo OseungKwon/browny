@@ -9,7 +9,7 @@ import { Box } from '@material-ui/core';
 import { mockImgFeed } from '../../utils/mockImages';
 //
 import { CarouselControlsArrowsIndex } from './controls';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CAROUSELS = [...Array(5)].map((_, index) => {

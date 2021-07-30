@@ -8,7 +8,7 @@ import { PATH_PAGE } from '../../../routes/paths';
 import Page from '../../../components/Page';
 import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 import { QuillEditor, DraftEditor } from '../../../components/editor';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

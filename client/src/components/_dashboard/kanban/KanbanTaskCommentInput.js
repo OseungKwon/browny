@@ -6,7 +6,7 @@ import { Stack, Paper, Button, Tooltip, OutlinedInput } from '@material-ui/core'
 //
 import { MIconButton } from '../../@material-extend';
 import MyAvatar from '../../MyAvatar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function KanbanTaskCommentInput() {

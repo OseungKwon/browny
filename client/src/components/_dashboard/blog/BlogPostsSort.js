@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // material
 import { MenuItem, TextField } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 BlogPostsSort.propTypes = {

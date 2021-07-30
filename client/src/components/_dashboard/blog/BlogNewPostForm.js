@@ -25,7 +25,7 @@ import { QuillEditor } from '../../editor';
 import { UploadSingleFile } from '../../upload';
 //
 import BlogNewPostPreview from './BlogNewPostPreview';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const TAGS_OPTION = [

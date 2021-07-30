@@ -6,7 +6,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Avatar, ListItem, ListItemText, ListItemAvatar } from '@material-ui/core';
 //
 import BadgeStatus from '../../BadgeStatus';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const AVATAR_SIZE = 48;

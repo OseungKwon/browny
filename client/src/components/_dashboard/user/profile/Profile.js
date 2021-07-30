@@ -7,7 +7,7 @@ import ProfilePostCard from './ProfilePostCard';
 import ProfilePostInput from './ProfilePostInput';
 import ProfileFollowInfo from './ProfileFollowInfo';
 import ProfileSocialInfo from './ProfileSocialInfo';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 Profile.propTypes = {

@@ -12,7 +12,7 @@ import CustomizedStepper from './CustomizedStepper';
 import VerticalLinearStepper from './VerticalLinearStepper';
 import LinearAlternativeLabel from './LinearAlternativeLabel';
 import HorizontalLinearStepper from './HorizontalLinearStepper';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

@@ -5,7 +5,7 @@ import arrowIosUpwardFill from '@iconify/icons-eva/arrow-ios-upward-fill';
 import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
 // material
 import { Box, Table, Collapse, TableRow, TableHead, TableBody, TableCell, Typography, IconButton } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 CollapsibleTable.propTypes = {

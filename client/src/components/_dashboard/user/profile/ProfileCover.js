@@ -6,7 +6,7 @@ import { Box, Typography } from '@material-ui/core';
 import useAuth from '../../../../hooks/useAuth';
 //
 import MyAvatar from '../../../MyAvatar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

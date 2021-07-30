@@ -9,7 +9,7 @@ import fakeRequest from '../utils/fakeRequest';
 // components
 import Page from '../components/Page';
 import { PaymentSummary, PaymentMethods, PaymentBillingAddress } from '../components/_external-pages/payment';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

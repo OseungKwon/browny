@@ -21,7 +21,7 @@ import {
   CheckoutOrderComplete,
   CheckoutBillingAddress,
 } from '../../components/_dashboard/e-commerce/checkout';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const STEPS = ['Cart', 'Billing & address', 'Payment'];

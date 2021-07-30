@@ -21,7 +21,7 @@ import Page from '../../components/Page';
 import { DialogAnimate } from '../../components/animate';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { CalendarForm, CalendarStyle, CalendarToolbar } from '../../components/_dashboard/calendar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const selectedEventSelector = (state) => {

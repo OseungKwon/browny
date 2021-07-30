@@ -10,7 +10,7 @@ import moreVerticalFill from '@iconify/icons-eva/more-vertical-fill';
 import { Menu, MenuItem, IconButton, ListItemIcon, ListItemText } from '@material-ui/core';
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 UserMoreMenu.propTypes = {

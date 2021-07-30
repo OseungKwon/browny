@@ -6,7 +6,7 @@ import copyFill from '@iconify/icons-eva/copy-fill';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 // material
 import { Tooltip, TextField, IconButton, InputAdornment } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 CopyClipboard.propTypes = {

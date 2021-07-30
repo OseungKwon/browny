@@ -6,7 +6,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { Stack, Input, MenuItem, TextField, IconButton, InputLabel, FormControl, InputAdornment, FormHelperText } from '@material-ui/core';
 //
 import { Block } from '../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CURRENCIES = [

@@ -11,7 +11,7 @@ import BasicTable from './BasicTable';
 import CollapsibleTable from './collapsible-table';
 import SortingSelecting from './sorting-selecting';
 import GroupingFixedHeader from './GroupingFixedHeader';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

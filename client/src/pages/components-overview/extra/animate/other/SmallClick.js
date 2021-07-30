@@ -4,7 +4,7 @@ import plusFill from '@iconify/icons-eva/plus-fill';
 import { Fab, Button, IconButton } from '@material-ui/core';
 // components
 import { ButtonAnimate } from '../../../../../components/animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function SmallClick() {

@@ -1,7 +1,7 @@
 import { NavigationControl } from 'react-map-gl';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const NavigationControlStyle = styled(NavigationControl)(({ theme }) => ({

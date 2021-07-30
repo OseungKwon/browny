@@ -16,7 +16,7 @@ import FullScreenDialogs from './FullScreenDialogs';
 import TransitionsDialogs from './TransitionsDialogs';
 //
 import { Block } from '../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

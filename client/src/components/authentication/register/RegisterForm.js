@@ -14,7 +14,7 @@ import useAuth from '../../../hooks/useAuth';
 import useIsMountedRef from '../../../hooks/useIsMountedRef';
 //
 import { MIconButton } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {

@@ -10,7 +10,7 @@ import { Box, Card, CardHeader, Typography, Stack } from '@material-ui/core';
 //
 import Scrollbar from '../../Scrollbar';
 import { fShortenNumber } from '../../../utils/formatNumber';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const INSTALLED = [

@@ -2,7 +2,7 @@
 import { Table, TableRow, TableHead, TableBody, TableCell, TableContainer } from '@material-ui/core';
 // components
 import Scrollbar from '../../../../components/Scrollbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 function createData(name, calories, fat, carbs, protein) {

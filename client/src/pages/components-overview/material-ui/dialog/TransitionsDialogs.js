@@ -3,7 +3,7 @@ import { forwardRef, useState } from 'react';
 import { Slide, Dialog, Button, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@material-ui/core';
 //
 import { MButton } from '../../../../components/@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const Transition = forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);

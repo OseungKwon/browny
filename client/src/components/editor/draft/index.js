@@ -3,7 +3,7 @@ import { Editor } from 'react-draft-wysiwyg';
 //
 import { editorToolbar } from './DraftEditorToolbar';
 import DraftEditorStyle from './DraftEditorStyle';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 DraftEditor.propTypes = {

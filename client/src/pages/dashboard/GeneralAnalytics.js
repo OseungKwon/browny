@@ -12,7 +12,7 @@ import {
   AnalyticsOrderTimeline,
   AnalyticsTrafficBySite,
 } from '../../components/_dashboard/general-analytics';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function GeneralAnalytics() {

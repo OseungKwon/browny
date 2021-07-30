@@ -8,7 +8,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Grid, Rating, Button, Typography, LinearProgress, Stack } from '@material-ui/core';
 // utils
 import { fShortenNumber } from '../../../../utils/formatNumber';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RatingStyle = styled(Rating)(({ theme }) => ({

@@ -6,7 +6,7 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { BlogNewPostForm } from '../../components/_dashboard/blog';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function BlogNewPost() {

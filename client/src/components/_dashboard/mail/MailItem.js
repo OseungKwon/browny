@@ -19,7 +19,7 @@ import { PATH_DASHBOARD } from '../../../routes/paths';
 import { MAvatar, MCheckbox, MHidden } from '../../@material-extend';
 import Label from '../../Label';
 import MailItemAction from './MailItemAction';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

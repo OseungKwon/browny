@@ -14,7 +14,7 @@ import { Box, Card, Button, Container, Typography, IconButton } from '@material-
 //
 import { varFadeIn, varFadeInUp, MotionInView, varFadeInDown } from '../../animate';
 import { CarouselControlsArrowsBasic2 } from '../../carousel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const MEMBERS = [

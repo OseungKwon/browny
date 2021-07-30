@@ -9,7 +9,7 @@ import { DialogAnimate } from '../../animate';
 import Markdown from '../../Markdown';
 import Scrollbar from '../../Scrollbar';
 import EmptyContent from '../../EmptyContent';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const HeroStyle = styled('div')(({ theme }) => ({

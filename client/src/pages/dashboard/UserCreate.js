@@ -12,7 +12,7 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import UserNewForm from '../../components/_dashboard/user/UserNewForm';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function UserCreate() {

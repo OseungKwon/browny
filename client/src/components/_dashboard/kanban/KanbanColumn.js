@@ -14,7 +14,7 @@ import { deleteColumn, updateColumn, addTask, deleteTask } from '../../../redux/
 import KanbanTaskCard from './KanbanTaskCard';
 import KanbanColumnToolBar from './KanbanColumnToolBar';
 import KanbanAddTask from './KanbanTaskAdd';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 KanbanColumn.propTypes = {

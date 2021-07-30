@@ -13,7 +13,7 @@ import { onBackStep, onNextStep, createBilling } from '../../../../redux/slices/
 import Label from '../../../Label';
 import CheckoutSummary from './CheckoutSummary';
 import CheckoutNewAddressForm from './CheckoutNewAddressForm';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const ADDRESS_BOOKS = [

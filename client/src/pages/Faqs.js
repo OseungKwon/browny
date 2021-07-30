@@ -4,7 +4,7 @@ import { Grid, Container, Typography } from '@material-ui/core';
 // components
 import Page from '../components/Page';
 import { FaqsHero, FaqsCategory, FaqsList, FaqsForm } from '../components/_external-pages/faqs';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

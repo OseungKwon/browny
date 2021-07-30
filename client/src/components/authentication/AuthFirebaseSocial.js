@@ -6,7 +6,7 @@ import facebookFill from '@iconify/icons-eva/facebook-fill';
 import { Stack, Button, Divider, Typography } from '@material-ui/core';
 // hooks
 import useAuth from '../../hooks/useAuth';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function AuthFirebaseSocials() {

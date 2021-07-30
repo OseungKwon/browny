@@ -7,7 +7,7 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import { withStyles } from '@material-ui/core/styles';
 import { Box, Step, Paper, Button, Stepper, StepLabel, Typography, StepConnector } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const QontoConnector = withStyles({

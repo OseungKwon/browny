@@ -8,7 +8,7 @@ import { Box, Typography } from '@material-ui/core';
 //
 import { MapControlScale, MapControlGeolocate, MapControlNavigation, MapControlFullscreen } from '../controls';
 import ControlPanel from './ControlPanel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 function updatePercentiles(featureCollection, accessor) {

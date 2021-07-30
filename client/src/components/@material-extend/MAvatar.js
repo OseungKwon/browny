@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 // material
 import { Avatar, useTheme } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const MAvatar = forwardRef(({ color = 'default', sx, children, ...other }, ref) => {

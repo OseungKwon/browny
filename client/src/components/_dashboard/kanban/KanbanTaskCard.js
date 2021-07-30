@@ -8,7 +8,7 @@ import radioButtonOffOutline from '@iconify/icons-eva/radio-button-off-outline';
 import { Paper, Typography, Box, Checkbox } from '@material-ui/core';
 //
 import KanbanTaskDetails from './KanbanTaskDetails';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 KanbanTaskCard.propTypes = {

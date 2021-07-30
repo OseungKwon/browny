@@ -5,7 +5,7 @@ import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
 import { Accordion, Typography, AccordionSummary, AccordionDetails } from '@material-ui/core';
 //
 import { varFadeIn, MotionInView } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const ACCORDIONS = [...Array(8)].map((_, index) => {

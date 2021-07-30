@@ -13,7 +13,7 @@ import CheckoutSummary from './CheckoutSummary';
 import CheckoutDelivery from './CheckoutDelivery';
 import CheckoutBillingInfo from './CheckoutBillingInfo';
 import CheckoutPaymentMethods from './CheckoutPaymentMethods';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const DELIVERY_OPTIONS = [

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Dialog } from '@material-ui/core';
 //
 import { varFadeInUp } from './variants';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 DialogAnimate.propTypes = {

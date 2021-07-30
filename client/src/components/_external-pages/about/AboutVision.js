@@ -2,7 +2,7 @@
 import { Box, Container, Typography, Grid } from '@material-ui/core';
 //
 import { varFadeInUp, varFadeIn, MotionInView } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function AboutVision() {

@@ -4,7 +4,7 @@ import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Slider, Switch, Typography } from '@material-ui/core';
 // utils
 import { fDate } from '../../../utils/formatTime';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

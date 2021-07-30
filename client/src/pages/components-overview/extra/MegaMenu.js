@@ -9,7 +9,7 @@ import { PATH_PAGE } from '../../../routes/paths';
 import Page from '../../../components/Page';
 import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 import { MegaMenuDesktopVertical, MegaMenuDesktopHorizon, MegaMenuMobile, MenuConfig } from '../../../components/mega-menu';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

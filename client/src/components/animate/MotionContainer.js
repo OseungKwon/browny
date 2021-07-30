@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Box } from '@material-ui/core';
 //
 import { varWrapEnter } from './variants';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 MotionContainer.propTypes = {

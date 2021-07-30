@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // material
 import { Card, CardHeader, Box, Typography } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 Label.propTypes = {

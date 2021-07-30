@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Container, Alert, AlertTitle } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 RoleBasedGuard.propTypes = {

@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core';
 import Logo from '../components/Logo';
 //
 import { MHidden } from '../components/@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const HeaderStyle = styled('header')(({ theme }) => ({

@@ -12,7 +12,7 @@ import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 import { MBreadcrumbs } from '../../../components/@material-extend';
 //
 import { Block } from '../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

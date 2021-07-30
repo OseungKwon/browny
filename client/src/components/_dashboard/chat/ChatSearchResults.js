@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { List, Avatar, ListItem, Typography, ListItemText, ListItemAvatar } from '@material-ui/core';
 //
 import SearchNotFound from '../../SearchNotFound';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ChatSearchResults.propTypes = {

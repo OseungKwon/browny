@@ -20,7 +20,7 @@ import Markdown from '../../components/Markdown';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { ProductDetailsSumary, ProductDetailsReview, ProductDetailsCarousel } from '../../components/_dashboard/e-commerce/product-details';
 import CartWidget from '../../components/_dashboard/e-commerce/CartWidget';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const PRODUCT_DESCRIPTION = [

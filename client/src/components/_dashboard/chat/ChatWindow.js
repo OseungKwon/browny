@@ -20,7 +20,7 @@ import ChatMessageList from './ChatMessageList';
 import ChatHeaderDetail from './ChatHeaderDetail';
 import ChatMessageInput from './ChatMessageInput';
 import ChatHeaderCompose from './ChatHeaderCompose';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const conversationSelector = (state) => {

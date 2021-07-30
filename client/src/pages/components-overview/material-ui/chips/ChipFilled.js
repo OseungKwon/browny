@@ -6,7 +6,7 @@ import { Avatar, Chip, Stack, Paper } from '@material-ui/core';
 import { MChip } from '../../../../components/@material-extend';
 //
 import { Label } from '../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

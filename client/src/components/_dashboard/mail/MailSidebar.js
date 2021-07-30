@@ -11,7 +11,7 @@ import { useSelector } from '../../../redux/store';
 import Scrollbar from '../../Scrollbar';
 import { MHidden } from '../../@material-extend';
 import MailSidebarItem from './MailSidebarItem';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 MailSidebar.propTypes = {

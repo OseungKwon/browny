@@ -7,7 +7,7 @@ import { OutlinedInput, Paper, Button, ClickAwayListener } from '@material-ui/co
 // redux
 import { useDispatch } from '../../../redux/store';
 import { createColumn } from '../../../redux/slices/kanban';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function KanbanColumnAdd() {

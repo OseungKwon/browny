@@ -11,7 +11,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Input, Divider, IconButton, InputAdornment, Stack } from '@material-ui/core';
 //
 import EmojiPicker from '../../EmojiPicker';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

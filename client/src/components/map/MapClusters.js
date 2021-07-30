@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const clusterLayer = {

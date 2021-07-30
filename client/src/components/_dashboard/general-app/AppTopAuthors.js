@@ -9,7 +9,7 @@ import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Stack, Card, Avatar, CardHeader, Typography } from '@material-ui/core';
 // utils
 import { fShortenNumber } from '../../../utils/formatNumber';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const AUTHORS = [

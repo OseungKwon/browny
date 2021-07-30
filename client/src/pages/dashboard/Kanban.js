@@ -12,7 +12,7 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { KanbanColumn, KanbanColumnAdd } from '../../components/_dashboard/kanban';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SkeletonLoad = (

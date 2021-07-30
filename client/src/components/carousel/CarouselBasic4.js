@@ -13,7 +13,7 @@ import { mockImgFeed } from '../../utils/mockImages';
 import { CarouselControlsArrowsBasic2 } from './controls';
 //
 import { MIconButton } from '../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CAROUSELS = [...Array(5)].map((_, index) => {

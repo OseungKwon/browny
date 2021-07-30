@@ -6,7 +6,7 @@ import { Box, Paper } from '@material-ui/core';
 import { TextAnimate, MotionContainer } from '../../../../../components/animate';
 //
 import getVariant from '../getVariant';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const IMG = [

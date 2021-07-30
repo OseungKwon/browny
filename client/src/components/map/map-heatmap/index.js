@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from 'react';
 //
 import { MapControlScale, MapControlGeolocate, MapControlNavigation, MapControlFullscreen } from '../controls';
 import ControlPanel from './ControlPanel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const HEATMAP_LAYER = {

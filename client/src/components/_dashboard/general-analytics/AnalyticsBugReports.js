@@ -5,7 +5,7 @@ import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
 import { Card, Typography } from '@material-ui/core';
 // utils
 import { fShortenNumber } from '../../../utils/formatNumber';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Card)(({ theme }) => ({

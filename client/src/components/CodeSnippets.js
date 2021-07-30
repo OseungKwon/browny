@@ -7,7 +7,7 @@ import { Box, Tooltip, IconButton, DialogTitle, DialogContent } from '@material-
 //
 import Markdown from './Markdown';
 import { DialogAnimate } from './animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 CodeSnippets.propTypes = {

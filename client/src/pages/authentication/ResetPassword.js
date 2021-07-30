@@ -12,7 +12,7 @@ import Page from '../../components/Page';
 import { ResetPasswordForm } from '../../components/authentication/reset-password';
 //
 import { SentIcon } from '../../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

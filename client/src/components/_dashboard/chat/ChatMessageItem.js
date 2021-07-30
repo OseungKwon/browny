@@ -3,7 +3,7 @@ import { formatDistanceToNowStrict } from 'date-fns';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Avatar, Box, Typography } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

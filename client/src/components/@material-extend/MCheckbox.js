@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 // material
 import { alpha, useTheme } from '@material-ui/core/styles';
 import { Checkbox } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const MCheckbox = forwardRef(({ color = 'primary', sx, ...other }, ref) => {

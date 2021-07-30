@@ -14,7 +14,7 @@ import OtherView from './other';
 import ScrollView from './scroll';
 import DialogView from './dialog';
 import BackgroundView from './background';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const TAB_LIST = [

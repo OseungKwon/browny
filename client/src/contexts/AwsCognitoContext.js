@@ -7,7 +7,7 @@ import axios from '../utils/axios';
 import { PATH_AUTH } from '../routes/paths';
 //
 import { cognitoConfig } from '../config';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 // CAUTION: User Cognito is slily difference from firebase, so be sure to read the doc carefully.

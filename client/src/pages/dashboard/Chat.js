@@ -10,7 +10,7 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { ChatSidebar, ChatWindow } from '../../components/_dashboard/chat';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function Chat() {

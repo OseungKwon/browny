@@ -13,7 +13,7 @@ import PickerDate from './PickerDate';
 import PickerTime from './PickerTime';
 import PickerDateTime from './PickerDateTime';
 import PickerDateRange from './PickerDateRange';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const PICKERS = [

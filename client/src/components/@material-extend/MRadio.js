@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { alpha, useTheme } from '@material-ui/core/styles';
 import { Radio } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function MRadio({ color = 'primary', sx, ...other }) {

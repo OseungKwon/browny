@@ -7,7 +7,7 @@ import { Box, Grid, Link, Paper, Rating, Container, Typography, useMediaQuery } 
 //
 import { varFadeInUp, varFadeInLeft, MotionInView } from '../../animate';
 import { MHidden } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const TESTIMONIALS = [

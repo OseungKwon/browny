@@ -13,7 +13,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Grid, Card, Link, Avatar, Tooltip, IconButton, Typography, OutlinedInput, InputAdornment } from '@material-ui/core';
 //
 import SearchNotFound from '../../../SearchNotFound';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SOCIALS = [

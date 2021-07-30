@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Table, TableRow, TableHead, TableBody, TableCell, TableContainer, TablePagination } from '@material-ui/core';
 // components
 import Scrollbar from '../../../../components/Scrollbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 function createData(name, code, population, size) {

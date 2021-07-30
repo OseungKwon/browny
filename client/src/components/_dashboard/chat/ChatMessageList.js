@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from 'react';
 import Scrollbar from '../../Scrollbar';
 import LightboxModal from '../../LightboxModal';
 import ChatMessageItem from './ChatMessageItem';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ChatMessageList.propTypes = {

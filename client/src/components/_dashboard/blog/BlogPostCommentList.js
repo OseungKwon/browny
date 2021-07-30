@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, List } from '@material-ui/core';
 //
 import BlogPostCommentItem from './BlogPostCommentItem';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 BlogPostCommentList.propTypes = {

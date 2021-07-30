@@ -13,7 +13,7 @@ import { useDispatch } from '../../../redux/store';
 import { createEvent, updateEvent, deleteEvent } from '../../../redux/slices/calendar';
 //
 import ColorSinglePicker from '../../ColorSinglePicker';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const COLOR_OPTIONS = [

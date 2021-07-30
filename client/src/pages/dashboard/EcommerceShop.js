@@ -15,7 +15,7 @@ import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { ShopTagFiltered, ShopProductSort, ShopProductList, ShopFilterSidebar } from '../../components/_dashboard/e-commerce/shop';
 import CartWidget from '../../components/_dashboard/e-commerce/CartWidget';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 function applyFilter(products, sortBy, filters) {

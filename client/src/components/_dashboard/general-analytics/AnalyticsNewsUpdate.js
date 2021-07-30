@@ -10,7 +10,7 @@ import { Box, Stack, Link, Card, Button, Divider, Typography, CardHeader } from 
 import { mockImgCover } from '../../../utils/mockImages';
 //
 import Scrollbar from '../../Scrollbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const NEWS = [...Array(5)].map((_, index) => {

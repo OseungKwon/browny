@@ -8,7 +8,7 @@ import { Box, Typography, IconButton, Stack } from '@material-ui/core';
 import { getFileType, getFileName, getFileThumb } from '../../../utils/getFileFormat';
 //
 import Scrollbar from '../../Scrollbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

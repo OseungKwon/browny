@@ -9,7 +9,7 @@ import { Box, List, Avatar, Button, Collapse, ListItem, ListItemText, ListItemAv
 import Scrollbar from '../../Scrollbar';
 import BadgeStatus from '../../BadgeStatus';
 import ChatRoomPopup from './ChatRoomPopup';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const HEIGHT = 64;

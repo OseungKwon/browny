@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core';
 //
 import { Block } from '../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CURRENCIES = [

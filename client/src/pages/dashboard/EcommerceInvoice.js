@@ -26,7 +26,7 @@ import Label from '../../components/Label';
 import Scrollbar from '../../components/Scrollbar';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { InvoiceToolbar } from '../../components/_dashboard/e-commerce/invoice';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const INVOICE = {

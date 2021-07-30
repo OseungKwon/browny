@@ -24,7 +24,7 @@ import {
 //
 import Logo from '../Logo';
 import Scrollbar from '../Scrollbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const ICON_SIZE = 22;

@@ -11,7 +11,7 @@ import { mockImgProduct } from '../../../utils/mockImages';
 //
 import Scrollbar from '../../Scrollbar';
 import ColorPreview from '../../ColorPreview';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const PRODUCTS = [...Array(5)].map((_, index) => {

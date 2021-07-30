@@ -7,7 +7,7 @@ import { Stack, Box, Avatar, Typography } from '@material-ui/core';
 import { fToNow } from '../../../utils/formatTime';
 //
 import LightboxModal from '../../LightboxModal';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 KanbanTaskCommentList.propTypes = {

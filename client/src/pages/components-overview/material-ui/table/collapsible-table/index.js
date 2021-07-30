@@ -4,7 +4,7 @@ import { Table, TableRow, TableHead, TableBody, TableCell, TableContainer } from
 import Scrollbar from '../../../../../components/Scrollbar';
 //
 import CollapsibleTableRow from './CollapsibleTableRow';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 function createData(name, calories, fat, carbs, protein, price) {

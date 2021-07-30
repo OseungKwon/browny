@@ -4,7 +4,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Container, Typography } from '@material-ui/core';
 //
 import { varWrapEnter, varFadeInRight, TextAnimate } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({

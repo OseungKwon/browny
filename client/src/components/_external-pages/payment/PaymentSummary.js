@@ -7,7 +7,7 @@ import { Box, Switch, Divider, Typography, Stack } from '@material-ui/core';
 import { LoadingButton } from '@material-ui/lab';
 //
 import Label from '../../Label';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

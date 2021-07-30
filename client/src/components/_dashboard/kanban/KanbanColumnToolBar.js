@@ -9,7 +9,7 @@ import { Stack, OutlinedInput, MenuItem, Box, Typography } from '@material-ui/co
 //
 import MenuPopover from '../../MenuPopover';
 import { MIconButton } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 KanbanColumnToolBar.propTypes = {

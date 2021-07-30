@@ -5,7 +5,7 @@ import { Box, Button, Typography, Container } from '@material-ui/core';
 // components
 import Page from '../components/Page';
 import { SeverErrorIllustration } from '../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

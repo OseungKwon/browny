@@ -12,7 +12,7 @@ import {
   MapControlNavigation,
   MapControlFullscreen,
 } from './controls';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 MapMarkersPopups.propTypes = {

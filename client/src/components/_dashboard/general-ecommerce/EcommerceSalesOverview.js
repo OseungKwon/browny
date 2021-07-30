@@ -6,7 +6,7 @@ import { Card, CardHeader, Typography, Stack } from '@material-ui/core';
 import { fPercent, fCurrency } from '../../../utils/formatNumber';
 //
 import { MLinearProgress } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SALES = [

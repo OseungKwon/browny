@@ -21,7 +21,7 @@ import ChatAccount from './ChatAccount';
 import ChatSearchResults from './ChatSearchResults';
 import ChatContactSearch from './ChatContactSearch';
 import ChatConversationList from './ChatConversationList';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
