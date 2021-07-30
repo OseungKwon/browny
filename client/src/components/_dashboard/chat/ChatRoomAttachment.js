@@ -11,7 +11,7 @@ import { fDateTime } from '../../../utils/formatTime';
 import { getFileFullName, getFileThumb } from '../../../utils/getFileFormat';
 //
 import Scrollbar from '../../Scrollbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

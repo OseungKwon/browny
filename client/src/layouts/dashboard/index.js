@@ -5,7 +5,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 //
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const APP_BAR_MOBILE = 64;

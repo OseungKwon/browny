@@ -4,7 +4,7 @@ import { Container } from '@material-ui/core';
 // components
 import Page from '../components/Page';
 import { ComponentHero, ComponentOther, ComponentFoundation, ComponentMaterialUI } from '../components/_external-pages/components-overview';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

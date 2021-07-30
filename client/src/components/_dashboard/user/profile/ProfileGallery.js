@@ -9,7 +9,7 @@ import { Box, Grid, Card, IconButton, Typography, CardContent } from '@material-
 // utils
 import { fDate } from '../../../../utils/formatTime';
 import LightboxModal from '../../../LightboxModal';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CaptionStyle = styled(CardContent)(({ theme }) => ({

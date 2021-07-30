@@ -4,7 +4,7 @@ import { Divider } from '@material-ui/core';
 // components
 import Page from '../components/Page';
 import { AboutHero, AboutWhat, AboutTeam, AboutVision, AboutTestimonials } from '../components/_external-pages/about';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

@@ -7,7 +7,7 @@ import { Timeline, TimelineItem, TimelineContent, TimelineConnector, TimelineSep
 import { fDateTime } from '../../../utils/formatTime';
 //
 import { MTimelineDot } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const TIMELINES = [

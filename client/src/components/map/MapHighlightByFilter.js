@@ -5,7 +5,7 @@ import { useTheme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 //
 import { MapControlPopup, MapControlScale, MapControlGeolocate, MapControlNavigation, MapControlFullscreen } from './controls';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function MapHighlightByFilter({ ...other }) {

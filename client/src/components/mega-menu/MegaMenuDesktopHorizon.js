@@ -8,7 +8,7 @@ import { Box, Link, Paper, Typography, Divider, Stack } from '@material-ui/core'
 //
 import MenuHotProducts from './MenuHotProducts';
 import MegaMenuCarousel from './MegaMenuCarousel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CONTENT_HEIGHT = 400;

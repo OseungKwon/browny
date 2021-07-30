@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Auth0Client } from '@auth0/auth0-spa-js';
 //
 import { auth0Config } from '../config';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 let auth0Client = null;

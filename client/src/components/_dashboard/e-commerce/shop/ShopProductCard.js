@@ -11,7 +11,7 @@ import { fCurrency } from '../../../../utils/formatNumber';
 //
 import Label from '../../../Label';
 import ColorPreview from '../../../ColorPreview';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const ProductImgStyle = styled('img')({

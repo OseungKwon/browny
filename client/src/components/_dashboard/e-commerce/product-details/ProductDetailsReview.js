@@ -6,7 +6,7 @@ import { Divider, Collapse } from '@material-ui/core';
 import ProductDetailsReviewForm from './ProductDetailsReviewForm';
 import ProductDetailsReviewList from './ProductDetailsReviewList';
 import ProductDetailsReviewOverview from './ProductDetailsReviewOverview';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ProductDetailsReview.propTypes = {

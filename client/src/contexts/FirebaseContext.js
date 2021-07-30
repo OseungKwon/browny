@@ -4,7 +4,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import { firebaseConfig } from '../config';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const ADMIN_EMAILS = ['demo@minimals.cc'];

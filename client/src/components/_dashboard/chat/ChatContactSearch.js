@@ -4,7 +4,7 @@ import searchFill from '@iconify/icons-eva/search-fill';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, FormControl, OutlinedInput, InputAdornment, ClickAwayListener } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

@@ -5,7 +5,7 @@ import { Paper, Button, DialogTitle, DialogActions, DialogContent, DialogContent
 import { DialogAnimate } from '../../../../../components/animate';
 //
 import getVariant from '../getVariant';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ContainerView.propTypes = {

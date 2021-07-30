@@ -12,7 +12,7 @@ import {
   AppTopRelated,
   AppTopInstalledCountries,
 } from '../../components/_dashboard/general-app';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function GeneralApp() {

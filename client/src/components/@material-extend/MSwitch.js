@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { alpha, useTheme } from '@material-ui/core/styles';
 import { Switch } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function MSwitch({ color = 'primary', sx, ...other }) {

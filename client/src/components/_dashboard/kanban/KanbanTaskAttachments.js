@@ -12,7 +12,7 @@ import { Box, Paper } from '@material-ui/core';
 import { MIconButton } from '../../@material-extend';
 import { varFadeInRight } from '../../animate';
 import LightboxModal from '../../LightboxModal';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const DropZoneStyle = styled('div')(({ theme }) => ({

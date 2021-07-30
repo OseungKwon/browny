@@ -7,7 +7,7 @@ import { PATH_PAGE } from '../../../routes/paths';
 import Page from '../../../components/Page';
 import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 import { Block } from '../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const TYPOGRAPHYS = [

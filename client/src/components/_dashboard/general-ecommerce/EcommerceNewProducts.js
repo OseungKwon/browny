@@ -8,7 +8,7 @@ import { Box, Card, Button, CardContent, Typography } from '@material-ui/core';
 import { mockImgProduct } from '../../../utils/mockImages';
 //
 import { CarouselControlsPaging1 } from '../../carousel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const PRODUCTS = [

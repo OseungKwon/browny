@@ -9,7 +9,7 @@ import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 import { MSwitch } from '../../../components/@material-extend';
 //
 import { Block } from '../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

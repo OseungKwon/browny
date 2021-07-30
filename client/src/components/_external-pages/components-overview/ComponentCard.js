@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, Link, Grid, Paper, Typography, CardActionArea } from '@material-ui/core';
 //
 import { varFadeInUp, MotionInView } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ComponentCard.propTypes = {

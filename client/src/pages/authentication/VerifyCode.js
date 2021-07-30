@@ -11,7 +11,7 @@ import { PATH_AUTH } from '../../routes/paths';
 // components
 import Page from '../../components/Page';
 import { VerifyCodeForm } from '../../components/authentication/verify-code';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

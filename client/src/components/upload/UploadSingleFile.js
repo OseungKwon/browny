@@ -8,7 +8,7 @@ import { Paper, Box, Typography } from '@material-ui/core';
 import { fData } from '../../utils/formatNumber';
 //
 import { UploadIllustration } from '../../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const DropZoneStyle = styled('div')(({ theme }) => ({

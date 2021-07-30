@@ -12,7 +12,7 @@ import { cities as CITIES } from '../../../components/map/assets/cities';
 import { countries as COUNTRIES } from '../../../components/map/assets/countries';
 //
 import { mapConfig } from '../../../config';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 // FIX DISPLAY ERROR ON PRODUCTION

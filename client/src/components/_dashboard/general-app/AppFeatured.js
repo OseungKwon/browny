@@ -12,7 +12,7 @@ import { mockImgFeed } from '../../../utils/mockImages';
 //
 import { varFadeInRight, MotionContainer } from '../../animate';
 import { CarouselControlsPaging1, CarouselControlsArrowsBasic1 } from '../../carousel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CAROUSELS = ['Harry Potter and the Deathly Hallows - Part 2', 'Disney Zombies 2', 'Lightroom mobile - Koloro'].map((item, index) => {

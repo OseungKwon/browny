@@ -9,7 +9,7 @@ import { Box, Link, List, Paper, ListItem, Typography, Divider, Stack } from '@m
 //
 import MenuHotProducts from './MenuHotProducts';
 import MegaMenuCarousel from './MegaMenuCarousel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const MENU_WIDTH = 280;

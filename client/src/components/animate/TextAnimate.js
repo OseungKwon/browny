@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 //
 import { varFadeInUp } from './variants';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 TextAnimate.propTypes = {

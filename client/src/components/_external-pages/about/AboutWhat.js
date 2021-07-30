@@ -10,7 +10,7 @@ import { fPercent } from '../../../utils/formatNumber';
 //
 import { varFadeInUp, varFadeInRight, MotionInView } from '../../animate';
 import { MHidden } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SKILLS = [

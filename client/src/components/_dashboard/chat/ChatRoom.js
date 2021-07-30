@@ -10,7 +10,7 @@ import { useMediaQuery, Divider, IconButton } from '@material-ui/core';
 import ChatRoomAttachment from './ChatRoomAttachment';
 import ChatRoomOneParticipant from './ChatRoomOneParticipant';
 import ChatRoomGroupParticipant from './ChatRoomGroupParticipant';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

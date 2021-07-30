@@ -35,7 +35,7 @@ import Scrollbar from '../../components/Scrollbar';
 import SearchNotFound from '../../components/SearchNotFound';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { ProductListHead, ProductListToolbar, ProductMoreMenu } from '../../components/_dashboard/e-commerce/product-list';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [

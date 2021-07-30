@@ -15,7 +15,7 @@ import axios from '../../../utils/axios';
 import { PATH_DASHBOARD } from '../../../routes/paths';
 //
 import SearchNotFound from '../../SearchNotFound';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

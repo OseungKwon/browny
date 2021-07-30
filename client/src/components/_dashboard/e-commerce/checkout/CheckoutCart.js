@@ -15,7 +15,7 @@ import Scrollbar from '../../../Scrollbar';
 import EmptyContent from '../../../EmptyContent';
 import CheckoutSummary from './CheckoutSummary';
 import CheckoutProductList from './CheckoutProductList';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function CheckoutCart() {

@@ -10,7 +10,7 @@ import { Box, Typography } from '@material-ui/core';
 import { MapControlPopup, MapControlMarker, MapControlScale, MapControlNavigation } from '../../map';
 import { mapConfig } from '../../../config';
 import { varFadeIn, MotionInView } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export const ADDRESS = [

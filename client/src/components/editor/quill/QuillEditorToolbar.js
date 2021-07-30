@@ -30,7 +30,7 @@ import roundFormatIndentIncrease from '@iconify/icons-ic/round-format-indent-inc
 import roundFormatTextdirectionLToR from '@iconify/icons-ic/round-format-textdirection-l-to-r';
 import roundFormatTextdirectionRToL from '@iconify/icons-ic/round-format-textdirection-r-to-l';
 import QuillEditorToolbarStyle from './QuillEditorToolbarStyle';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const FONT_FAMILY = ['Roboto', 'Raleway', 'Montserrat', 'Lato', 'Rubik'];

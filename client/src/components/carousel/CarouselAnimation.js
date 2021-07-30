@@ -11,7 +11,7 @@ import { mockImgFeed } from '../../utils/mockImages';
 //
 import { varFadeInRight, MotionContainer } from '../animate';
 import { CarouselControlsArrowsIndex } from './controls';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CarouselImgStyle = styled('img')({

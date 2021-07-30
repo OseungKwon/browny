@@ -10,7 +10,7 @@ import { fData } from '../../../utils/formatNumber';
 import Page from '../../../components/Page';
 import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 import { UploadAvatar, UploadMultiFile, UploadSingleFile } from '../../../components/upload';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

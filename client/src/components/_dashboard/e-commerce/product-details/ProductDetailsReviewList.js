@@ -9,7 +9,7 @@ import { Box, List, Button, Rating, Avatar, ListItem, Pagination, Typography, St
 // utils
 import { fDate } from '../../../../utils/formatTime';
 import { fShortenNumber } from '../../../../utils/formatNumber';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ReviewItem.propTypes = {

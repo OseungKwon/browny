@@ -7,7 +7,7 @@ import { Menu, Button, MenuItem, Typography } from '@material-ui/core';
 // redux
 import { useDispatch, useSelector } from '../../../../redux/store';
 import { sortByProducts } from '../../../../redux/slices/product';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SORT_BY_OPTIONS = [

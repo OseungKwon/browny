@@ -12,7 +12,7 @@ import fakeRequest from '../../../../utils/fakeRequest';
 import AccountBillingAddressBook from './AccountBillingAddressBook';
 import AccountBillingPaymentMethod from './AccountBillingPaymentMethod';
 import AccountBillingInvoiceHistory from './AccountBillingInvoiceHistory';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function AccountBilling() {

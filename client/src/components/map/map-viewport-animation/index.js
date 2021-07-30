@@ -4,7 +4,7 @@ import MapGL, { FlyToInterpolator } from 'react-map-gl';
 //
 import { MapControlScale, MapControlGeolocate, MapControlNavigation, MapControlFullscreen } from '../controls';
 import ControlPanel from './ControlPanel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 MapViewportAnimation.propTypes = {

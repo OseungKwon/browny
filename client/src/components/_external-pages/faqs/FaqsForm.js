@@ -2,7 +2,7 @@
 import { Button, Typography, TextField, Stack } from '@material-ui/core';
 //
 import { varFadeInUp, MotionInView } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function FaqsForm() {

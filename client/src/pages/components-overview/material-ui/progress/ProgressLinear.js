@@ -4,7 +4,7 @@ import { Box, Grid, Paper } from '@material-ui/core';
 import { MLinearProgress } from '../../../../components/@material-extend';
 //
 import { Label } from '../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

@@ -9,7 +9,7 @@ import linkedinFill from '@iconify/icons-eva/linkedin-fill';
 import { Box, Grid, Card, Paper, Typography, CardHeader, CardContent } from '@material-ui/core';
 // utils
 import { fShortenNumber } from '../../../utils/formatNumber';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SOCIALS = [

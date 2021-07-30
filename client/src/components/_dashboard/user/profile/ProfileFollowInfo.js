@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, Stack, Typography, Divider } from '@material-ui/core';
 // utils
 import { fNumber } from '../../../../utils/formatNumber';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ProfileFollowInfo.propTypes = {

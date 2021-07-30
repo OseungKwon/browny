@@ -4,7 +4,7 @@ import { Grid, Container } from '@material-ui/core';
 // components
 import Page from '../components/Page';
 import { ContactHero, ContactForm, ContactMap } from '../components/_external-pages/contact';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

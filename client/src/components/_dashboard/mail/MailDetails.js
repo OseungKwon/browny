@@ -12,7 +12,7 @@ import Scrollbar from '../../Scrollbar';
 import MailDetailsToolbar from './MailDetailsToolbar';
 import MailDetailsReplyInput from './MailDetailsReplyInput';
 import MailDetailsAttachments from './MailDetailsAttachments';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')({

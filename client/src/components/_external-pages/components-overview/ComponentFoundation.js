@@ -3,7 +3,7 @@ import { Typography, Grid } from '@material-ui/core';
 //
 import ComponentCard from './ComponentCard';
 import { FOUNDATION_LIST } from './PathConfig';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function ComponentFoundation() {

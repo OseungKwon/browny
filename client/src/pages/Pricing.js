@@ -6,7 +6,7 @@ import Page from '../components/Page';
 import { PricingPlanCard } from '../components/_external-pages/pricing';
 //
 import { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const PLANS = [

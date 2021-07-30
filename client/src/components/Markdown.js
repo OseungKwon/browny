@@ -6,7 +6,7 @@ import rehypeHighlight from 'rehype-highlight';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Link, Typography, Divider } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const MarkdownWrapperStyle = styled('div')(({ theme }) => {

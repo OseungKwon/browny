@@ -7,7 +7,7 @@ import instagramFilled from '@iconify/icons-ant-design/instagram-filled';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Link, Card, CardHeader, Stack } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const IconStyle = styled(Icon)(({ theme }) => ({

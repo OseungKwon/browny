@@ -3,7 +3,7 @@ import { useState } from 'react';
 //
 import { MapControlScale, MapControlGeolocate, MapControlNavigation, MapControlFullscreen } from '../controls';
 import ControlPanel from './ControlPanel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function MapDynamicStyling({ ...other }) {

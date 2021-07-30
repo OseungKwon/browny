@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Box, Paper } from '@material-ui/core';
 //
 import getVariant from '../getVariant';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ContainerView.propTypes = {

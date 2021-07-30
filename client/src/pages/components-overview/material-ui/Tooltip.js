@@ -11,7 +11,7 @@ import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 import { MFab, MButton, MIconButton } from '../../../components/@material-extend';
 //
 import { Block } from '../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const LONG_TEXT = `

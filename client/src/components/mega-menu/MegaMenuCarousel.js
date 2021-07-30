@@ -7,7 +7,7 @@ import { useTheme } from '@material-ui/core/styles';
 import { Box, Link, Typography } from '@material-ui/core';
 //
 import { CarouselControlsPaging1, CarouselControlsArrowsBasic2 } from '../carousel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 MegaMenuCarousel.propTypes = {

@@ -26,7 +26,7 @@ import { fData } from '../../utils/formatNumber';
 import { MIconButton } from '../@material-extend';
 import { varFadeInRight } from '../animate';
 import { UploadIllustration } from '../../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const DropZoneStyle = styled('div')(({ theme }) => ({

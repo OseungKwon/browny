@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Radio, Paper, Typography, RadioGroup, FormControlLabel } from '@material-ui/core';
 // components
 import Scrollbar from '../../../../components/Scrollbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ControlPanel.propTypes = {

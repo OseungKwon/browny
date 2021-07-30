@@ -4,7 +4,7 @@ import MapGL, { Layer, Source } from 'react-map-gl';
 import { useTheme } from '@material-ui/core/styles';
 //
 import { MapControlScale, MapControlGeolocate, MapControlNavigation, MapControlFullscreen } from './controls';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 function pointOnCircle({ center, angle, radius }) {

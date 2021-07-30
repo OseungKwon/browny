@@ -5,7 +5,7 @@ import refreshFill from '@iconify/icons-eva/refresh-fill';
 import { FormControlLabel, Switch, Stack } from '@material-ui/core';
 // components
 import { MIconButton } from '../../../../../components/@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 Toolbar.propTypes = {

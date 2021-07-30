@@ -7,7 +7,7 @@ import { Box, Button, Typography, Container } from '@material-ui/core';
 import { MotionContainer, varBounceIn } from '../components/animate';
 import Page from '../components/Page';
 import { PageNotFoundIllustration } from '../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

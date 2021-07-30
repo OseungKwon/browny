@@ -11,7 +11,7 @@ import { Box, Card, Grid, Avatar, Tooltip, Divider, Typography, IconButton } fro
 import { fShortenNumber } from '../../../../utils/formatNumber';
 //
 import SvgIconStyle from '../../../SvgIconStyle';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SOCIALS = [

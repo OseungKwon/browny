@@ -7,7 +7,7 @@ import { Box, Chip, Avatar, AvatarGroup, FormControlLabel } from '@material-ui/c
 import { fShortenNumber } from '../../../utils/formatNumber';
 //
 import { MCheckbox } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 BlogPostTags.propTypes = {

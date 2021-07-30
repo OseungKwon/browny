@@ -6,7 +6,7 @@ import Scrollbar from '../../../../../components/Scrollbar';
 import { MotionInView } from '../../../../../components/animate';
 //
 import getVariant from '../getVariant';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ContainerView.propTypes = {

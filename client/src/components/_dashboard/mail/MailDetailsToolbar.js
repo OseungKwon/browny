@@ -14,7 +14,7 @@ import createAvatar from '../../../utils/createAvatar';
 import { fDateTimeSuffix } from '../../../utils/formatTime';
 //
 import { MAvatar, MHidden } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

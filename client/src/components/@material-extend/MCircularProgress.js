@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { CircularProgress } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function MCircularProgress({ color = 'primary', sx, ...other }) {

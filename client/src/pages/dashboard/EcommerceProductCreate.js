@@ -12,7 +12,7 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import ProductNewForm from '../../components/_dashboard/e-commerce/ProductNewForm';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function EcommerceProductCreate() {

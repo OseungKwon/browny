@@ -4,7 +4,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Container, Typography, Grid } from '@material-ui/core';
 //
 import { varFadeIn, varWrapEnter, varFadeInRight, TextAnimate } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CONTACTS = [

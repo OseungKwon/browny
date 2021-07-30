@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 //
 import EditorToolbar, { formats, redoChange, undoChange } from './QuillEditorToolbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

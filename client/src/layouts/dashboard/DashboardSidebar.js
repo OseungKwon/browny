@@ -17,7 +17,7 @@ import { MHidden } from '../../components/@material-extend';
 //
 import sidebarConfig from './SidebarConfig';
 import { DocIcon } from '../../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;

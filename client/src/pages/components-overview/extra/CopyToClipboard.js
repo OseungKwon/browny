@@ -7,7 +7,7 @@ import { PATH_PAGE } from '../../../routes/paths';
 import Page from '../../../components/Page';
 import CopyClipboard from '../../../components/CopyClipboard';
 import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

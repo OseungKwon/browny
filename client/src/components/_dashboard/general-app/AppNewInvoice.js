@@ -24,7 +24,7 @@ import { fCurrency } from '../../../utils/formatNumber';
 import Label from '../../Label';
 import Scrollbar from '../../Scrollbar';
 import MoreMenuButton from '../../MoreMenuButton';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const INVOICES = [

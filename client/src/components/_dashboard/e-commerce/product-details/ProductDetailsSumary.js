@@ -23,7 +23,7 @@ import { fShortenNumber, fCurrency } from '../../../../utils/formatNumber';
 import { MIconButton, MButton } from '../../../@material-extend';
 import Label from '../../../Label';
 import ColorSinglePicker from '../../../ColorSinglePicker';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SOCIALS = [

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { TimelineDot } from '@material-ui/lab';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function MTimelineDot({ color = 'grey', variant = 'filled', sx, ...other }) {

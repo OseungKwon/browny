@@ -10,7 +10,7 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 import Page from '../../components/Page';
 import { UserCard } from '../../components/_dashboard/user/cards';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SkeletonLoad = (

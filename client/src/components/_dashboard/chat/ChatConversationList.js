@@ -6,7 +6,7 @@ import { List } from '@material-ui/core';
 import { PATH_DASHBOARD } from '../../../routes/paths';
 //
 import ChatConversationItem from './ChatConversationItem';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ChatConversationList.propTypes = {

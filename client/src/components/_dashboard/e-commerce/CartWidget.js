@@ -9,7 +9,7 @@ import { Badge } from '@material-ui/core';
 import { useSelector } from '../../../redux/store';
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(RouterLink)(({ theme }) => ({

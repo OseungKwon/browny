@@ -5,7 +5,7 @@ import { Grid, Card } from '@material-ui/core';
 import variantTypes from './types';
 import ControlPanel from '../ControlPanel';
 import ContainerView from './ContainerView';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function Dialog() {

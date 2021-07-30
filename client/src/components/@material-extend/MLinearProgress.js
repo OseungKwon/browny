@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { darken, lighten, useTheme } from '@material-ui/core/styles';
 import { LinearProgress } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function MLinearProgress({ color = 'primary', sx, ...other }) {

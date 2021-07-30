@@ -11,7 +11,7 @@ import { PATH_PAGE } from '../../../routes/paths';
 import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 //
 import { Block } from '../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const ACCORDIONS = [...Array(4)].map((_, index) => {

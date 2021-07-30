@@ -11,7 +11,7 @@ import { fCurrency, fShortenNumber } from '../../../utils/formatNumber';
 //
 import Label from '../../Label';
 import Scrollbar from '../../Scrollbar';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const APPLICATIONS = [

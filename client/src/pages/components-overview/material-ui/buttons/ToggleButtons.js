@@ -16,7 +16,7 @@ import { Grid, ToggleButton, ToggleButtonGroup } from '@material-ui/core';
 import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
 //
 import { Block } from '../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

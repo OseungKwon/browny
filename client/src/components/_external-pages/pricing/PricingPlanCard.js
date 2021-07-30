@@ -9,7 +9,7 @@ import { Card, Button, Typography, Box, Stack } from '@material-ui/core';
 import { PATH_DASHBOARD } from '../../../routes/paths';
 //
 import Label from '../../Label';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Card)(({ theme }) => ({

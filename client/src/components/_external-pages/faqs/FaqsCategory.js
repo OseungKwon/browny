@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Typography, Box, Grid, Paper } from '@material-ui/core';
 //
 import { varFadeIn, MotionInView } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CATEGORIES = [

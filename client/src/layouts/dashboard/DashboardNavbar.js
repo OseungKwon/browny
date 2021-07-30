@@ -11,7 +11,7 @@ import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
 import ContactsPopover from './ContactsPopover';
 import NotificationsPopover from './NotificationsPopover';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // material
 import { Paper, Typography } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 SearchNotFound.propTypes = {

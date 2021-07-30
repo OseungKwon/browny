@@ -10,7 +10,7 @@ import {
   EcommerceLatestProducts,
   EcommerceCurrentBalance,
 } from '../../components/_dashboard/general-ecommerce';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function GeneralEcommerce() {

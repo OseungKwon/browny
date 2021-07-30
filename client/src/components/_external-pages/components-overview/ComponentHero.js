@@ -8,7 +8,7 @@ import { Box, Link, Container, Typography, Stack } from '@material-ui/core';
 import { varFadeInUp, varWrapEnter, varFadeInDown } from '../../animate';
 //
 import { MHidden } from '../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 SvgIconStyle.propTypes = {

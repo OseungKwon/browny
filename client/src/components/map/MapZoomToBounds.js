@@ -4,7 +4,7 @@ import MapGL, { LinearInterpolator, WebMercatorViewport } from 'react-map-gl';
 //
 import { MapControlScale, MapControlGeolocate, MapControlNavigation, MapControlFullscreen } from './controls';
 import MAP_STYLE from './assets/map-style-basic-v8.json';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const mapStyle = {

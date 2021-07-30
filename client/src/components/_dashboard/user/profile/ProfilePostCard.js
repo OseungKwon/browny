@@ -33,7 +33,7 @@ import useAuth from '../../../../hooks/useAuth';
 import MyAvatar from '../../../MyAvatar';
 import EmojiPicker from '../../../EmojiPicker';
 import { MCheckbox } from '../../../@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 ProfilePostCard.propTypes = {

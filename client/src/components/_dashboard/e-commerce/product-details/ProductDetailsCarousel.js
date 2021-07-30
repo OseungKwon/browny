@@ -10,7 +10,7 @@ import { useSelector } from '../../../../redux/store';
 //
 import LightboxModal from '../../../LightboxModal';
 import { CarouselControlsArrowsIndex } from '../../../carousel';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const THUMB_SIZE = 64;

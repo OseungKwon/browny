@@ -23,7 +23,7 @@ import useAuth from '../../../hooks/useAuth';
 //
 import MyAvatar from '../../MyAvatar';
 import BadgeStatus from '../../BadgeStatus';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const STATUS = ['online', 'invisible', 'away'];

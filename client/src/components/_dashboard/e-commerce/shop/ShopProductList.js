@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { Skeleton, Grid } from '@material-ui/core';
 import ShopProductCard from './ShopProductCard';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SkeletonLoad = (

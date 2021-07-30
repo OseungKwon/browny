@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
 import { Slider, Typography } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

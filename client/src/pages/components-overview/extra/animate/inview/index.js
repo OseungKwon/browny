@@ -6,7 +6,7 @@ import variantTypes from './types';
 import Toolbar from './Toolbar';
 import ControlPanel from '../ControlPanel';
 import ContainerView from './ContainerView';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function Inview() {

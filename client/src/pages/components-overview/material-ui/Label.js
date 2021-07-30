@@ -9,7 +9,7 @@ import Label from '../../../components/Label';
 import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 //
 import { Block } from '../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

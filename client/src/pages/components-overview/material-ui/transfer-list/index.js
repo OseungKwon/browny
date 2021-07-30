@@ -10,7 +10,7 @@ import HeaderBreadcrumbs from '../../../../components/HeaderBreadcrumbs';
 import { Block } from '../../Block';
 import SimpleTransferList from './SimpleTransferList';
 import EnhancedTransferList from './EnhancedTransferList';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

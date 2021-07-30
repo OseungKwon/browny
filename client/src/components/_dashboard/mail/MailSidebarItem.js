@@ -16,7 +16,7 @@ import { NavLink as RouterLink, useLocation, matchPath } from 'react-router-dom'
 import { ListItem, Typography, ListItemText, ListItemIcon } from '@material-ui/core';
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const LABEL_ICONS = {

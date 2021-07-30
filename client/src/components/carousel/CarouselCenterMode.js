@@ -12,7 +12,7 @@ import { Box, Paper, Link, Typography, CardContent } from '@material-ui/core';
 import { mockImgFeed } from '../../utils/mockImages';
 //
 import { CarouselControlsArrowsBasic2 } from './controls';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CAROUSELS = [...Array(5)].map((_, index) => {

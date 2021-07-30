@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 // material
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function ScrollDialog() {

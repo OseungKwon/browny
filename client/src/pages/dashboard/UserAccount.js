@@ -23,7 +23,7 @@ import {
   AccountNotifications,
   AccountChangePassword,
 } from '../../components/_dashboard/user/account';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function UserAccount() {

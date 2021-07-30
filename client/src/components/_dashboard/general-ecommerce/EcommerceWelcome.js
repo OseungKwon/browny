@@ -3,7 +3,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Typography, Button, Card, CardContent } from '@material-ui/core';
 //
 import { MotivationIllustration } from '../../../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Card)(({ theme }) => ({

@@ -6,7 +6,7 @@ import { alpha, useTheme, experimentalStyled as styled } from '@material-ui/core
 import { Box, Switch, Typography } from '@material-ui/core';
 //
 import MAP_STYLE from '../assets/map-style-basic-v8.json';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const defaultMapStyle = fromJS(MAP_STYLE);

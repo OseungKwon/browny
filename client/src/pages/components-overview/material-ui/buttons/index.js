@@ -16,7 +16,7 @@ import ToggleButtons from './ToggleButtons';
 import OutlinedButtons from './OutlinedButtons';
 import ContainedButtons from './ContainedButtons';
 import FloatingActionButton from './FloatingActionButton';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const BUTTONS = [

@@ -8,7 +8,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Avatar, Typography, DialogContent } from '@material-ui/core';
 //
 import { DialogAnimate } from '../../animate';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RowStyle = styled('div')(({ theme }) => ({

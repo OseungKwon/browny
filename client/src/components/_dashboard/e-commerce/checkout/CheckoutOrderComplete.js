@@ -13,7 +13,7 @@ import { PATH_DASHBOARD } from '../../../../routes/paths';
 //
 import { DialogAnimate } from '../../../animate';
 import { OrderCompleteIllustration } from '../../../../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const DialogStyle = styled(DialogAnimate)(({ theme }) => ({

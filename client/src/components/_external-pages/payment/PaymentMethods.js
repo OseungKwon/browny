@@ -9,7 +9,7 @@ import { Stack, Paper, Radio, Button, Collapse, TextField, Typography, RadioGrou
 //
 import { MHidden } from '../../@material-extend';
 import PaymentNewCardForm from './PaymentNewCardForm';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const PAYMENT_OPTIONS = [

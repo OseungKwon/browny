@@ -3,7 +3,7 @@ import { Link as RouterLink, Outlet } from 'react-router-dom';
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 // components
 import Logo from '../components/Logo';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const HeaderStyle = styled('header')(({ theme }) => ({

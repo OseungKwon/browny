@@ -15,7 +15,7 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../../components/_dashboard/blog';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SORT_OPTIONS = [

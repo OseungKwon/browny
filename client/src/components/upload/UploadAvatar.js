@@ -8,7 +8,7 @@ import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Typography, Paper } from '@material-ui/core';
 // utils
 import { fData } from '../../utils/formatNumber';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

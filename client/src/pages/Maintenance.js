@@ -6,7 +6,7 @@ import { Button, Typography, Container } from '@material-ui/core';
 import Page from '../components/Page';
 //
 import { MaintenanceIllustration } from '../assets';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({

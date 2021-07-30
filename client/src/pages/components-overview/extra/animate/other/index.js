@@ -11,7 +11,7 @@ import SmallClick from './SmallClick';
 import MediumClick from './MediumClick';
 //
 import { Block } from '../../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const style = {

@@ -30,7 +30,7 @@ import { mockImgAvatar } from '../../utils/mockImages';
 import Scrollbar from '../../components/Scrollbar';
 import MenuPopover from '../../components/MenuPopover';
 import { MIconButton } from '../../components/@material-extend';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const NOTIFICATIONS = [

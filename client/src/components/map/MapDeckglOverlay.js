@@ -3,7 +3,7 @@ import { useState } from 'react';
 import DeckGL, { ArcLayer } from 'deck.gl';
 //
 import { MapControlScale, MapControlGeolocate, MapControlNavigation, MapControlFullscreen } from './controls';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 export default function MapDeckglOverlay({ ...other }) {

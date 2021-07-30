@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { ScaleControl } from 'react-map-gl';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

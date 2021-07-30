@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Popup } from 'react-map-gl';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const PopupStyle = styled(Popup)(({ theme }) => {

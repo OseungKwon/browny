@@ -11,7 +11,7 @@ import { useTheme, experimentalStyled as styled } from '@material-ui/core/styles
 import { Box, Input, Portal, Button, Divider, Backdrop, IconButton, Typography, useMediaQuery } from '@material-ui/core';
 //
 import { QuillEditor } from '../../editor';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({

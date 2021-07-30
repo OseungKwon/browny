@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 import checkmarkFill from '@iconify/icons-eva/checkmark-fill';
 // material
 import { Box, Checkbox } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 IconColor.propTypes = {

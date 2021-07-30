@@ -12,7 +12,7 @@ import { Grid, Link, Divider, Container, Typography, IconButton, Stack } from '@
 import { PATH_PAGE } from '../../routes/paths';
 //
 import Logo from '../../components/Logo';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const SOCIALS = [

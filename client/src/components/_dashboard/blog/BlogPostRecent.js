@@ -15,7 +15,7 @@ import { fDate } from '../../../utils/formatTime';
 import { fShortenNumber } from '../../../utils/formatNumber';
 //
 import SvgIconStyle from '../../SvgIconStyle';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const CoverImgStyle = styled('img')({

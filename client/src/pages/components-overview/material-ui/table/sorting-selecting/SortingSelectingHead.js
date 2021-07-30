@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { visuallyHidden } from '@material-ui/utils';
 import { Box, Checkbox, TableRow, TableCell, TableHead, TableSortLabel } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 SortingSelectingHead.propTypes = {

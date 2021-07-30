@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { Badge } from '@material-ui/core';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const MBadge = forwardRef(({ color = 'default', children, sx, ...other }, ref) => {

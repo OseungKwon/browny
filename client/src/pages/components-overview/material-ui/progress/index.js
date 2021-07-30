@@ -12,7 +12,7 @@ import ProgressLinear from './ProgressLinear';
 import ProgressCircular from './ProgressCircular';
 //
 import { Block } from '../../Block';
-
+import React from 'react';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)(({ theme }) => ({
