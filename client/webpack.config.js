@@ -53,7 +53,7 @@ module.exports = {
     port: 3000,
     stats: 'errors-only',
     historyApiFallback: {
-      index: 'http://localhost:8080',
+      index: 'http://localhost:3000',
     },
     hot: true,
   },

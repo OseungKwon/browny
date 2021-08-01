@@ -6,7 +6,7 @@ function path(root, sublink) {
 
 const ROOTS_AUTH = '/auth';
 const ROOTS_DASHBOARD = '/dashboard';
-
+const ROOTS_BLOG = '/blog';
 // ----------------------------------------------------------------------
 
 export const PATH_AUTH = {
@@ -77,6 +77,17 @@ export const PATH_DASHBOARD = {
     postById: path(ROOTS_DASHBOARD, '/blog/post/portfolio-review-is-this-portfolio-too-creative'),
     newPost: path(ROOTS_DASHBOARD, '/blog/new-post'),
   },
+};
+
+/**
+ * Blog paths
+ */
+export const PATH_BLOG = {
+  root: ROOTS_BLOG,
+  posts: path(ROOTS_BLOG, '/posts'),
+  post: path(ROOTS_BLOG, '/post/:title'),
+  postById: path(ROOTS_BLOG, '/post/portfolio-review-is-this-portfolio-too-creative'),
+  newPost: path(ROOTS_BLOG, '/new-post'),
 };
 
 export const PATH_DOCS = 'https://docs-minimals.vercel.app/introduction';
