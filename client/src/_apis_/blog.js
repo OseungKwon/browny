@@ -247,6 +247,7 @@ mock.onGet('/api/blog/posts/all').reply(200, { posts });
 
 mock.onGet('/api/blog/posts').reply((config) => {
   try {
+    console.log(config);
     const { index, step } = config.params;
     const maxLength = posts.length;
     const loadMore = index + step;

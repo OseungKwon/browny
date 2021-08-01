@@ -163,6 +163,15 @@ export default function Router() {
         { path: 'contact-us', element: <Contact /> },
         { path: 'faqs', element: <Faqs /> },
         {
+          path: 'blog',
+          children: [
+            { path: '/', element: <Navigate to="/blog/posts" replace /> },
+            { path: 'posts', element: <QLICK_BlogPosts /> },
+            { path: 'post/:title', element: <QLICK_BlogPost /> },
+            { path: 'new-post', element: <QLICK_BlogNewPost /> },
+          ],
+        },
+        {
           path: 'components',
           children: [
             { path: '/', element: <ComponentsOverview /> },
@@ -303,3 +312,8 @@ const Upload = Loadable(lazy(() => import('../pages/components-overview/extra/Up
 const Carousel = Loadable(lazy(() => import('../pages/components-overview/extra/Carousel')));
 const Animate = Loadable(lazy(() => import('../pages/components-overview/extra/animate')));
 const MegaMenu = Loadable(lazy(() => import('../pages/components-overview/extra/MegaMenu')));
+
+//Blog
+const QLICK_BlogPosts = Loadable(lazy(() => import('../pages/blog/BlogPosts')));
+const QLICK_BlogPost = Loadable(lazy(() => import('../pages/blog/BlogPost')));
+const QLICK_BlogNewPost = Loadable(lazy(() => import('../pages/blog/BlogNewPost')));
