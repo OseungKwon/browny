@@ -1,16 +1,32 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Icon } from '@iconify/react';
-import { NavLink as RouterLink, matchPath, useLocation } from 'react-router-dom';
-import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
-import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
+import { useState, forwardRef } from "react";
+import PropTypes from "prop-types";
+import { Icon } from "@iconify/react";
+import arrowIosForwardFill from "@iconify/icons-eva/arrow-ios-forward-fill";
+import arrowIosDownwardFill from "@iconify/icons-eva/arrow-ios-downward-fill";
+// next
+import NextLink from "next/link";
+import { useRouter } from "next/router";
 // material
-import { alpha, useTheme, experimentalStyled as styled } from '@material-ui/core/styles';
-import { Box, List, ListItem, Collapse, ListItemText, ListItemIcon, ListSubheader } from '@material-ui/core';
-import React from 'react';
+import {
+  alpha,
+  useTheme,
+  experimentalStyled as styled,
+} from "@material-ui/core/styles";
+import {
+  Box,
+  List,
+  ListItem,
+  Collapse,
+  ListItemText,
+  ListItemIcon,
+  ListSubheader,
+} from "@material-ui/core";
+
 // ----------------------------------------------------------------------
 
-const ListSubheaderStyle = styled((props) => <ListSubheader disableSticky disableGutters {...props} />)(({ theme }) => ({
+const ListSubheaderStyle = styled((props) => (
+  <ListSubheader disableSticky disableGutters {...props} />
+))(({ theme }) => ({
   ...theme.typography.overline,
   marginTop: theme.spacing(3),
   marginBottom: theme.spacing(2),
@@ -18,22 +34,24 @@ const ListSubheaderStyle = styled((props) => <ListSubheader disableSticky disabl
   color: theme.palette.text.primary,
 }));
 
-const ListItemStyle = styled((props) => <ListItem button disableGutters {...props} />)(({ theme }) => ({
+const ListItemStyle = styled((props) => (
+  <ListItem button disableGutters {...props} />
+))(({ theme }) => ({
   ...theme.typography.body2,
   height: 48,
-  position: 'relative',
-  textTransform: 'capitalize',
+  position: "relative",
+  textTransform: "capitalize",
   paddingLeft: theme.spacing(5),
   paddingRight: theme.spacing(2.5),
   color: theme.palette.text.secondary,
-  '&:before': {
+  "&:before": {
     top: 0,
     right: 0,
     width: 3,
     bottom: 0,
     content: "''",
-    display: 'none',
-    position: 'absolute',
+    display: "none",
+    position: "absolute",
     borderTopLeftRadius: 4,
     borderBottomLeftRadius: 4,
     backgroundColor: theme.palette.primary.main,
@@ -43,9 +61,9 @@ const ListItemStyle = styled((props) => <ListItem button disableGutters {...prop
 const ListItemIconStyle = styled(ListItemIcon)({
   width: 22,
   height: 22,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 });
 
 // ----------------------------------------------------------------------
@@ -54,6 +72,10 @@ NavItem.propTypes = {
   item: PropTypes.object,
   active: PropTypes.func,
 };
+
+const Item = forwardRef(({ children, ...other }, ref) => {
+  return <ListItemStyle {...other}>{children}</ListItemStyle>;
+});
 
 function NavItem({ item, active }) {
   const theme = useTheme();
@@ -66,21 +88,24 @@ function NavItem({ item, active }) {
   };
 
   const activeRootStyle = {
-    color: 'primary.main',
-    fontWeight: 'fontWeightMedium',
-    bgcolor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
-    '&:before': { display: 'block' },
+    color: "primary.main",
+    fontWeight: "fontWeightMedium",
+    bgcolor: alpha(
+      theme.palette.primary.main,
+      theme.palette.action.selectedOpacity
+    ),
+    "&:before": { display: "block" },
   };
 
   const activeSubStyle = {
-    color: 'text.primary',
-    fontWeight: 'fontWeightMedium',
+    color: "text.primary",
+    fontWeight: "fontWeightMedium",
   };
 
   if (children) {
     return (
       <>
-        <ListItemStyle
+        <Item
           onClick={handleOpen}
           sx={{
             ...(isActiveRoot && activeRootStyle),
@@ -89,45 +114,48 @@ function NavItem({ item, active }) {
           <ListItemIconStyle>{icon && icon}</ListItemIconStyle>
           <ListItemText disableTypography primary={title} />
           {info && info}
-          <Box component={Icon} icon={open ? arrowIosDownwardFill : arrowIosForwardFill} sx={{ width: 16, height: 16, ml: 1 }} />
-        </ListItemStyle>
+          <Box
+            component={Icon}
+            icon={open ? arrowIosDownwardFill : arrowIosForwardFill}
+            sx={{ width: 16, height: 16, ml: 1 }}
+          />
+        </Item>
 
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             {children.map((item) => {
-              const { title, path } = item;
-              const isActiveSub = active(path);
+              const isActiveSub = active(item.path);
 
               return (
-                <ListItemStyle
-                  key={title}
-                  component={RouterLink}
-                  to={path}
-                  sx={{
-                    ...(isActiveSub && activeSubStyle),
-                  }}
-                >
-                  <ListItemIconStyle>
-                    <Box
-                      component="span"
-                      sx={{
-                        width: 4,
-                        height: 4,
-                        display: 'flex',
-                        borderRadius: '50%',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        bgcolor: 'text.disabled',
-                        transition: (theme) => theme.transitions.create('transform'),
-                        ...(isActiveSub && {
-                          transform: 'scale(2)',
-                          bgcolor: 'primary.main',
-                        }),
-                      }}
-                    />
-                  </ListItemIconStyle>
-                  <ListItemText disableTypography primary={title} />
-                </ListItemStyle>
+                <NextLink key={item.title} href={item.path}>
+                  <Item
+                    sx={{
+                      ...(isActiveSub && activeSubStyle),
+                    }}
+                  >
+                    <ListItemIconStyle>
+                      <Box
+                        component="span"
+                        sx={{
+                          width: 4,
+                          height: 4,
+                          display: "flex",
+                          borderRadius: "50%",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          bgcolor: "text.disabled",
+                          transition: (theme) =>
+                            theme.transitions.create("transform"),
+                          ...(isActiveSub && {
+                            transform: "scale(2)",
+                            bgcolor: "primary.main",
+                          }),
+                        }}
+                      />
+                    </ListItemIconStyle>
+                    <ListItemText disableTypography primary={item.title} />
+                  </Item>
+                </NextLink>
               );
             })}
           </List>
@@ -137,17 +165,17 @@ function NavItem({ item, active }) {
   }
 
   return (
-    <ListItemStyle
-      component={RouterLink}
-      to={path}
-      sx={{
-        ...(isActiveRoot && activeRootStyle),
-      }}
-    >
-      <ListItemIconStyle>{icon && icon}</ListItemIconStyle>
-      <ListItemText disableTypography primary={title} />
-      {info && info}
-    </ListItemStyle>
+    <NextLink href={path}>
+      <Item
+        sx={{
+          ...(isActiveRoot && activeRootStyle),
+        }}
+      >
+        <ListItemIconStyle>{icon && icon}</ListItemIconStyle>
+        <ListItemText disableTypography primary={item.title} />
+        {info && info}
+      </Item>
+    </NextLink>
   );
 }
 
@@ -156,8 +184,9 @@ NavSection.propTypes = {
 };
 
 export default function NavSection({ navConfig, ...other }) {
-  const { pathname } = useLocation();
-  const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
+  const { pathname } = useRouter();
+
+  const match = (path) => pathname.includes(path);
 
   return (
     <Box {...other}>

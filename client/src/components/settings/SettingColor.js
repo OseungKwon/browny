@@ -2,7 +2,7 @@ import { alpha } from '@material-ui/core/styles';
 import { Box, Grid, Paper, Radio, RadioGroup, CardActionArea, FormControlLabel } from '@material-ui/core';
 // hooks
 import useSettings from '../../hooks/useSettings';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 export default function SettingColor() {
@@ -24,8 +24,8 @@ export default function SettingColor() {
                   ...(isSelected && {
                     bgcolor: alpha(colorValue, 0.12),
                     border: `solid 2px ${colorValue}`,
-                    boxShadow: `inset 0 4px 8px 0 ${alpha(colorValue, 0.24)}`,
-                  }),
+                    boxShadow: `inset 0 4px 8px 0 ${alpha(colorValue, 0.24)}`
+                  })
                 }}
               >
                 <CardActionArea sx={{ borderRadius: 1, color: colorValue }}>
@@ -34,7 +34,7 @@ export default function SettingColor() {
                       height: 48,
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center',
+                      justifyContent: 'center'
                     }}
                   >
                     <Box
@@ -47,9 +47,9 @@ export default function SettingColor() {
                         transition: (theme) =>
                           theme.transitions.create('all', {
                             easing: theme.transitions.easing.easeInOut,
-                            duration: theme.transitions.duration.shorter,
+                            duration: theme.transitions.duration.shorter
                           }),
-                        ...(isSelected && { transform: 'none' }),
+                        ...(isSelected && { transform: 'none' })
                       }}
                     />
                   </Box>
@@ -63,7 +63,7 @@ export default function SettingColor() {
                       margin: 0,
                       width: '100%',
                       height: '100%',
-                      position: 'absolute',
+                      position: 'absolute'
                     }}
                   />
                 </CardActionArea>

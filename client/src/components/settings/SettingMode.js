@@ -5,7 +5,7 @@ import sunFill from '@iconify/icons-eva/sun-fill';
 import { Box, Grid, Radio, Paper, RadioGroup, CardActionArea, FormControlLabel } from '@material-ui/core';
 // hooks
 import useSettings from '../../hooks/useSettings';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 export default function SettingMode() {
@@ -24,8 +24,8 @@ export default function SettingMode() {
                 position: 'relative',
                 bgcolor: mode === 'dark' ? 'grey.900' : 'common.white',
                 ...(themeMode === mode && {
-                  boxShadow: (theme) => theme.customShadows.z12,
-                }),
+                  boxShadow: (theme) => theme.customShadows.z12
+                })
               }}
             >
               <CardActionArea sx={{ color: 'primary.main' }}>
@@ -36,8 +36,8 @@ export default function SettingMode() {
                     color: 'text.disabled',
                     justifyContent: 'center',
                     ...(themeMode === mode && {
-                      color: 'primary.main',
-                    }),
+                      color: 'primary.main'
+                    })
                   }}
                 >
                   <Icon icon={index === 0 ? sunFill : moonFill} width={24} height={24} />
@@ -52,7 +52,7 @@ export default function SettingMode() {
                     margin: 0,
                     width: '100%',
                     height: '100%',
-                    position: 'absolute',
+                    position: 'absolute'
                   }}
                 />
               </CardActionArea>

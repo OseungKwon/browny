@@ -3,7 +3,7 @@ import infoFill from '@iconify/icons-eva/info-fill';
 import alertCircleFill from '@iconify/icons-eva/alert-circle-fill';
 import alertTriangleFill from '@iconify/icons-eva/alert-triangle-fill';
 import checkmarkCircle2Fill from '@iconify/icons-eva/checkmark-circle-2-fill';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 export default function Alert(theme) {
@@ -11,17 +11,17 @@ export default function Alert(theme) {
 
   const standardStyle = (color) => ({
     color: theme.palette[color][isLight ? 'darker' : 'lighter'],
-    backgroundColor: theme.palette[color][isLight ? 'lighter' : 'darker'],
+    backgroundColor: theme.palette[color][isLight ? 'lighter' : 'darker']
   });
 
   const filledStyle = (color) => ({
-    color: theme.palette[color].contrastText,
+    color: theme.palette[color].contrastText
   });
 
   const outlinedStyle = (color) => ({
     color: theme.palette[color][isLight ? 'darker' : 'lighter'],
     border: `solid 1px ${theme.palette[color][isLight ? 'light' : 'dark']}`,
-    backgroundColor: theme.palette[color][isLight ? 'lighter' : 'darker'],
+    backgroundColor: theme.palette[color][isLight ? 'lighter' : 'darker']
   });
 
   return {
@@ -31,20 +31,20 @@ export default function Alert(theme) {
           error: <Icon icon={infoFill} />,
           info: <Icon icon={alertCircleFill} />,
           success: <Icon icon={checkmarkCircle2Fill} />,
-          warning: <Icon icon={alertTriangleFill} />,
-        },
+          warning: <Icon icon={alertTriangleFill} />
+        }
       },
 
       styleOverrides: {
         message: {
           '& .MuiAlertTitle-root': {
-            marginBottom: theme.spacing(0.5),
-          },
+            marginBottom: theme.spacing(0.5)
+          }
         },
         action: {
           '& button:not(:first-of-type)': {
-            marginLeft: theme.spacing(1),
-          },
+            marginLeft: theme.spacing(1)
+          }
         },
 
         standardInfo: standardStyle('info'),
@@ -60,8 +60,8 @@ export default function Alert(theme) {
         outlinedInfo: outlinedStyle('info'),
         outlinedSuccess: outlinedStyle('success'),
         outlinedWarning: outlinedStyle('warning'),
-        outlinedError: outlinedStyle('error'),
-      },
-    },
+        outlinedError: outlinedStyle('error')
+      }
+    }
   };
 }

@@ -1,25 +1,28 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // material
-import { alpha, useTheme } from '@material-ui/core/styles';
-import { Radio } from '@material-ui/core';
-import React from 'react';
+import { alpha, useTheme } from "@material-ui/core/styles";
+import { Radio } from "@material-ui/core";
+
 // ----------------------------------------------------------------------
 
-export default function MRadio({ color = 'primary', sx, ...other }) {
+export default function MRadio({ color = "primary", sx, ...other }) {
   const theme = useTheme();
 
-  if (color === 'default' || color === 'primary' || color === 'secondary') {
+  if (color === "default" || color === "primary" || color === "secondary") {
     return <Radio color={color} sx={sx} {...other} />;
   }
 
   return (
     <Radio
       sx={{
-        '&.Mui-checked': {
+        "&.Mui-checked": {
           color: theme.palette[color].main,
         },
-        '&:hover, &.Mui-checked:hover': {
-          bgcolor: alpha(theme.palette[color].main, theme.palette.action.hoverOpacity),
+        "&:hover, &.Mui-checked:hover": {
+          bgcolor: alpha(
+            theme.palette[color].main,
+            theme.palette.action.hoverOpacity
+          ),
         },
         ...sx,
       }}
@@ -30,5 +33,13 @@ export default function MRadio({ color = 'primary', sx, ...other }) {
 
 MRadio.propTypes = {
   sx: PropTypes.object,
-  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'success', 'warning', 'error']),
+  color: PropTypes.oneOf([
+    "default",
+    "primary",
+    "secondary",
+    "info",
+    "success",
+    "warning",
+    "error",
+  ]),
 };

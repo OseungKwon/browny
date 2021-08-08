@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import { Box } from '@material-ui/core';
 //
 import { varWrapEnter } from './variants';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 MotionContainer.propTypes = {
   open: PropTypes.bool.isRequired,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default function MotionContainer({ open, children, ...other }) {

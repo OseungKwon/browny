@@ -19,10 +19,10 @@ export default function Stepper(theme) {
     MuiStepLabel: {
       styleOverrides: {
         iconContainer: {
-          '& .MuiStepIcon-text': {
+          "& .MuiStepIcon-text": {
             fill: theme.palette.common.white,
           },
-          '& .MuiStepIcon-root:not(.Mui-active)': {
+          "& .MuiStepIcon-root:not(.Mui-active)": {
             fill: theme.palette.text.disabled,
           },
         },

@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // material
-import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
-import { ButtonGroup } from '@material-ui/core';
-import React from 'react';
+import { alpha, experimentalStyled as styled } from "@material-ui/core/styles";
+import { ButtonGroup } from "@material-ui/core";
+
 // ----------------------------------------------------------------------
 
 const ButtonGroupStyle = styled(ButtonGroup)(({ theme, styleProps }) => {
@@ -10,47 +10,58 @@ const ButtonGroupStyle = styled(ButtonGroup)(({ theme, styleProps }) => {
 
   const styleContained = (color) => ({
     boxShadow: theme.customShadows[color],
-    '& .MuiButtonGroup-grouped': {
+    "& .MuiButtonGroup-grouped": {
       color: theme.palette[color].contrastText,
       backgroundColor: theme.palette[color].main,
       borderColor: `${theme.palette[color].dark} !important`,
-      '&:hover': {
+      "&:hover": {
         backgroundColor: theme.palette[color].dark,
       },
     },
   });
 
   const styleOutlined = (color) => ({
-    '& .MuiButtonGroup-grouped': {
+    "& .MuiButtonGroup-grouped": {
       color: theme.palette[color].main,
       borderColor: `${alpha(theme.palette[color].main, 0.48)} !important`,
-      '&:hover': {
+      "&:hover": {
         borderColor: `${theme.palette[color].main} !important`,
-        backgroundColor: alpha(theme.palette[color].main, theme.palette.action.hoverOpacity),
+        backgroundColor: alpha(
+          theme.palette[color].main,
+          theme.palette.action.hoverOpacity
+        ),
       },
     },
   });
 
   const styleText = (color) => ({
-    '& .MuiButtonGroup-grouped': {
+    "& .MuiButtonGroup-grouped": {
       color: theme.palette[color].main,
       borderColor: `${theme.palette[color].main} !important`,
-      '&:hover': {
-        backgroundColor: alpha(theme.palette[color].main, theme.palette.action.hoverOpacity),
+      "&:hover": {
+        backgroundColor: alpha(
+          theme.palette[color].main,
+          theme.palette.action.hoverOpacity
+        ),
       },
     },
   });
   return {
-    ...(variant === 'contained' && { ...styleContained(color) }),
-    ...(variant === 'outlined' && { ...styleOutlined(color) }),
-    ...(variant === 'text' && { ...styleText(color) }),
+    ...(variant === "contained" && { ...styleContained(color) }),
+    ...(variant === "outlined" && { ...styleOutlined(color) }),
+    ...(variant === "text" && { ...styleText(color) }),
   };
 });
 
 // ----------------------------------------------------------------------
 
-function MButtonGroup({ color = 'primary', variant = 'outlined', children, ...other }) {
-  if (color === 'inherit' || color === 'primary' || color === 'secondary') {
+function MButtonGroup({
+  color = "primary",
+  variant = "outlined",
+  children,
+  ...other
+}) {
+  if (color === "inherit" || color === "primary" || color === "secondary") {
     return (
       <ButtonGroup color={color} variant={variant} {...other}>
         {children}
@@ -59,7 +70,11 @@ function MButtonGroup({ color = 'primary', variant = 'outlined', children, ...ot
   }
 
   return (
-    <ButtonGroupStyle variant={variant} styleProps={{ color, variant }} {...other}>
+    <ButtonGroupStyle
+      variant={variant}
+      styleProps={{ color, variant }}
+      {...other}
+    >
       {children}
     </ButtonGroupStyle>
   );
@@ -67,8 +82,19 @@ function MButtonGroup({ color = 'primary', variant = 'outlined', children, ...ot
 
 MButtonGroup.propTypes = {
   children: PropTypes.node,
-  color: PropTypes.oneOf(['inherit', 'primary', 'secondary', 'info', 'success', 'warning', 'error']),
-  variant: PropTypes.oneOfType([PropTypes.oneOf(['contained', 'outlined', 'text']), PropTypes.string]),
+  color: PropTypes.oneOf([
+    "inherit",
+    "primary",
+    "secondary",
+    "info",
+    "success",
+    "warning",
+    "error",
+  ]),
+  variant: PropTypes.oneOfType([
+    PropTypes.oneOf(["contained", "outlined", "text"]),
+    PropTypes.string,
+  ]),
 };
 
 export default MButtonGroup;

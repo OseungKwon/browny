@@ -1,17 +1,28 @@
+import PropTypes from 'prop-types';
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
-export default function MaintenanceIllustration({ ...other }) {
+MaintenanceIllustration.propTypes = {
+  sx: PropTypes.object
+};
+
+export default function MaintenanceIllustration({ sx }) {
   const theme = useTheme();
   const PRIMARY_MAIN = theme.palette.primary.main;
   const PRIMARY_DARKER = theme.palette.primary.darker;
 
   return (
-    <Box {...other}>
-      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 480 360">
+    <Box component="svg" viewBox="0 0 480 360" sx={sx}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        width="480"
+        height="360"
+        viewBox="0 0 480 360"
+      >
         <defs>
           <linearGradient id="linearGradient-1" x1="19.496%" x2="77.479%" y1="71.822%" y2="16.69%">
             <stop offset="0%" stopColor={PRIMARY_MAIN} />

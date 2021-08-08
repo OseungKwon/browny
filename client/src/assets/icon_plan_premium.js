@@ -1,7 +1,7 @@
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 export default function PlanPremiumIcon({ ...other }) {
@@ -12,7 +12,13 @@ export default function PlanPremiumIcon({ ...other }) {
 
   return (
     <Box {...other}>
-      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 80 80">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        width="100%"
+        height="100%"
+        viewBox="0 0 80 80"
+      >
         <defs>
           <path id="path-1" d="M0 0H80V80H0z" />
           <path id="path-3" d="M0 0H80V79.729H0z" />
