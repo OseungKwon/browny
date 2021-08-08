@@ -4,14 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Dialog } from '@material-ui/core';
 //
 import { varFadeInUp } from './variants';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 DialogAnimate.propTypes = {
   open: PropTypes.bool.isRequired,
   animate: PropTypes.object,
   onClose: PropTypes.func,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default function DialogAnimate({ open = false, animate, onClose, children, ...other }) {
@@ -27,9 +27,9 @@ export default function DialogAnimate({ open = false, animate, onClose, children
           PaperProps={{
             sx: {
               borderRadius: 2,
-              bgcolor: 'background.paper',
+              bgcolor: 'background.paper'
             },
-            ...(animate || varFadeInUp),
+            ...(animate || varFadeInUp)
           }}
           {...other}
         >

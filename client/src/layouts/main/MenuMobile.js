@@ -1,21 +1,31 @@
-import PropTypes from 'prop-types';
-import { Icon } from '@iconify/react';
-import { useState, useEffect } from 'react';
-import menu2Fill from '@iconify/icons-eva/menu-2-fill';
-import { NavLink as RouterLink, useLocation } from 'react-router-dom';
-import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
-import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
+import PropTypes from "prop-types";
+import { Icon } from "@iconify/react";
+import { useState, useEffect } from "react";
+import menu2Fill from "@iconify/icons-eva/menu-2-fill";
+import arrowIosForwardFill from "@iconify/icons-eva/arrow-ios-forward-fill";
+import arrowIosDownwardFill from "@iconify/icons-eva/arrow-ios-downward-fill";
+// next
+import NextLink from "next/link";
+import { useRouter } from "next/router";
 // material
-import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
-import { Box, List, Drawer, Link, Collapse, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import { alpha, experimentalStyled as styled } from "@material-ui/core/styles";
+import {
+  Box,
+  List,
+  Drawer,
+  Collapse,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from "@material-ui/core";
 // components
-import Logo from '../../components/Logo';
-import NavSection from '../../components/NavSection';
-import Scrollbar from '../../components/Scrollbar';
-import { MIconButton } from '../../components/@material-extend';
+import Logo from "../../components/Logo";
+import NavSection from "../../components/NavSection";
+import Scrollbar from "../../components/Scrollbar";
+import { MIconButton } from "../../components/@material-extend";
 //
-import menuConfig from './MenuConfig';
-import React from 'react';
+import menuConfig from "./MenuConfig";
+
 // ----------------------------------------------------------------------
 
 const ICON_SIZE = 22;
@@ -25,7 +35,7 @@ const PADDING = 2.5;
 const ListItemStyle = styled(ListItem)(({ theme }) => ({
   ...theme.typography.body2,
   height: ITEM_SIZE,
-  textTransform: 'capitalize',
+  textTransform: "capitalize",
   paddingLeft: theme.spacing(PADDING),
   paddingRight: theme.spacing(2.5),
   color: theme.palette.text.secondary,
@@ -49,51 +59,56 @@ function MenuMobileItem({ item, isOpen, isActive, onOpen }) {
         <ListItemStyle button onClick={onOpen}>
           <ListItemIcon>{icon}</ListItemIcon>
           <ListItemText disableTypography primary={title} />
-          <Box component={Icon} icon={isOpen ? arrowIosDownwardFill : arrowIosForwardFill} sx={{ width: 16, height: 16, ml: 1 }} />
+          <Box
+            component={Icon}
+            icon={isOpen ? arrowIosDownwardFill : arrowIosForwardFill}
+            sx={{ width: 16, height: 16, ml: 1 }}
+          />
         </ListItemStyle>
 
         <Collapse in={isOpen} timeout="auto" unmountOnExit>
-          <Box sx={{ display: 'flex', flexDirection: 'column-reverse' }}>
+          <Box sx={{ display: "flex", flexDirection: "column-reverse" }}>
             <NavSection
               navConfig={menuConfig[2].children}
               sx={{
-                '&.MuiList-root:last-child .MuiListItem-root': {
+                "&.MuiList-root:last-child .MuiListItem-root": {
                   height: 200,
-                  backgroundSize: '92%',
-                  backgroundPosition: 'center',
-                  bgcolor: 'background.neutral',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundImage: 'url(/static/illustrations/illustration_dashboard.png)',
-                  '& > *:not(.MuiTouchRipple-root)': { display: 'none' },
+                  backgroundSize: "92%",
+                  backgroundPosition: "center",
+                  bgcolor: "background.neutral",
+                  backgroundRepeat: "no-repeat",
+                  backgroundImage:
+                    "url(/static/illustrations/illustration_dashboard.png)",
+                  "& > *:not(.MuiTouchRipple-root)": { display: "none" },
                 },
-                '& .MuiListSubheader-root': {
+                "& .MuiListSubheader-root": {
                   pl: PADDING,
-                  display: 'flex',
-                  alignItems: 'center',
-                  '&:before': {
-                    ml: '6px',
-                    mr: '22px',
+                  display: "flex",
+                  alignItems: "center",
+                  "&:before": {
+                    ml: "6px",
+                    mr: "22px",
                     width: 8,
                     height: 2,
                     content: "''",
                     borderRadius: 2,
-                    bgcolor: 'currentColor',
+                    bgcolor: "currentColor",
                   },
                 },
-                '& .MuiListItem-root': {
+                "& .MuiListItem-root": {
                   pl: PADDING,
-                  '&:before': { display: 'none' },
-                  '&.active': { color: 'primary.main', bgcolor: 'transparent' },
+                  "&:before": { display: "none" },
+                  "&.active": { color: "primary.main", bgcolor: "transparent" },
                 },
-                '& .MuiListItemIcon-root': {
+                "& .MuiListItemIcon-root": {
                   width: ICON_SIZE,
                   height: ICON_SIZE,
-                  '&:before': {
+                  "&:before": {
                     width: 4,
                     height: 4,
                     content: "''",
-                    borderRadius: '50%',
-                    bgcolor: 'currentColor',
+                    borderRadius: "50%",
+                    bgcolor: "currentColor",
                   },
                 },
               }}
@@ -104,43 +119,26 @@ function MenuMobileItem({ item, isOpen, isActive, onOpen }) {
     );
   }
 
-  if (title === 'Documentation') {
-    return (
+  return (
+    <NextLink key={title} href={path}>
       <ListItemStyle
         button
-        href={path}
-        target="_blank"
-        component={Link}
         sx={{
           ...(isActive && {
-            color: 'primary.main',
-            fontWeight: 'fontWeightMedium',
-            bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+            color: "primary.main",
+            fontWeight: "fontWeightMedium",
+            bgcolor: (theme) =>
+              alpha(
+                theme.palette.primary.main,
+                theme.palette.action.selectedOpacity
+              ),
           }),
         }}
       >
         <ListItemIcon>{icon}</ListItemIcon>
         <ListItemText disableTypography primary={title} />
       </ListItemStyle>
-    );
-  }
-
-  return (
-    <ListItemStyle
-      button
-      to={path}
-      component={RouterLink}
-      sx={{
-        ...(isActive && {
-          color: 'primary.main',
-          fontWeight: 'fontWeightMedium',
-          bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
-        }),
-      }}
-    >
-      <ListItemIcon>{icon}</ListItemIcon>
-      <ListItemText disableTypography primary={title} />
-    </ListItemStyle>
+    </NextLink>
   );
 }
 
@@ -150,7 +148,7 @@ MenuMobile.propTypes = {
 };
 
 export default function MenuMobile({ isOffset, isHome }) {
-  const { pathname } = useLocation();
+  const { pathname } = useRouter();
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -179,22 +177,35 @@ export default function MenuMobile({ isOffset, isHome }) {
         onClick={handleDrawerOpen}
         sx={{
           ml: 1,
-          ...(isHome && { color: 'common.white' }),
-          ...(isOffset && { color: 'text.primary' }),
+          ...(isHome && { color: "common.white" }),
+          ...(isOffset && { color: "text.primary" }),
         }}
       >
         <Icon icon={menu2Fill} />
       </MIconButton>
 
-      <Drawer open={mobileOpen} onClose={handleDrawerClose} ModalProps={{ keepMounted: true }} PaperProps={{ sx: { pb: 5, width: 260 } }}>
+      <Drawer
+        open={mobileOpen}
+        onClose={handleDrawerClose}
+        ModalProps={{ keepMounted: true }}
+        PaperProps={{ sx: { pb: 5, width: 260 } }}
+      >
         <Scrollbar>
-          <Link component={RouterLink} to="/" sx={{ display: 'inline-flex' }}>
-            <Logo sx={{ mx: PADDING, my: 3 }} />
-          </Link>
+          <Box sx={{ display: "inline-flex" }}>
+            <NextLink href="/">
+              <Logo sx={{ mx: PADDING, my: 3 }} />
+            </NextLink>
+          </Box>
 
           <List disablePadding>
             {menuConfig.map((link) => (
-              <MenuMobileItem key={link.title} item={link} isOpen={open} onOpen={handleOpen} isActive={pathname === link.path} />
+              <MenuMobileItem
+                key={link.title}
+                item={link}
+                isOpen={open}
+                onOpen={handleOpen}
+                isActive={pathname === link.path}
+              />
             ))}
           </List>
         </Scrollbar>

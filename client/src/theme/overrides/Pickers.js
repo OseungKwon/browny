@@ -8,9 +8,9 @@ export default function Pickers(theme) {
       styleOverrides: {
         paper: {
           boxShadow: theme.customShadows.z24,
-          borderRadius: theme.shape.borderRadiusMd,
-        },
-      },
+          borderRadius: theme.shape.borderRadiusMd
+        }
+      }
     },
 
     PrivatePicker: {
@@ -24,35 +24,35 @@ export default function Pickers(theme) {
             '& .MuiTypography-root': {
               color: alpha(theme.palette.common.white, 0.72),
               '&.Mui-selected': {
-                color: theme.palette.common.white,
-              },
-            },
+                color: theme.palette.common.white
+              }
+            }
           },
           '& .MuiTab-root': {
             margin: 0,
             color: alpha(theme.palette.common.white, 0.72),
             '&.Mui-selected': {
-              color: theme.palette.common.white,
-            },
+              color: theme.palette.common.white
+            }
           },
           '& .MuiTabs-indicator': {
             width: '160px !important',
-            backgroundColor: theme.palette.primary.dark,
-          },
+            backgroundColor: theme.palette.primary.dark
+          }
         },
         landscape: {
-          border: `solid 1px ${theme.palette.divider}`,
-        },
-      },
+          border: `solid 1px ${theme.palette.divider}`
+        }
+      }
     },
 
     MuiDateRangePickerViewDesktop: {
       styleOverrides: {
         root: {
           border: `solid 1px ${theme.palette.divider}`,
-          borderRadius: theme.shape.borderRadiusMd,
-        },
-      },
-    },
+          borderRadius: theme.shape.borderRadiusMd
+        }
+      }
+    }
   };
 }

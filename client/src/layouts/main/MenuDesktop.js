@@ -2,13 +2,15 @@ import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 import arrowIosUpwardFill from '@iconify/icons-eva/arrow-ios-upward-fill';
 import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
+// next
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Link, Grid, List, Stack, Popover, ListItem, ListSubheader, CardActionArea } from '@material-ui/core';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 const LinkStyle = styled(Link)(({ theme }) => ({
@@ -41,7 +43,12 @@ function IconBullet({ type = 'item' }) {
           height: 4,
           borderRadius: '50%',
           bgcolor: 'currentColor',
-          ...(type !== 'item' && { ml: 0, width: 8, height: 2, borderRadius: 2 }),
+          ...(type !== 'item' && {
+            ml: 0,
+            width: 8,
+            height: 2,
+            borderRadius: 2,
+          }),
         }}
       />
     </Box>
@@ -71,7 +78,6 @@ function MenuDesktopItem({ item, pathname, isHome, isOpen, isOffset, onOpen, onC
             display: 'flex',
             cursor: 'pointer',
             alignItems: 'center',
-            ...(isHome && { color: 'common.white' }),
             ...(isOffset && { color: 'text.primary' }),
             ...(isOpen && { opacity: 0.48 }),
           }}
@@ -122,52 +128,52 @@ function MenuDesktopItem({ item, pathname, isHome, isOpen, isOffset, onOpen, onC
                     </ListSubheader>
 
                     {items.map((item) => (
-                      <ListItem
-                        key={item.title}
-                        to={item.path}
-                        component={RouterLink}
-                        underline="none"
-                        sx={{
-                          p: 0,
-                          mt: 3,
-                          typography: 'body2',
-                          color: 'text.secondary',
-                          transition: (theme) => theme.transitions.create('color'),
-                          '&:hover': { color: 'text.primary' },
-                          ...(item.path === pathname && {
-                            typography: 'subtitle2',
-                            color: 'text.primary',
-                          }),
-                        }}
-                      >
-                        {item.title === 'Dashboard' ? (
-                          <CardActionArea
-                            sx={{
-                              py: 5,
-                              px: 10,
-                              borderRadius: 2,
-                              color: 'primary.main',
-                              bgcolor: 'background.neutral',
-                            }}
-                          >
-                            <Box
-                              component={motion.img}
-                              whileTap="tap"
-                              whileHover="hover"
-                              variants={{
-                                hover: { scale: 1.02 },
-                                tap: { scale: 0.98 },
+                      <NextLink key={item.title} href={item.path}>
+                        <ListItem
+                          underline="none"
+                          sx={{
+                            p: 0,
+                            mt: 3,
+                            typography: 'body2',
+                            color: 'text.secondary',
+                            transition: (theme) => theme.transitions.create('color'),
+                            '&:hover': { color: 'text.primary' },
+                            ...(item.path === pathname && {
+                              typography: 'subtitle2',
+                              color: 'text.primary',
+                            }),
+                          }}
+                        >
+                          {item.title === 'Dashboard' ? (
+                            <CardActionArea
+                              sx={{
+                                py: 5,
+                                px: 10,
+                                borderRadius: 2,
+                                color: 'primary.main',
+                                bgcolor: 'background.neutral',
                               }}
-                              src="/static/illustrations/illustration_dashboard.png"
-                            />
-                          </CardActionArea>
-                        ) : (
-                          <>
-                            <IconBullet />
-                            {item.title}
-                          </>
-                        )}
-                      </ListItem>
+                            >
+                              <Box
+                                component={motion.img}
+                                whileTap="tap"
+                                whileHover="hover"
+                                variants={{
+                                  hover: { scale: 1.02 },
+                                  tap: { scale: 0.98 },
+                                }}
+                                src="/static/illustrations/illustration_dashboard.png"
+                                sx={{ minWidth: 420 }}
+                              />
+                            </CardActionArea>
+                          ) : (
+                            <>
+                              <IconBullet />
+                              {item.title}
+                            </>
+                          )}
+                        </ListItem>
+                      </NextLink>
                     ))}
                   </List>
                 </Grid>
@@ -179,34 +185,17 @@ function MenuDesktopItem({ item, pathname, isHome, isOpen, isOffset, onOpen, onC
     );
   }
 
-  if (title === 'Documentation') {
-    return (
+  return (
+    <NextLink key={title} href={path} passHref>
       <LinkStyle
-        href={path}
-        target="_blank"
         sx={{
-          ...(isHome && { color: 'common.white' }),
           ...(isOffset && { color: 'text.primary' }),
           ...(isActive && { color: 'primary.main' }),
         }}
       >
         {title}
       </LinkStyle>
-    );
-  }
-
-  return (
-    <LinkStyle
-      to={path}
-      component={RouterLink}
-      sx={{
-        ...(isHome && { color: 'common.white' }),
-        ...(isOffset && { color: 'text.primary' }),
-        ...(isActive && { color: 'primary.main' }),
-      }}
-    >
-      {title}
-    </LinkStyle>
+    </NextLink>
   );
 }
 
@@ -217,7 +206,7 @@ MenuDesktop.propTypes = {
 };
 
 export default function MenuDesktop({ isOffset, isHome, navConfig }) {
-  const { pathname } = useLocation();
+  const { pathname } = useRouter();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {

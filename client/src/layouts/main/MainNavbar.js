@@ -1,4 +1,6 @@
-import { NavLink as RouterLink, useLocation } from 'react-router-dom';
+// next
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Button, AppBar, Toolbar, Container } from '@material-ui/core';
@@ -12,11 +14,11 @@ import { MHidden } from '../../components/@material-extend';
 import MenuDesktop from './MenuDesktop';
 import MenuMobile from './MenuMobile';
 import navConfig from './MenuConfig';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 const APP_BAR_MOBILE = 64;
-const APP_BAR_DESKTOP = 88;
+const APP_BAR_DESKTOP = 64;
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   height: APP_BAR_MOBILE,
@@ -46,11 +48,11 @@ const ToolbarShadowStyle = styled('div')(({ theme }) => ({
 
 export default function MainNavbar() {
   const isOffset = useOffSetTop(100);
-  const { pathname } = useLocation();
+  const { pathname } = useRouter();
   const isHome = pathname === '/';
 
   return (
-    <AppBar color={isHome ? 'transparent' : 'default'} sx={{ boxShadow: 0 }}>
+    <AppBar color="default" sx={{ boxShadow: 0 }}>
       <ToolbarStyle
         disableGutters
         sx={{
@@ -68,21 +70,14 @@ export default function MainNavbar() {
             justifyContent: 'space-between',
           }}
         >
-          <RouterLink to="/">
-            <Logo />
-          </RouterLink>
           <Label color="info" sx={{ ml: 1 }}>
-            v2.2.0
+            QLICK
           </Label>
           <Box sx={{ flexGrow: 1 }} />
 
           <MHidden width="mdDown">
             <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
           </MHidden>
-
-          <Button variant="contained" target="_blank" href="https://material-ui.com/store/items/minimal-dashboard/">
-            Purchase Now
-          </Button>
 
           <MHidden width="mdUp">
             <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={navConfig} />

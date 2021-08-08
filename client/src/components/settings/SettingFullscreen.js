@@ -5,7 +5,7 @@ import roundFullscreenExit from '@iconify/icons-ic/round-fullscreen-exit';
 // material
 import { alpha } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 export default function SettingFullscreen() {
@@ -32,8 +32,8 @@ export default function SettingFullscreen() {
       sx={{
         fontSize: 14,
         ...(fullscreen && {
-          bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
-        }),
+          bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity)
+        })
       }}
     >
       {fullscreen ? 'Exit Fullscreen' : 'Fullscreen'}

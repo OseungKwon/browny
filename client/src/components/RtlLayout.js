@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 // rtl
-import rtl from 'jss-rtl';
-import { create } from 'jss';
-import rtlPlugin from 'stylis-plugin-rtl';
+import rtl from "jss-rtl";
+import { create } from "jss";
+import rtlPlugin from "stylis-plugin-rtl";
 // emotion
-import createCache from '@emotion/cache';
-import { CacheProvider } from '@emotion/react';
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
 // material
-import { StylesProvider, jssPreset } from '@material-ui/styles';
-import { useTheme } from '@material-ui/core/styles';
-import React from 'react';
+import { StylesProvider, jssPreset } from "@material-ui/styles";
+import { useTheme } from "@material-ui/core/styles";
+
 // ----------------------------------------------------------------------
 
 RtlLayout.propTypes = {
@@ -29,9 +29,9 @@ export default function RtlLayout({ children }) {
   }, [theme.direction]);
 
   const cache = createCache({
-    key: theme.direction === 'rtl' ? 'rtl' : 'css',
+    key: theme.direction === "rtl" ? "rtl" : "css",
     prepend: true,
-    stylisPlugins: theme.direction === 'rtl' ? [rtlPlugin] : [],
+    stylisPlugins: theme.direction === "rtl" ? [rtlPlugin] : [],
   });
 
   cache.compat = true;

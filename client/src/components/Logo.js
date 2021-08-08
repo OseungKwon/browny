@@ -1,23 +1,25 @@
-import PropTypes from 'prop-types';
+import { forwardRef } from "react";
+import PropTypes from "prop-types";
 // material
-import { useTheme } from '@material-ui/core/styles';
-import { Box } from '@material-ui/core';
-import React from 'react';
+import { useTheme } from "@material-ui/core/styles";
+import { Box } from "@material-ui/core";
+
 // ----------------------------------------------------------------------
 
-Logo.propTypes = {
-  sx: PropTypes.object,
-};
-
-export default function Logo({ sx }) {
+const Logo = forwardRef(({ sx }, ref) => {
   const theme = useTheme();
   const PRIMARY_LIGHT = theme.palette.primary.light;
   const PRIMARY_MAIN = theme.palette.primary.main;
   const PRIMARY_DARK = theme.palette.primary.dark;
 
   return (
-    <Box sx={{ width: 40, height: 40, ...sx }}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 512 512">
+    <Box ref={ref} sx={{ width: 40, height: 40, cursor: "pointer", ...sx }}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="100%"
+        height="100%"
+        viewBox="0 0 512 512"
+      >
         <defs>
           <linearGradient id="BG1" x1="100%" x2="50%" y1="9.946%" y2="50%">
             <stop offset="0%" stopColor={PRIMARY_DARK} />
@@ -41,9 +43,18 @@ export default function Logo({ sx }) {
             fill="url(#BG2)"
             d="M444.31 229.726c-46.27-80.956-94.1-157.228-149.043-45.344-7.516 14.384-12.995 42.337-25.267 42.337v-.142c-12.272 0-17.75-27.953-25.265-42.337C189.79 72.356 141.96 148.628 95.69 229.584c-3.483 6.106-6.828 11.932-9.69 16.996 106.038-67.127 97.11 135.667 184 137.278V384c86.891-1.611 77.962-204.405 184-137.28-2.86-5.062-6.206-10.888-9.69-16.994"
           />
-          <path fill="url(#BG3)" d="M450 384c26.509 0 48-21.491 48-48s-21.491-48-48-48-48 21.491-48 48 21.491 48 48 48" />
+          <path
+            fill="url(#BG3)"
+            d="M450 384c26.509 0 48-21.491 48-48s-21.491-48-48-48-48 21.491-48 48 21.491 48 48 48"
+          />
         </g>
       </svg>
     </Box>
   );
-}
+});
+
+Logo.propTypes = {
+  sx: PropTypes.object,
+};
+
+export default Logo;

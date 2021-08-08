@@ -5,9 +5,9 @@ export default function Radio(theme) {
     MuiRadio: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(1),
-        },
-      },
-    },
+          padding: theme.spacing(1)
+        }
+      }
+    }
   };
 }
