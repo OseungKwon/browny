@@ -1,10 +1,15 @@
+import PropTypes from 'prop-types';
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
-export default function MotivationIllustration({ ...other }) {
+MotivationIllustration.propTypes = {
+  sx: PropTypes.object
+};
+
+export default function MotivationIllustration({ sx, ...other }) {
   const theme = useTheme();
   const PRIMARY_LIGHTER = theme.palette.primary.lighter;
   const PRIMARY_MAIN = theme.palette.primary.main;
@@ -12,8 +17,14 @@ export default function MotivationIllustration({ ...other }) {
   const PRIMARY_DARKER = theme.palette.primary.darker;
 
   return (
-    <Box {...other}>
-      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 480 360">
+    <Box sx={sx} {...other}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        width="100%"
+        height="100%"
+        viewBox="0 0 480 360"
+      >
         <defs>
           <linearGradient id="BG" x1="19.496%" x2="77.479%" y1="71.822%" y2="16.69%">
             <stop offset="0%" stopColor={PRIMARY_MAIN} />
@@ -38,7 +49,12 @@ export default function MotivationIllustration({ ...other }) {
               d="M196.074 137.674a4 4 0 014-4h17.311a4 4 0 014 4v112.341h-25.311V137.674z"
               opacity="0.5"
             />
-            <path fill="url(#STYLE)" fillRule="nonzero" d="M139.96 74a4 4 0 014-4h17.312a4 4 0 014 4v180.316H139.96V74z" opacity="0.5" />
+            <path
+              fill="url(#STYLE)"
+              fillRule="nonzero"
+              d="M139.96 74a4 4 0 014-4h17.312a4 4 0 014 4v180.316H139.96V74z"
+              opacity="0.5"
+            />
             <path
               fill={PRIMARY_DARKER}
               fillRule="nonzero"

@@ -91,6 +91,6 @@ export default function ComponentsOverrides(theme) {
     ControlLabel(theme),
     Autocomplete(theme),
     ToggleButton(theme),
-    LoadingButton(theme),
+    LoadingButton(theme)
   );
 }

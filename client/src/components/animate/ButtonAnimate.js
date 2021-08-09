@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import { Box } from '@material-ui/core';
 //
 import { varSmallClick, varMediumClick } from './variants';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 ButtonAnimate.propTypes = {
   mediumClick: PropTypes.bool,
   children: PropTypes.node,
-  sx: PropTypes.object,
+  sx: PropTypes.object
 };
 
 export default function ButtonAnimate({ mediumClick = false, children, sx, ...other }) {

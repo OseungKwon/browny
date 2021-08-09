@@ -1,34 +1,40 @@
-import { Link as RouterLink, Outlet } from 'react-router-dom';
+import PropTypes from "prop-types";
+// next
+import NextLink from "next/link";
 // material
-import { experimentalStyled as styled } from '@material-ui/core/styles';
+import { experimentalStyled as styled } from "@material-ui/core/styles";
 // components
-import Logo from '../components/Logo';
-import React from 'react';
+import Logo from "../components/Logo";
+
 // ----------------------------------------------------------------------
 
-const HeaderStyle = styled('header')(({ theme }) => ({
+const HeaderStyle = styled("header")(({ theme }) => ({
   top: 0,
   left: 0,
   lineHeight: 0,
-  width: '100%',
-  position: 'absolute',
+  width: "100%",
+  position: "absolute",
   padding: theme.spacing(3, 3, 0),
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up("sm")]: {
     padding: theme.spacing(5, 5, 0),
   },
 }));
 
 // ----------------------------------------------------------------------
 
-export default function LogoOnlyLayout() {
+LogoOnlyLayout.propTypes = {
+  children: PropTypes.node,
+};
+
+export default function LogoOnlyLayout({ children }) {
   return (
     <>
       <HeaderStyle>
-        <RouterLink to="/">
+        <NextLink href="/">
           <Logo />
-        </RouterLink>
+        </NextLink>
       </HeaderStyle>
-      <Outlet />
+      {children}
     </>
   );
 }

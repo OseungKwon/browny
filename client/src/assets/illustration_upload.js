@@ -1,8 +1,13 @@
+import PropTypes from 'prop-types';
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-import React from 'react';
+
 // ----------------------------------------------------------------------
+
+UploadIllustration.propTypes = {
+  sx: PropTypes.object
+};
 
 export default function UploadIllustration({ ...other }) {
   const theme = useTheme();
@@ -194,7 +199,15 @@ export default function UploadIllustration({ ...other }) {
             fillRule="nonzero"
             d="M389.069 287.344s-12.641-.762-11.152 8.097c0 0-.299 1.563 1.124 2.275 0 0 .021-.658 1.295-.434.454.077.916.099 1.375.066a2.832 2.832 0 001.677-.694c.468-.409 3.555-1.468 4.936-7.274 0 0 1.023-1.267.981-1.593l-2.132.897s.73 1.54.156 2.816c0 0-.069-2.759-.479-2.691-.083 0-1.109.533-1.109.533s1.253 2.69.299 4.628c0 0 .359-3.304-.699-4.434l-1.495.876s1.465 2.768.472 5.029c0 0 .254-3.465-.789-4.817l-1.361 1.062s1.379 2.729.539 4.604c0 0-.111-4.036-.835-4.341 0 0-1.195 1.049-1.369 1.494 0 0 .942 1.98.356 3.026 0 0-.359-2.691-.652-2.691 0 0-1.196 1.794-1.309 2.99 0 0 .051-1.818 1.022-3.172a3.593 3.593 0 00-1.818.942s.186-1.262 2.111-1.37c0 0 .981-1.351 1.241-1.435 0 0-1.914-.158-3.074.356 0 0 1.023-1.196 3.427-.649l1.342-1.094s-2.52-.347-3.588.036c0 0 1.229-1.052 3.95-.299l1.462-.873s-2.147-.463-3.426-.299c0 0 1.348-.729 3.856.06l1.044-.47s-1.573-.299-2.033-.358c-.461-.06-.488-.174-.488-.174a5.426 5.426 0 012.957.329s2.222-.813 2.186-.954z"
           />
-          <ellipse cx="380.363" cy="298.487" fill={PRIMARY_MAIN} fillRule="nonzero" opacity="0.1" rx="8.945" ry="1.513" />
+          <ellipse
+            cx="380.363"
+            cy="298.487"
+            fill={PRIMARY_MAIN}
+            fillRule="nonzero"
+            opacity="0.1"
+            rx="8.945"
+            ry="1.513"
+          />
           <path
             fill={PRIMARY_MAIN}
             fillRule="nonzero"
@@ -348,7 +361,12 @@ export default function UploadIllustration({ ...other }) {
             fillRule="nonzero"
             d="M101.2 260.575s-7.961-16.193-10.147-15.846c-1.037.17-1.516 1.196-1.734 2.218a6.516 6.516 0 00.434 3.941c1.13 2.601 4.165 7.519 11.447 9.687z"
           />
-          <path stroke={PRIMARY_DARKER} strokeLinecap="round" strokeWidth="0.5" d="M91.113 247.808s8.353 12.115 9.968 12.647" />
+          <path
+            stroke={PRIMARY_DARKER}
+            strokeLinecap="round"
+            strokeWidth="0.5"
+            d="M91.113 247.808s8.353 12.115 9.968 12.647"
+          />
           <path stroke={PRIMARY_DARKER} strokeLinecap="round" strokeWidth="0.5" d="M90.344 249.701L92.293 249.701" />
           <path stroke={PRIMARY_DARKER} strokeLinecap="round" strokeWidth="0.5" d="M92.68 254.132L95.738 254.263" />
           <path stroke={PRIMARY_DARKER} strokeLinecap="round" strokeWidth="0.5" d="M94.542 250.586L94.21 252.179" />
@@ -358,7 +376,12 @@ export default function UploadIllustration({ ...other }) {
             fillRule="nonzero"
             d="M100.964 260.575s7.959-16.193 10.144-15.846c1.041.17 1.519 1.196 1.734 2.218a6.514 6.514 0 01-.433 3.941c-1.13 2.601-4.168 7.519-11.445 9.687z"
           />
-          <path stroke={PRIMARY_DARKER} strokeLinecap="round" strokeWidth="0.5" d="M111.051 247.808s-8.371 12.115-9.97 12.647" />
+          <path
+            stroke={PRIMARY_DARKER}
+            strokeLinecap="round"
+            strokeWidth="0.5"
+            d="M111.051 247.808s-8.371 12.115-9.97 12.647"
+          />
           <path stroke={PRIMARY_DARKER} strokeLinecap="round" strokeWidth="0.5" d="M111.82 249.701L109.871 249.701" />
           <path stroke={PRIMARY_DARKER} strokeLinecap="round" strokeWidth="0.5" d="M109.485 254.132L106.426 254.263" />
           <path stroke={PRIMARY_DARKER} strokeLinecap="round" strokeWidth="0.5" d="M107.622 250.586L107.954 252.179" />

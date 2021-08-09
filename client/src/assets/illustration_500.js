@@ -1,10 +1,15 @@
+import PropTypes from 'prop-types';
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
-export default function SeverErrorIllustration({ ...other }) {
+SeverErrorIllustration.propTypes = {
+  sx: PropTypes.object
+};
+
+export default function SeverErrorIllustration({ sx, ...other }) {
   const theme = useTheme();
   const PRIMARY_LIGHTER = theme.palette.primary.lighter;
   const PRIMARY_MAIN = theme.palette.primary.main;
@@ -12,8 +17,14 @@ export default function SeverErrorIllustration({ ...other }) {
   const PRIMARY_DARKER = theme.palette.primary.darker;
 
   return (
-    <Box {...other}>
-      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 480 360">
+    <Box sx={sx} {...other}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        width="100%"
+        height="100%"
+        viewBox="0 0 480 360"
+      >
         <defs>
           <linearGradient id="BG" x1="19.496%" x2="77.479%" y1="71.822%" y2="16.69%">
             <stop offset="0%" stopColor={PRIMARY_MAIN} />
@@ -59,17 +70,51 @@ export default function SeverErrorIllustration({ ...other }) {
               fillRule="nonzero"
               d="M255.417 228.267v14.023a1.233 1.233 0 11-2.126 0v-14.023a9.207 9.207 0 00-10.312-9.142 9.207 9.207 0 00-10.303 9.142v14.023a1.234 1.234 0 11-2.136 0v-14.023a12.474 12.474 0 0118.974-11.691 12.472 12.472 0 015.885 11.691h.018z"
             />
-            <rect width="47.766" height="47.766" x="217.347" y="242.234" fill={PRIMARY_DARKER} fillRule="nonzero" rx="7.305" />
-            <rect width="39.479" height="47.756" x="225.633" y="242.244" fill={PRIMARY_DARK} fillRule="nonzero" rx="7.297" />
+            <rect
+              width="47.766"
+              height="47.766"
+              x="217.347"
+              y="242.234"
+              fill={PRIMARY_DARKER}
+              fillRule="nonzero"
+              rx="7.305"
+            />
+            <rect
+              width="39.479"
+              height="47.756"
+              x="225.633"
+              y="242.244"
+              fill={PRIMARY_DARK}
+              fillRule="nonzero"
+              rx="7.297"
+            />
             <path
               fill={PRIMARY_DARKER}
               fillRule="nonzero"
               d="M244.424 267.737c.503-1.769-.846-3.727-1.168-5.539a3.038 3.038 0 115.987-.025c-.307 1.813-1.628 3.808-1.075 5.562l.399 1.269a2.361 2.361 0 11-4.522.064l.379-1.331z"
             />
             <rect width="38" height="38.752" x="228" y="145" fill={PRIMARY_MAIN} fillRule="nonzero" rx="8" />
-            <rect width="28.413" height="38.752" x="80.568" y="129.67" fill={PRIMARY_MAIN} fillRule="nonzero" opacity="0.18" rx="3" />
+            <rect
+              width="28.413"
+              height="38.752"
+              x="80.568"
+              y="129.67"
+              fill={PRIMARY_MAIN}
+              fillRule="nonzero"
+              opacity="0.18"
+              rx="3"
+            />
             <rect width="28.413" height="38.752" x="73.645" y="135.949" fill="#FFF" fillRule="nonzero" rx="3" />
-            <rect width="28.413" height="38.752" x="73.645" y="135.949" fill={PRIMARY_MAIN} fillRule="nonzero" opacity="0.48" rx="3" />
+            <rect
+              width="28.413"
+              height="38.752"
+              x="73.645"
+              y="135.949"
+              fill={PRIMARY_MAIN}
+              fillRule="nonzero"
+              opacity="0.48"
+              rx="3"
+            />
             <path
               fill={PRIMARY_DARKER}
               fillRule="nonzero"

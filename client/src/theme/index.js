@@ -1,19 +1,23 @@
-import PropTypes from 'prop-types';
-import { useMemo } from 'react';
+import PropTypes from "prop-types";
+import { useMemo } from "react";
 // material
-import { CssBaseline } from '@material-ui/core';
-import { ThemeProvider, createTheme, StyledEngineProvider } from '@material-ui/core/styles';
+import { CssBaseline } from "@material-ui/core";
+import {
+  ThemeProvider,
+  createTheme,
+  StyledEngineProvider,
+} from "@material-ui/core/styles";
 // hooks
-import useSettings from '../hooks/useSettings';
+import useSettings from "../hooks/useSettings";
 //
-import shape from './shape';
-import palette from './palette';
-import typography from './typography';
-import breakpoints from './breakpoints';
-import GlobalStyles from './globalStyles';
-import componentsOverride from './overrides';
-import shadows, { customShadows } from './shadows';
-import React from 'react';
+import shape from "./shape";
+import palette from "./palette";
+import typography from "./typography";
+import breakpoints from "./breakpoints";
+import GlobalStyles from "./globalStyles";
+import componentsOverride from "./overrides";
+import shadows, { customShadows } from "./shadows";
+
 // ----------------------------------------------------------------------
 
 ThemeConfig.propTypes = {
@@ -22,11 +26,13 @@ ThemeConfig.propTypes = {
 
 export default function ThemeConfig({ children }) {
   const { themeMode, themeDirection } = useSettings();
-  const isLight = themeMode === 'light';
+  const isLight = themeMode === "light";
 
   const themeOptions = useMemo(
     () => ({
-      palette: isLight ? { ...palette.light, mode: 'light' } : { ...palette.dark, mode: 'dark' },
+      palette: isLight
+        ? { ...palette.light, mode: "light" }
+        : { ...palette.dark, mode: "dark" },
       shape,
       typography,
       breakpoints,
@@ -34,7 +40,7 @@ export default function ThemeConfig({ children }) {
       shadows: isLight ? shadows.light : shadows.dark,
       customShadows: isLight ? customShadows.light : customShadows.dark,
     }),
-    [isLight, themeDirection],
+    [isLight, themeDirection]
   );
 
   const theme = createTheme(themeOptions);

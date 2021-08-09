@@ -2,7 +2,6 @@ import { Icon } from '@iconify/react';
 import starFill from '@iconify/icons-eva/star-fill';
 import { SvgIcon } from '@material-ui/core';
 
-import React from 'react';
 // ----------------------------------------------------------------------
 
 const ICON_SMALL = { width: 20, height: 20 };
@@ -19,19 +18,19 @@ export default function Rating(theme) {
     MuiRating: {
       defaultProps: {
         emptyIcon: ICON,
-        icon: ICON,
+        icon: ICON
       },
 
       styleOverrides: {
         root: {
           '&.Mui-disabled': {
-            opacity: 0.48,
-          },
+            opacity: 0.48
+          }
         },
         iconEmpty: { color: theme.palette.grey[500_48] },
         sizeSmall: { '& svg': { ...ICON_SMALL } },
-        sizeLarge: { '& svg': { ...ICON_LARGE } },
-      },
-    },
+        sizeLarge: { '& svg': { ...ICON_LARGE } }
+      }
+    }
   };
 }

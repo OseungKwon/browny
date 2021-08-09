@@ -1,28 +1,31 @@
-import { Link as RouterLink } from 'react-router-dom';
 // material
-import { alpha, useTheme, experimentalStyled as styled } from '@material-ui/core/styles';
-import { Box, Grid, Button, Container, Typography } from '@material-ui/core';
-// routes
-import { PATH_PAGE } from '../../../routes/paths';
+import {
+  alpha,
+  useTheme,
+  experimentalStyled as styled,
+} from "@material-ui/core/styles";
+import { Box, Grid, Button, Container, Typography } from "@material-ui/core";
 //
-import { varFadeInUp, MotionInView } from '../../animate';
-import React from 'react';
+import { varFadeInUp, MotionInView } from "../../animate";
+
 // ----------------------------------------------------------------------
 
-const RootStyle = styled('div')(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }) => ({
   padding: theme.spacing(24, 0),
   backgroundImage:
-    theme.palette.mode === 'light'
-      ? `linear-gradient(180deg, ${alpha(theme.palette.grey[300], 0)} 0%, ${theme.palette.grey[300]} 100%)`
-      : 'none',
+    theme.palette.mode === "light"
+      ? `linear-gradient(180deg, ${alpha(theme.palette.grey[300], 0)} 0%, ${
+          theme.palette.grey[300]
+        } 100%)`
+      : "none",
 }));
 
-const ContentStyle = styled('div')(({ theme }) => ({
-  width: '100%',
-  textAlign: 'center',
+const ContentStyle = styled("div")(({ theme }) => ({
+  width: "100%",
+  textAlign: "center",
   marginBottom: theme.spacing(10),
-  [theme.breakpoints.up('md')]: {
-    textAlign: 'left',
+  [theme.breakpoints.up("md")]: {
+    textAlign: "left",
     marginBottom: 0,
   },
 }));
@@ -32,15 +35,16 @@ const ScreenStyle = styled(MotionInView)(({ theme }) => ({
   paddingBottom: 1,
   maxWidth: 160,
   borderRadius: 8,
-  backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 300 : 800],
-  [theme.breakpoints.up('sm')]: {
+  backgroundColor:
+    theme.palette.grey[theme.palette.mode === "light" ? 300 : 800],
+  [theme.breakpoints.up("sm")]: {
     maxWidth: 320,
     paddingRight: 4,
     borderRadius: 12,
   },
-  '& img': {
+  "& img": {
     borderRadius: 8,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       borderRadius: 12,
     },
   },
@@ -58,7 +62,7 @@ const COMMON = {
 
 const variantScreenLeft = {
   initial: COMMON,
-  animate: { ...COMMON, translateX: '-50%', translateY: 40, opacity: 1 },
+  animate: { ...COMMON, translateX: "-50%", translateY: 40, opacity: 1 },
 };
 const variantScreenCenter = {
   initial: COMMON,
@@ -66,15 +70,15 @@ const variantScreenCenter = {
 };
 const variantScreenRight = {
   initial: COMMON,
-  animate: { ...COMMON, translateX: '50%', translateY: -40, opacity: 1 },
+  animate: { ...COMMON, translateX: "50%", translateY: -40, opacity: 1 },
 };
 
 // ----------------------------------------------------------------------
 
 export default function LandingHugePackElements() {
   const theme = useTheme();
-  const isLight = theme.palette.mode === 'light';
-  const isRTL = theme.direction === 'rtl';
+  const isLight = theme.palette.mode === "light";
+  const isRTL = theme.direction === "rtl";
 
   const screenLeftAnimate = variantScreenLeft;
   const screenCenterAnimate = variantScreenCenter;
@@ -84,10 +88,19 @@ export default function LandingHugePackElements() {
     <RootStyle>
       <Container maxWidth="lg">
         <Grid container spacing={5} justifyContent="center">
-          <Grid item xs={12} md={4} sx={{ display: 'flex', alignItems: 'center' }}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{ display: "flex", alignItems: "center" }}
+          >
             <ContentStyle>
               <MotionInView variants={varFadeInUp}>
-                <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary' }}>
+                <Typography
+                  component="p"
+                  variant="overline"
+                  sx={{ mb: 2, color: "text.secondary" }}
+                >
                   Interface Starter Kit
                 </Typography>
               </MotionInView>
@@ -103,15 +116,16 @@ export default function LandingHugePackElements() {
                 <Typography
                   sx={{
                     mb: 5,
-                    color: isLight ? 'text.secondary' : 'common.white',
+                    color: isLight ? "text.secondary" : "common.white",
                   }}
                 >
-                  We collected most popular elements. Menu, sliders, buttons, inputs etc. are all here. Just dive in!
+                  We collected most popular elements. Menu, sliders, buttons,
+                  inputs etc. are all here. Just dive in!
                 </Typography>
               </MotionInView>
 
               <MotionInView variants={varFadeInUp}>
-                <Button size="large" color="inherit" variant="outlined" component={RouterLink} to={PATH_PAGE.components}>
+                <Button size="large" color="inherit" variant="outlined">
                   View All Components
                 </Button>
               </MotionInView>
@@ -121,10 +135,10 @@ export default function LandingHugePackElements() {
           <Grid item xs={12} md={8} dir="ltr">
             <Box
               sx={{
-                display: 'flex',
-                alignItems: 'center',
-                position: 'relative',
-                justifyContent: 'center',
+                display: "flex",
+                alignItems: "center",
+                position: "relative",
+                justifyContent: "center",
               }}
             >
               {[...Array(3)].map((_, index) => (
@@ -136,25 +150,32 @@ export default function LandingHugePackElements() {
                     ...(index === 1 && screenCenterAnimate),
                     ...(index === 2 && screenRightAnimate),
                   }}
-                  transition={{ duration: 0.72, ease: 'easeOut' }}
+                  transition={{ duration: 0.72, ease: "easeOut" }}
                   sx={{
                     boxShadow: `${isRTL ? -80 : 80}px -40px 80px ${alpha(
-                      isLight ? theme.palette.grey[600] : theme.palette.common.black,
-                      0.48,
+                      isLight
+                        ? theme.palette.grey[600]
+                        : theme.palette.common.black,
+                      0.48
                     )}`,
                     ...(index === 0 && {
                       zIndex: 3,
-                      position: 'absolute',
+                      position: "absolute",
                     }),
                     ...(index === 1 && { zIndex: 2 }),
                     ...(index === 2 && {
                       zIndex: 1,
-                      position: 'absolute',
-                      boxShadow: 'none',
+                      position: "absolute",
+                      boxShadow: "none",
                     }),
                   }}
                 >
-                  <img alt={`screen ${index + 1}`} src={`/static/home/screen_${isLight ? 'light' : 'dark'}_${index + 1}.png`} />
+                  <img
+                    alt={`screen ${index + 1}`}
+                    src={`/static/home/screen_${isLight ? "light" : "dark"}_${
+                      index + 1
+                    }.png`}
+                  />
                 </ScreenStyle>
               ))}
             </Box>

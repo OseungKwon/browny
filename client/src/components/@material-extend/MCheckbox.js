@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
+import PropTypes from "prop-types";
+import { forwardRef } from "react";
 // material
-import { alpha, useTheme } from '@material-ui/core/styles';
-import { Checkbox } from '@material-ui/core';
-import React from 'react';
+import { alpha, useTheme } from "@material-ui/core/styles";
+import { Checkbox } from "@material-ui/core";
+
 // ----------------------------------------------------------------------
 
-const MCheckbox = forwardRef(({ color = 'primary', sx, ...other }, ref) => {
+const MCheckbox = forwardRef(({ color = "primary", sx, ...other }, ref) => {
   const theme = useTheme();
 
-  if (color === 'default' || color === 'primary' || color === 'secondary') {
+  if (color === "default" || color === "primary" || color === "secondary") {
     return <Checkbox ref={ref} color={color} sx={sx} {...other} />;
   }
 
@@ -17,14 +17,17 @@ const MCheckbox = forwardRef(({ color = 'primary', sx, ...other }, ref) => {
     <Checkbox
       ref={ref}
       sx={{
-        '&.Mui-checked': {
+        "&.Mui-checked": {
           color: theme.palette[color].main,
         },
-        '&.MuiCheckbox-indeterminate': {
+        "&.MuiCheckbox-indeterminate": {
           color: theme.palette[color].main,
         },
-        '&:hover, &.Mui-checked:hover': {
-          backgroundColor: alpha(theme.palette[color].main, theme.palette.action.hoverOpacity),
+        "&:hover, &.Mui-checked:hover": {
+          backgroundColor: alpha(
+            theme.palette[color].main,
+            theme.palette.action.hoverOpacity
+          ),
         },
         ...sx,
       }}
@@ -35,7 +38,15 @@ const MCheckbox = forwardRef(({ color = 'primary', sx, ...other }, ref) => {
 
 MCheckbox.propTypes = {
   sx: PropTypes.object,
-  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'success', 'warning', 'error']),
+  color: PropTypes.oneOf([
+    "default",
+    "primary",
+    "secondary",
+    "info",
+    "success",
+    "warning",
+    "error",
+  ]),
 };
 
 export default MCheckbox;

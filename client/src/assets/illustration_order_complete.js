@@ -1,7 +1,7 @@
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 export default function OrderCompleteIllustration({ ...other }) {
@@ -14,7 +14,13 @@ export default function OrderCompleteIllustration({ ...other }) {
 
   return (
     <Box {...other}>
-      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 480 360">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        width="100%"
+        height="100%"
+        viewBox="0 0 480 360"
+      >
         <defs>
           <linearGradient id="BG" x1="19.496%" x2="77.479%" y1="71.822%" y2="16.69%">
             <stop offset="0%" stopColor={PRIMARY_MAIN} />
@@ -147,16 +153,36 @@ export default function OrderCompleteIllustration({ ...other }) {
               fillRule="nonzero"
               d="M164.047 225.961a3.431 3.431 0 00-2.396-.961c-.903 0-1.767.346-2.396.961-.075.071-.15.214-.225.285-.075-.07-.15-.213-.225-.285a3.431 3.431 0 00-2.396-.961c-.903 0-1.767.346-2.396.961a3.101 3.101 0 00-1.011 2.277c0 .858.364 1.679 1.011 2.278L159.03 235l5.017-4.487a3.194 3.194 0 000-4.552z"
             />
-            <path fill={PRIMARY_MAIN} fillRule="nonzero" d="M154.784 300.52L224.078 300.52 224.078 251.34 154.784 251.34z" />
-            <path fill={PRIMARY_DARKER} fillRule="nonzero" d="M154.788 300.523L178.382 300.523 178.382 251.34 154.788 251.34z" />
+            <path
+              fill={PRIMARY_MAIN}
+              fillRule="nonzero"
+              d="M154.784 300.52L224.078 300.52 224.078 251.34 154.784 251.34z"
+            />
+            <path
+              fill={PRIMARY_DARKER}
+              fillRule="nonzero"
+              d="M154.788 300.523L178.382 300.523 178.382 251.34 154.788 251.34z"
+            />
             <path
               fill={PRIMARY_DARK}
               fillRule="nonzero"
               d="M176.756 254.729c-1.643 3.571-3.3 7.13-4.976 10.678l-5.007 10.525 5.007 10.524c1.117 2.365 2.226 4.736 3.328 7.111l1.648 3.567c-1.748-3.496-3.48-7.004-5.195-10.525l-4.977-10.286-4.977 10.286a1039.096 1039.096 0 01-3.451 7.025l-1.743 3.5c1.644-3.57 3.3-7.13 4.977-10.678l5.006-10.525-5.006-10.525a1049.598 1049.598 0 01-3.329-7.111l-1.648-3.566c1.748 3.497 3.48 7.004 5.194 10.525l4.977 10.286 4.977-10.287c1.143-2.347 2.294-4.688 3.453-7.024l1.742-3.5z"
             />
-            <path fill={PRIMARY_DARK} fillRule="nonzero" d="M231.68 262.314L185.989 262.314 178.382 251.34 224.074 251.34z" />
-            <path fill={PRIMARY_DARK} fillRule="nonzero" d="M170.774 262.314L147.181 262.314 154.788 251.34 178.382 251.34z" />
-            <path fill={PRIMARY_MAIN} fillRule="nonzero" d="M198.04 307.176L270.55 307.176 259.972 233.346 208.611 233.346z" />
+            <path
+              fill={PRIMARY_DARK}
+              fillRule="nonzero"
+              d="M231.68 262.314L185.989 262.314 178.382 251.34 224.074 251.34z"
+            />
+            <path
+              fill={PRIMARY_DARK}
+              fillRule="nonzero"
+              d="M170.774 262.314L147.181 262.314 154.788 251.34 178.382 251.34z"
+            />
+            <path
+              fill={PRIMARY_MAIN}
+              fillRule="nonzero"
+              d="M198.04 307.176L270.55 307.176 259.972 233.346 208.611 233.346z"
+            />
             <path
               fill={PRIMARY_DARK}
               fillRule="nonzero"
