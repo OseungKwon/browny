@@ -5,6 +5,7 @@ function path(root, sublink) {
 }
 
 const ROOTS_DASHBOARD = '/dashboard';
+const ROOTS_BLOG = '/blog';
 const QnA_Board = '/QnA';
 
 // ----------------------------------------------------------------------
@@ -21,6 +22,18 @@ export const PATH_DASHBOARD = {
     pageFour: path(ROOTS_DASHBOARD, '/app/four'),
     pageFive: path(ROOTS_DASHBOARD, '/app/five'),
     pageSix: path(ROOTS_DASHBOARD, '/app/six'),
+  },
+};
+
+export const PATH_BLOG = {
+  root: ROOTS_BLOG,
+  general: {
+    list: path(ROOTS_BLOG, '/blogList'),
+    post: path(ROOTS_BLOG, '/blogPost'),
+  },
+  app: {
+    root: path(QnA_Board, '/app'),
+    // pageFour: path(QnA_Board, '/app/post'),
   },
 };
 
