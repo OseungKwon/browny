@@ -1,7 +1,9 @@
 import { orderBy } from 'lodash';
 import { Icon } from '@iconify/react';
 import plusFill from '@iconify/icons-eva/plus-fill';
-import { Link as RouterLink } from 'react-router-dom';
+import Link from 'next/link'
+
+//import { Link as RouterLink } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useEffect, useCallback, useState } from 'react';
 // material
@@ -86,6 +88,12 @@ export default function BlogPosts() {
                 
                 </Stack>
 
+                <Link href="blogNewPost" passHref>
+                  <Button variant="contained" startIcon={<Icon icon={plusFill} />}>글쓰기</Button>
+                </Link>
+                <Button variant="contained" to={PATH_BLOG.newPost} startIcon={<Icon icon={plusFill} />}>
+                  New Post
+                </Button>
                 <Grid container spacing={3}>
                     BlogPostCard
                 </Grid>

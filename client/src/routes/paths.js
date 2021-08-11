@@ -30,6 +30,7 @@ export const PATH_BLOG = {
   general: {
     list: path(ROOTS_BLOG, '/blogList'),
     post: path(ROOTS_BLOG, '/blogPost'),
+    newPost: path(ROOTS_BLOG, '/blogNewPost'),
   },
   app: {
     root: path(QnA_Board, '/app'),

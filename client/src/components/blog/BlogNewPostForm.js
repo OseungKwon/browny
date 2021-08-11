@@ -23,7 +23,7 @@ import {
 // utils
 import fakeRequest from '../../utils/fakeRequest';
 //import { QuillEditor } from '../editor';
-//import { UploadSingleFile } from '../upload';
+import UploadSingleFile from '../upload/UploadSingleFile';
 //
 import React from 'react';
 
@@ -59,7 +59,7 @@ const LabelStyle = styled(Typography)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function BlogNewPostForm() {
-  const { enqueueSnackbar } = useSnackbar();
+  //const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
 
   const handleOpenPreview = () => {
@@ -97,7 +97,7 @@ export default function BlogNewPostForm() {
         resetForm();
         handleClosePreview();
         setSubmitting(false);
-        enqueueSnackbar('Post success', { variant: 'success' });
+        //enqueueSnackbar('Post success', { variant: 'success' });
       } catch (error) {
         console.error(error);
         setSubmitting(false);
@@ -130,7 +130,7 @@ export default function BlogNewPostForm() {
                 <Stack spacing={3}>
                   <TextField
                     fullWidth
-                    label="Post Title"
+                    label="제목"
                     {...getFieldProps('title')}
                     error={Boolean(touched.title && errors.title)}
                     helperText={touched.title && errors.title}
@@ -141,14 +141,28 @@ export default function BlogNewPostForm() {
                     multiline
                     minRows={3}
                     maxRows={5}
-                    label="Description"
+                    label="설명"
                     {...getFieldProps('description')}
                     error={Boolean(touched.description && errors.description)}
                     helperText={touched.description && errors.description}
                   />
 
+                  <Autocomplete
+                    multiple
+                    freeSolo
+                    value={values.tags}
+                    onChange={(event, newValue) => {
+                      setFieldValue('태그', newValue);
+                    }}
+                    options={TAGS_OPTION.map((option) => option)}
+                    renderTags={(value, getTagProps) =>
+                      value.map((option, index) => <Chip key={option} size="small" label={option} {...getTagProps({ index })} />)
+                    }
+                    renderInput={(params) => <TextField {...params} label="Tags" />}
+                  />
+
                   <div>
-                    <LabelStyle>Content</LabelStyle>
+                    <LabelStyle>내용</LabelStyle>
                     <Editor
                       initialValue="hello react editor world!"
                       previewStyle="vertical"
@@ -165,14 +179,14 @@ export default function BlogNewPostForm() {
                   </div>
 
                   <div>
-                    <LabelStyle>Cover</LabelStyle>
-                    {/* <UploadSingleFile
+                    <LabelStyle>썸네일</LabelStyle>
+                    <UploadSingleFile
                       maxSize={3145728}
                       accept="image/*"
                       file={values.cover}
                       onDrop={handleDrop}
                       error={Boolean(touched.cover && errors.cover)}
-                    /> */}
+                    />
                     {touched.cover && errors.cover && (
                       <FormHelperText error sx={{ px: 2 }}>
                         {touched.cover && errors.cover}
@@ -219,20 +233,6 @@ export default function BlogNewPostForm() {
                   <TextField fullWidth label="Meta title" {...getFieldProps('metaTitle')} />
 
                   <TextField fullWidth multiline minRows={3} maxRows={5} label="Meta description" {...getFieldProps('metaDescription')} />
-
-                  <Autocomplete
-                    multiple
-                    freeSolo
-                    value={values.tags}
-                    onChange={(event, newValue) => {
-                      setFieldValue('metaKeywords', newValue);
-                    }}
-                    options={TAGS_OPTION.map((option) => option)}
-                    renderTags={(value, getTagProps) =>
-                      value.map((option, index) => <Chip key={option} size="small" label={option} {...getTagProps({ index })} />)
-                    }
-                    renderInput={(params) => <TextField {...params} label="Meta keywords" />}
-                  />
                 </Stack>
               </Card>
 
