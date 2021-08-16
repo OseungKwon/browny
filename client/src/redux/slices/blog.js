@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from '../../utils/axios';
 
 // ----------------------------------------------------------------------
-
+const API_URL = "http://localhost:8080"
 const initialState = {
   isLoading: false,
   error: false,
@@ -77,7 +77,9 @@ export function getAllPosts() {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get('/api/blog/posts/all');
+      const response = await axios.get(`${API_URL}/post/list`);
+      console.log(response)
+      //const response = await axios.get('/api/blog/posts/all');
       dispatch(slice.actions.getPostsSuccess(response.data.posts));
     } catch (error) {
       dispatch(slice.actions.hasError(error));
@@ -91,13 +93,17 @@ export function getPostsInitial(index, step) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get('/api/blog/posts', {
+      const response = await axios.get(`${API_URL}/post/list`, {
         params: { index, step },
       });
-      const results = response.data.results.length;
+      console.log(response.data.data)
+      // const response = await axios.get('/api/blog/posts', {
+      //   params: { index, step },
+      // });
+      const results = response.data.data.length;
       const { maxLength } = response.data;
 
-      dispatch(slice.actions.getPostsInitial(response.data.results));
+      dispatch(slice.actions.getPostsInitial(response.data.data));
 
       if (results >= maxLength) {
         dispatch(slice.actions.noHasMore());
@@ -111,6 +117,7 @@ export function getPostsInitial(index, step) {
 // ----------------------------------------------------------------------
 
 export function getPost(title) {
+  console.log("getPost)");
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {

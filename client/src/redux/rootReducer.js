@@ -1,12 +1,10 @@
-import { combineReducers } from 'redux';
-import { persistReducer } from 'redux-persist';
+import {combineReducers} from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 // slices
 import blogReducer from './slices/blog';
 import userReducer from './slices/user';
 
 // ----------------------------------------------------------------------
-
 const rootPersistConfig = {
   key: 'root',
   storage,
