@@ -1,3 +1,6 @@
+
+import { useRouter } from 'next/router'
+
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { paramCase } from 'change-case';
@@ -7,7 +10,7 @@ import shareFill from '@iconify/icons-eva/share-fill';
 import messageCircleFill from '@iconify/icons-eva/message-circle-fill';
 // material
 import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
-import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from '@material-ui/core';
+import { Box, Link, Card, Grid, Avatar, Typography, CardContent, CardActionArea } from '@material-ui/core';
 // routes
 import { PATH_BLOG } from '../../routes/paths';
 // utils
@@ -64,7 +67,7 @@ BlogPostCard.propTypes = {
 };
 
 export default function BlogPostCard({ post, index }) {
-  const { cover, title, view, comment, share, author, createdAt } = post;
+  const { cover, title, view, comment, share, author, createdDate } = post;
   const linkTo = `${PATH_BLOG.root}/post/${paramCase(title)}`;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
@@ -76,106 +79,88 @@ export default function BlogPostCard({ post, index }) {
   ];
 
   return (
-    <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
+    <Grid item xs={12} sm={6} md={3}>
       <Card sx={{ position: 'relative' }}>
-        <CardMediaStyle
-          sx={{
-            ...((latestPostLarge || latestPost) && {
-              pt: 'calc(100% * 4 / 3)',
-              '&:after': {
-                top: 0,
-                content: "''",
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72),
-              },
-            }),
-            ...(latestPostLarge && {
-              pt: {
-                xs: 'calc(100% * 4 / 3)',
-                sm: 'calc(100% * 3 / 4.66)',
-              },
-            }),
-          }}
-        >
-          <SvgIconStyle
-            color="paper"
-            src="/static/icons/shape-avatar.svg"
+        <CardActionArea href={linkTo}>
+          <Link to="/Blog">
+
+          
+          <CardMediaStyle
             sx={{
-              width: 80,
-              height: 36,
-              zIndex: 9,
-              bottom: -15,
-              position: 'absolute',
-              ...((latestPostLarge || latestPost) && { display: 'none' }),
-            }}
-          />
-          <AvatarStyle
-            alt={author.name}
-            src={author.avatarUrl}
-            sx={{
-              ...((latestPostLarge || latestPost) && {
-                zIndex: 9,
-                top: 24,
-                left: 24,
-                width: 40,
-                height: 40,
+              ...({
+                pt: 'calc(100% * 4 / 3)',
+                '&:after': {
+                  top: 0,
+                  content: "''",
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute',
+                  bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72),
+                },
               }),
-            }}
-          />
-
-          <CoverImgStyle alt={title} src={cover} />
-        </CardMediaStyle>
-
-        <CardContent
-          sx={{
-            pt: 4,
-            ...((latestPostLarge || latestPost) && {
-              bottom: 0,
-              width: '100%',
-              position: 'absolute',
-            }),
-          }}
-        >
-          <Typography gutterBottom variant="caption" sx={{ color: 'text.disabled', display: 'block' }}>
-            {fDate(createdAt)}
-          </Typography>
-
-          <TitleStyle
-            to={linkTo}
-            color="inherit"
-            variant="subtitle2"
-            component={RouterLink}
-            sx={{
-              ...(latestPostLarge && { typography: 'h5', height: 60 }),
-              ...((latestPostLarge || latestPost) && {
-                color: 'common.white',
+              ...({
+                pt: {
+                  xs: 'calc(100% * 4 / 3)',
+                  sm: 'calc(100% * 3 / 4.66)',
+                },
               }),
             }}
           >
-            {title}
-          </TitleStyle>
+            <SvgIconStyle
+              color="paper"
+              src="/static/icons/shape-avatar.svg"
+            />
+            <AvatarStyle
+              alt={post.name}
+              src={post.avatarUrl}
+              
+            />
 
-          <InfoStyle>
-            {POST_INFO.map((info, index) => (
-              <Box
-                key={index}
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  ml: index === 0 ? 0 : 1.5,
-                  ...((latestPostLarge || latestPost) && {
-                    color: 'grey.500',
-                  }),
-                }}
-              >
-                <Box component={Icon} icon={info.icon} sx={{ width: 16, height: 16, mr: 0.5 }} />
-                <Typography variant="caption">{fShortenNumber(info.number)}</Typography>
-              </Box>
-            ))}
-          </InfoStyle>
-        </CardContent>
+            <CoverImgStyle alt={title} src={cover} />
+          </CardMediaStyle>
+
+          <CardContent
+            sx={{
+              pt: 4,
+            }}
+          >
+            <Typography gutterBottom variant="caption" sx={{ color: 'text.disabled', display: 'block' }}>
+              {fDate(createdDate)}
+            </Typography>
+
+            <TitleStyle
+              to={linkTo}
+              color="inherit"
+              variant="subtitle2"
+              // component={RouterLink}
+              sx={{
+                ...({ typography: 'h5', height: 60 }),
+              }}
+            >
+              {title}
+            </TitleStyle>
+
+            <InfoStyle>
+              {POST_INFO.map((info, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    ml: index === 0 ? 0 : 1.5,
+                    ...({
+                      color: 'grey.500',
+                    }),
+                  }}
+                >
+                  <Box component={Icon} icon={info.icon} sx={{ width: 16, height: 16, mr: 0.5 }} />
+                  <Typography variant="caption">{fShortenNumber(info.number)}</Typography>
+                </Box>
+              ))}
+            </InfoStyle>
+            </CardContent>
+            </Link>
+          </CardActionArea>
       </Card>
     </Grid>
   );

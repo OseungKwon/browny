@@ -35,19 +35,11 @@ const Editor = dynamic(
 )
 
 const TAGS_OPTION = [
-  'Toy Story 3',
-  'Logan',
-  'Full Metal Jacket',
-  'Dangal',
-  'The Sting',
-  '2001: A Space Odyssey',
-  "Singin' in the Rain",
-  'Toy Story',
-  'Bicycle Thieves',
-  'The Kid',
-  'Inglourious Basterds',
-  'Snatch',
-  '3 Idiots',
+  'Javascript',
+  'Java',
+  'React',
+  'Vue',
+  'Angular',
 ];
 
 const LabelStyle = styled(Typography)(({ theme }) => ({
@@ -71,10 +63,10 @@ export default function BlogNewPostForm() {
   };
 
   const NewBlogSchema = Yup.object().shape({
-    title: Yup.string().required('Title is required'),
-    description: Yup.string().required('Description is required'),
-    content: Yup.string().min(1000).required('Content is required'),
-    cover: Yup.mixed().required('Cover is required'),
+    title: Yup.string().required('제목을 입력하세요'),
+    description: Yup.string().required('설명을 입력하세요'),
+    content: Yup.string().min(1000).required('내용을 입력해 주세요.'),
+    //cover: Yup.mixed().required('Cover is required'),
   });
 
   const formik = useFormik({
@@ -83,12 +75,12 @@ export default function BlogNewPostForm() {
       description: '',
       content: '',
       cover: null,
-      tags: ['Logan'],
+      tags: [],
       publish: true,
       comments: true,
       metaTitle: '',
       metaDescription: '',
-      metaKeywords: ['Logan'],
+      metaKeywords: [],
     },
     validationSchema: NewBlogSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
@@ -125,7 +117,7 @@ export default function BlogNewPostForm() {
       <FormikProvider value={formik}>
         <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={12}>
               <Card sx={{ p: 3 }}>
                 <Stack spacing={3}>
                   <TextField
@@ -136,7 +128,7 @@ export default function BlogNewPostForm() {
                     helperText={touched.title && errors.title}
                   />
 
-                  <TextField
+                  {/* <TextField
                     fullWidth
                     multiline
                     minRows={3}
@@ -145,20 +137,20 @@ export default function BlogNewPostForm() {
                     {...getFieldProps('description')}
                     error={Boolean(touched.description && errors.description)}
                     helperText={touched.description && errors.description}
-                  />
+                  /> */}
 
                   <Autocomplete
                     multiple
                     freeSolo
                     value={values.tags}
                     onChange={(event, newValue) => {
-                      setFieldValue('태그', newValue);
+                      setFieldValue('tags', newValue);
                     }}
                     options={TAGS_OPTION.map((option) => option)}
                     renderTags={(value, getTagProps) =>
                       value.map((option, index) => <Chip key={option} size="small" label={option} {...getTagProps({ index })} />)
                     }
-                    renderInput={(params) => <TextField {...params} label="Tags" />}
+                    renderInput={(params) => <TextField {...params} label="태그" />}
                   />
 
                   <div>
@@ -193,11 +185,45 @@ export default function BlogNewPostForm() {
                       </FormHelperText>
                     )}
                   </div>
+                  <div>
+                    <FormControlLabel
+                      control={<Switch {...getFieldProps('publish')} checked={values.publish} />}
+                      label="공개여부"
+                      labelPlacement="start"
+                      sx={{ mb: 1, mx: 0, width: '100%', justifyContent: 'space-between' }}
+                    />
+
+                    <FormControlLabel
+                      control={<Switch {...getFieldProps('comments')} checked={values.comments} />}
+                      label="댓글여부"
+                      labelPlacement="start"
+                      sx={{ mx: 0, width: '100%', justifyContent: 'space-between' }}
+                    />
+                  </div>
+
+                  
+                </Stack>
+                <Stack direction="row" justifyContent="flex-end" sx={{ mt: 3 }}>
+                
+                  <LoadingButton fullWidth type="submit" variant="contained" size="large" loading={isSubmitting}>
+                    작성하기
+                  </LoadingButton>
+                  <Button
+                    fullWidth
+                    type="button"
+                    color="inherit"
+                    variant="outlined"
+                    size="large"
+                    onClick={handleOpenPreview}
+                    sx={{ ml: 1.5 }}
+                  >
+                    나가기
+                  </Button>
                 </Stack>
               </Card>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            {/* <Grid item xs={12} md={4}>
               <Card sx={{ p: 3 }}>
                 <Stack spacing={3}>
                   <div>
@@ -237,6 +263,10 @@ export default function BlogNewPostForm() {
               </Card>
 
               <Stack direction="row" justifyContent="flex-end" sx={{ mt: 3 }}>
+                
+                <LoadingButton fullWidth type="submit" variant="contained" size="large" loading={isSubmitting}>
+                  작성하기
+                </LoadingButton>
                 <Button
                   fullWidth
                   type="button"
@@ -244,15 +274,12 @@ export default function BlogNewPostForm() {
                   variant="outlined"
                   size="large"
                   onClick={handleOpenPreview}
-                  sx={{ mr: 1.5 }}
+                  sx={{ ml: 1.5 }}
                 >
-                  Preview
+                  나가기
                 </Button>
-                <LoadingButton fullWidth type="submit" variant="contained" size="large" loading={isSubmitting}>
-                  Post
-                </LoadingButton>
               </Stack>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Form>
       </FormikProvider>
