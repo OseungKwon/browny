@@ -1,5 +1,7 @@
 // scroll bar
 import "simplebar/src/simplebar.css";
+import { Provider } from 'react-redux';
+import { store } from 'src/redux/store';
 
 import { useEffect } from "react";
 // next
@@ -26,22 +28,25 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <SettingsProvider>
-      <ThemeConfig>
-        <ThemePrimaryColor>
-          <RtlLayout>
-            <Settings />
-            <Head>
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1, shrink-to-fit=no"
-              />
-            </Head>
-            <TopProgressBar />
-            <Component {...pageProps} />
-          </RtlLayout>
-        </ThemePrimaryColor>
-      </ThemeConfig>
-    </SettingsProvider>
+    <Provider store={store}>
+      <SettingsProvider>
+        <ThemeConfig>
+          <ThemePrimaryColor>
+            <RtlLayout>
+              <Settings />
+              <Head>
+                <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                />
+              </Head>
+              <TopProgressBar />
+              <Component {...pageProps} />
+            </RtlLayout>
+          </ThemePrimaryColor>
+        </ThemeConfig>
+      </SettingsProvider>
+    </Provider>
+    
   );
 }
