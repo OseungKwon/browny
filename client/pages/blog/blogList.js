@@ -10,7 +10,9 @@ import { useEffect, useCallback, useState } from 'react';
 import { Box, Grid, Button, Skeleton, Container, Stack } from '@material-ui/core';
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 // redux
-//import { useDispatch, useSelector } from 'src/redux/store';
+
+import { useSelector, useDispatch } from 'react-redux'
+// import { useDispatch, useSelector } from 'src/redux/store';
 import { getPostsInitial, getMorePosts } from 'src/redux/slices/blog';
 // routes
 import { PATH_BLOG } from 'src/routes/paths';
@@ -64,15 +66,15 @@ export default function BlogPosts() {
         paddingTop: 100,
         backgroundColor: theme.palette.background.default,
       }));
- // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [filters, setFilters] = useState('latest');
-  //const { posts, hasMore, index, step } = useSelector((state) => state.blog);
-//  const sortedPosts = applySort(posts, filters);
-//   const onScroll = useCallback(() => dispatch(getMorePosts()), [dispatch]);
+  const { posts, hasMore, index, step } = useSelector((state) => state.blog);
+  const sortedPosts = applySort(posts, filters);
+  const onScroll = useCallback(() => dispatch(getMorePosts()), [dispatch]);
 
-//   useEffect(() => {
-//     dispatch(getPostsInitial(index, step));
-//   }, [dispatch, index, step]);
+  useEffect(() => {
+    dispatch(getPostsInitial(index, step));
+  }, [dispatch, index, step]);
 
   const handleChangeSort = (event) => {
     setFilters(event.target.value);
@@ -91,13 +93,30 @@ export default function BlogPosts() {
                 <Link href="blogNewPost" passHref>
                   <Button variant="contained" startIcon={<Icon icon={plusFill} />}>글쓰기</Button>
                 </Link>
-                <Button variant="contained" to={PATH_BLOG.newPost} startIcon={<Icon icon={plusFill} />}>
-                  New Post
-                </Button>
+              
                 <Grid container spacing={3}>
                     BlogPostCard
                 </Grid>
-                
+
+            
+            <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
+              <BlogPostsSearch/>
+              <BlogPostsSort query={filters} options={SORT_OPTIONS} onSort={handleChangeSort} />
+            </Stack>
+
+        <InfiniteScroll
+          next={onScroll}
+          hasMore={hasMore}
+          loader={SkeletonLoad}
+          dataLength={posts.length}
+          style={{ overflow: 'inherit' }}
+        >
+          <Grid container spacing={3}>
+            {sortedPosts.map((post, index) => (
+              <BlogPostCard key={post.id} post={post} index={index} />
+            ))}
+          </Grid>
+        </InfiniteScroll>
             </Container>
             </Page>
         </ContentStyle>
