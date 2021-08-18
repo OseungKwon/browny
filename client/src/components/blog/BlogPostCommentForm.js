@@ -19,7 +19,7 @@ const RootStyles = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function BlogPostCommentForm() {
-  const { enqueueSnackbar } = useSnackbar();
+  // const { enqueueSnackbar } = useSnackbar();
 
   const CommentSchema = Yup.object().shape({
     comment: Yup.string().required('Comment is required'),
@@ -39,7 +39,7 @@ export default function BlogPostCommentForm() {
         await fakeRequest(500);
         resetForm();
         setSubmitting(false);
-        enqueueSnackbar('Post success', { variant: 'success' });
+        // enqueueSnackbar('Post success', { variant: 'success' });
       } catch (error) {
         console.error(error);
         setSubmitting(false);

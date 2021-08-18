@@ -101,10 +101,9 @@ BlogPostHero.propTypes = {
 };
 
 export default function BlogPostHero({ post, ...other }) {
-  const { cover, title, author, createdAt } = post;
+  const { cover, title, author, createdDate, name, avatarUrl } = post;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
   return (
     <RootStyle {...other}>
       <CoverImgStyle alt="post cover" src={cover} />
@@ -115,13 +114,13 @@ export default function BlogPostHero({ post, ...other }) {
 
       <FooterStyle>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Avatar alt={author.name} src={author.avatarUrl} sx={{ width: 48, height: 48 }} />
+          <Avatar alt={name} src={avatarUrl} sx={{ width: 48, height: 48 }} />
           <Box sx={{ ml: 2 }}>
             <Typography variant="subtitle1" sx={{ color: 'common.white' }}>
-              {author.name}
+              {name}
             </Typography>
             <Typography variant="body2" sx={{ color: 'grey.500' }}>
-              {fDate(createdAt)}
+              {fDate(createdDate)}
             </Typography>
           </Box>
         </Box>

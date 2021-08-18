@@ -44,19 +44,19 @@ const SkeletonLoad = (
   </>
 );
 
-export default function BlogPost({ postData }) {
+export default function BlogPost() {
   const router = useRouter();
-  const postId = router.query.blogPostId;
-  console.log(postData)
+    const postId = router.query.blogPostId;
+  //console.log(postId);
   const dispatch = useDispatch();
   //const { title } = useParams();
   const { post, error, recentPosts } = useSelector((state) => state.blog);
 
-  // useEffect(() => {
-  //   dispatch(getPost(title));
-  //   dispatch(getRecentPosts(title));
-  // }, [dispatch, title]);
-
+  useEffect(() => {
+    dispatch(getPost(postId));
+    // dispatch(getRecentPosts(postId));
+  }, [dispatch, postId]);
+  console.log(post)
   return (
     <Page title="Blog: Post Details | Minimal-UI">
       <Container>
@@ -75,7 +75,7 @@ export default function BlogPost({ postData }) {
 
             <Box sx={{ p: { xs: 3, md: 5 } }}>
               <Typography variant="h6" sx={{ mb: 5 }}>
-                {post.description}
+                {post.title}
               </Typography>
 
               {/* <Markdown children={post.body} /> */}
@@ -89,7 +89,7 @@ export default function BlogPost({ postData }) {
               <Box sx={{ display: 'flex', mb: 2 }}>
                 <Typography variant="h4">Comments</Typography>
                 <Typography variant="subtitle2" sx={{ color: 'text.disabled' }}>
-                  ({post.comments.length})
+                  {/* ({post.comments.length}) */}
                 </Typography>
               </Box>
 
@@ -104,11 +104,11 @@ export default function BlogPost({ postData }) {
           </Card>
         )}
 
-        {!post && SkeletonLoad}
+        {/* {!post && SkeletonLoad}
 
         {error && <Typography variant="h6">404 Post not found</Typography>}
 
-        {recentPosts.length > 0 && <BlogPostRecent posts={recentPosts} />}
+        {recentPosts.length > 0 && <BlogPostRecent posts={recentPosts} />} */}
       </Container>
     </Page>
   );

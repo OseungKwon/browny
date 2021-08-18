@@ -78,7 +78,6 @@ export function getAllPosts() {
     dispatch(slice.actions.startLoading());
     try {
       const response = await axios.get(`${API_URL}/post/list`);
-      console.log(response)
       //const response = await axios.get('/api/blog/posts/all');
       dispatch(slice.actions.getPostsSuccess(response.data.posts));
     } catch (error) {
@@ -96,7 +95,7 @@ export function getPostsInitial(index, step) {
       const response = await axios.get(`${API_URL}/post/list`, {
         params: { index, step },
       });
-      console.log(response.data.data)
+      //console.log(response.data.data)
       // const response = await axios.get('/api/blog/posts', {
       //   params: { index, step },
       // });
@@ -116,15 +115,14 @@ export function getPostsInitial(index, step) {
 
 // ----------------------------------------------------------------------
 
-export function getPost(title) {
-  console.log("getPost)");
+export function getPost(postId) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get('/api/blog/post', {
-        params: { title },
+      const response = await axios.get(`${API_URL}/post/view?postId=${postId}`, {
+        params: { postId : postId },
       });
-      dispatch(slice.actions.getPostSuccess(response.data.post));
+      dispatch(slice.actions.getPostSuccess(response.data.data));
     } catch (error) {
       console.error(error);
       dispatch(slice.actions.hasError(error));

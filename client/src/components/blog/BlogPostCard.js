@@ -26,7 +26,7 @@ const CardMediaStyle = styled('div')({
   paddingTop: 'calc(100% * 3 / 4)',
 });
 
-const TitleStyle = styled(Link)({
+const TitleStyle = styled(Typography)({
   height: 44,
   overflow: 'hidden',
   WebkitLineClamp: 2,
@@ -67,8 +67,9 @@ BlogPostCard.propTypes = {
 };
 
 export default function BlogPostCard({ post, index }) {
-  const { cover, title, view, comment, share, author, createdDate } = post;
-  const linkTo = `${PATH_BLOG.root}/post/${paramCase(title)}`;
+  const { cover, title, view, comment, share, author, createdDate, postId } = post;
+  // const linkTo = `${PATH_BLOG.root}/${paramCase(title)}`;
+  const linkTo = `${PATH_BLOG.root}/${postId}`;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
 
@@ -82,7 +83,6 @@ export default function BlogPostCard({ post, index }) {
     <Grid item xs={12} sm={6} md={3}>
       <Card sx={{ position: 'relative' }}>
         <CardActionArea href={linkTo}>
-          <Link to="/Blog">
 
           
           <CardMediaStyle
@@ -129,10 +129,8 @@ export default function BlogPostCard({ post, index }) {
             </Typography>
 
             <TitleStyle
-              to={linkTo}
               color="inherit"
               variant="subtitle2"
-              // component={RouterLink}
               sx={{
                 ...({ typography: 'h5', height: 60 }),
               }}
@@ -159,7 +157,6 @@ export default function BlogPostCard({ post, index }) {
               ))}
             </InfoStyle>
             </CardContent>
-            </Link>
           </CardActionArea>
       </Card>
     </Grid>

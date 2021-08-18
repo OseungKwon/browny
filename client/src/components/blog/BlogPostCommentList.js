@@ -15,7 +15,7 @@ export default function BlogPostCommentList({ post }) {
 
   return (
     <List disablePadding>
-      {comments.map((comment) => {
+      {/* {comments.map((comment) => {
         const { id, replyComment, users } = comment;
         const hasReply = replyComment.length > 0;
 
@@ -39,7 +39,7 @@ export default function BlogPostCommentList({ post }) {
               })}
           </Box>
         );
-      })}
+      })} */}
     </List>
   );
 }

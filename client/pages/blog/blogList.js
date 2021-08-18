@@ -10,9 +10,7 @@ import { useEffect, useCallback, useState } from 'react';
 import { Box, Grid, Button, Skeleton, Container, Stack } from '@material-ui/core';
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 // redux
-
 import { useSelector, useDispatch } from 'react-redux'
-// import { useDispatch, useSelector } from 'src/redux/store';
 import { getPostsInitial, getMorePosts } from 'src/redux/slices/blog';
 // routes
 import { PATH_BLOG } from 'src/routes/paths';
@@ -71,7 +69,7 @@ export default function BlogPosts() {
   const { posts, hasMore, index, step } = useSelector((state) => state.blog);
   const sortedPosts = applySort(posts, filters);
   const onScroll = useCallback(() => dispatch(getMorePosts()), [dispatch]);
-
+      console.log(posts)
   useEffect(() => {
     dispatch(getPostsInitial(index, step));
   }, [dispatch, index, step]);
@@ -90,9 +88,9 @@ export default function BlogPosts() {
                 
                 </Stack>
 
-                <Link href="blogNewPost" passHref>
+                {/* <Link href="blogNewPost" passHref>
                   <Button variant="contained" startIcon={<Icon icon={plusFill} />}>글쓰기</Button>
-                </Link>
+                </Link> */}
               
                 <Grid container spacing={3}>
                     BlogPostCard
@@ -113,7 +111,7 @@ export default function BlogPosts() {
         >
           <Grid container spacing={3}>
             {sortedPosts.map((post, index) => (
-              <BlogPostCard key={post.id} post={post} index={index} />
+              <BlogPostCard key={post.postId} post={post} index={index} />
             ))}
           </Grid>
         </InfiniteScroll>
