@@ -1,10 +1,12 @@
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import { Viewer } from '@toast-ui/react-editor';
-const test = `# markdown`;
-export default function PostView(){
+import { useSelector } from 'src/redux/store';
+export default function PostView() {
+    const { post, error, recentPosts } = useSelector((state) => state.blog);
+    const { content } = post;
 	return (
-	<Viewer
-	initialValue={test}
-      	/>
+        <Viewer
+            initialValue={content}
+        />
 	);
 }

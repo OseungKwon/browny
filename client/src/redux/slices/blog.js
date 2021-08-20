@@ -62,6 +62,13 @@ const slice = createSlice({
       state.isLoading = false;
       state.recentPosts = action.payload;
     },
+
+     // ADD POST
+    addPostSuccess(state, action) {
+      state.isLoading = false;
+      state.push(action.payload)
+      // state.post = action.payload;
+    },
   },
 });
 
@@ -129,6 +136,46 @@ export function getPost(postId) {
     }
   };
 }
+export function addPost(post) {
+  console.log(post, "post");
+  post.email = "korea4127@gmail.com";
+  post.token = "ya29.a0ARrdaM_pgXp_BDrQ_jvXiR2-nEE5gNFMudlNFVhE-Reu8ckz7vZvK-dEptDT8DR9MW7mcywcWbjBgLwMZl17D4N3JurOMjVZxexuhcOL1rYVWdfDdRqu5Xz17SWPzaGIfjBy_4mbWlJLJN188Ya-KqFRbXmu";
+  post.category = post.tags.join(",");
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const response = await axios.post(`${API_URL}/post/insert`, post, {
+        params: {
+          email: "korea4127@gmail.com",
+          token: "ya29.a0ARrdaM_pgXp_BDrQ_jvXiR2-nEE5gNFMudlNFVhE-Reu8ckz7vZvK-dEptDT8DR9MW7mcywcWbjBgLwMZl17D4N3JurOMjVZxexuhcOL1rYVWdfDdRqu5Xz17SWPzaGIfjBy_4mbWlJLJN188Ya-KqFRbXmu"
+        }
+      });
+      // const response = await axios.post(`${API_URL}/post/insert`, null, {
+      //   params: post ,
+      // });
+      dispatch(slice.actions.addPostSuccess(response.data.data));
+    } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
+  };
+
+    // const response = await axios.post('/api/account/register', {
+    //   email,
+    //   password,
+    //   firstName,
+    //   lastName
+    // });
+    // const { accessToken, user } = response.data;
+
+    // window.localStorage.setItem('accessToken', accessToken);
+    // dispatch({
+    //   type: 'REGISTER',
+    //   payload: {
+    //     user
+    //   }
+    // });
+};
 
 // ----------------------------------------------------------------------
 

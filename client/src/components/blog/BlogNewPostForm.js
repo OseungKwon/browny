@@ -2,7 +2,10 @@
 import dynamic from 'next/dynamic';
 import * as Yup from 'yup';
 import { useSnackbar } from 'notistack';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useRef, forwardRef} from 'react';
+// redux
+import { useDispatch } from 'src/redux/store';
+import { addPost } from 'src/redux/slices/blog';
 import { Form, FormikProvider, useFormik } from 'formik';
 // material
 import { LoadingButton } from '@material-ui/lab';
@@ -29,10 +32,15 @@ import React from 'react';
 
 // ----------------------------------------------------------------------
 
-const Editor = dynamic(
-  () => import('../editor/TuiEditor'),
-  { ssr: false }
-)
+const Editor = dynamic(() => import('../editor/TuiEditor'), { ssr: false })
+// 2. Pass down to child components using forwardRef
+const EditorWithForwardedRef = forwardRef((props, ref) => (
+  <Editor {...props} forwardedRef={ref} />
+))
+// const Editor = dynamic(
+//   () => import('../editor/TuiEditor'),
+//   { ssr: false }
+// )
 
 const TAGS_OPTION = [
   'Javascript',
@@ -50,7 +58,10 @@ const LabelStyle = styled(Typography)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function BlogNewPostForm() {
+export default function BlogNewPostForm(props) {
+  const editorRef = useRef(null);
+
+  const dispatch = useDispatch();
   //const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
 
@@ -64,8 +75,8 @@ export default function BlogNewPostForm() {
 
   const NewBlogSchema = Yup.object().shape({
     title: Yup.string().required('제목을 입력하세요'),
-    description: Yup.string().required('설명을 입력하세요'),
-    content: Yup.string().min(1000).required('내용을 입력해 주세요.'),
+    //description: Yup.string().required('설명을 입력하세요'),
+    //content: Yup.string().min(1000).required('내용을 입력해 주세요.'),
     //cover: Yup.mixed().required('Cover is required'),
   });
 
@@ -85,7 +96,9 @@ export default function BlogNewPostForm() {
     validationSchema: NewBlogSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-        await fakeRequest(500);
+        const instance = editorRef.current.getInstance();
+        values.content = instance.getMarkdown();
+        await dispatch(addPost(values));
         resetForm();
         handleClosePreview();
         setSubmitting(false);
@@ -155,12 +168,14 @@ export default function BlogNewPostForm() {
 
                   <div>
                     <LabelStyle>내용</LabelStyle>
-                    <Editor
+                    <EditorWithForwardedRef
+                      placeholder="필수 입력사항 입니다."
                       initialValue="hello react editor world!"
                       previewStyle="vertical"
                       height="600px"
                       initialEditType="markdown"
                       useCommandShortcut={true}
+                      ref={editorRef}
                     />
 
                     {touched.content && errors.content && (

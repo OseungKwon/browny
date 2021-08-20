@@ -88,9 +88,9 @@ export default function BlogPosts() {
                 
                 </Stack>
 
-                {/* <Link href="blogNewPost" passHref>
+                <Link href="blogNewPost" passHref>
                   <Button variant="contained" startIcon={<Icon icon={plusFill} />}>글쓰기</Button>
-                </Link> */}
+                </Link>
               
                 <Grid container spacing={3}>
                     BlogPostCard
@@ -111,7 +111,7 @@ export default function BlogPosts() {
         >
           <Grid container spacing={3}>
             {sortedPosts.map((post, index) => (
-              <BlogPostCard key={post.postId} post={post} index={index} />
+              <BlogPostCard key={index} post={post} index={index} />
             ))}
           </Grid>
         </InfiniteScroll>

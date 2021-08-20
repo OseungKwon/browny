@@ -77,7 +77,11 @@ export default function BlogPost() {
               <Typography variant="h6" sx={{ mb: 5 }}>
                 {post.title}
               </Typography>
-
+                          
+                          
+                          <Viewer
+                            initialValue="hello111 react editor world!"
+                          />
               {/* <Markdown children={post.body} /> */}
 
               <Box sx={{ my: 5 }}>
