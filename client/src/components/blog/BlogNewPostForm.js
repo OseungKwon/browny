@@ -1,10 +1,12 @@
 
+import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic';
 import * as Yup from 'yup';
 import { useSnackbar } from 'notistack';
 import { useCallback, useState, useRef, forwardRef} from 'react';
 // redux
 import { useDispatch } from 'src/redux/store';
+
 import { addPost } from 'src/redux/slices/blog';
 import { Form, FormikProvider, useFormik } from 'formik';
 // material
@@ -59,6 +61,7 @@ const LabelStyle = styled(Typography)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function BlogNewPostForm(props) {
+  const router = useRouter();
   const editorRef = useRef(null);
 
   const dispatch = useDispatch();
@@ -94,14 +97,18 @@ export default function BlogNewPostForm(props) {
       metaKeywords: [],
     },
     validationSchema: NewBlogSchema,
+
+    //글쓰기
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
         const instance = editorRef.current.getInstance();
         values.content = instance.getMarkdown();
-        await dispatch(addPost(values));
-        resetForm();
-        handleClosePreview();
-        setSubmitting(false);
+        const res = await dispatch(addPost(values));
+        router.push(`/blog/${res.postId}`)
+        // blog/blogNewPost
+        // resetForm();
+        // handleClosePreview();
+        // setSubmitting(false);
         //enqueueSnackbar('Post success', { variant: 'success' });
       } catch (error) {
         console.error(error);
@@ -170,7 +177,7 @@ export default function BlogNewPostForm(props) {
                     <LabelStyle>내용</LabelStyle>
                     <EditorWithForwardedRef
                       placeholder="필수 입력사항 입니다."
-                      initialValue="hello react editor world!"
+                      initialValue="# 내용..."
                       previewStyle="vertical"
                       height="600px"
                       initialEditType="markdown"
@@ -229,7 +236,7 @@ export default function BlogNewPostForm(props) {
                     color="inherit"
                     variant="outlined"
                     size="large"
-                    onClick={handleOpenPreview}
+                    onClick={() => router.back()}
                     sx={{ ml: 1.5 }}
                   >
                     나가기

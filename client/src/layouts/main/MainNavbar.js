@@ -1,9 +1,10 @@
 // next
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/client';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
-import { Box, Button, AppBar, Toolbar, Container } from '@material-ui/core';
+import { Box, Button, AppBar, Toolbar, Container} from '@material-ui/core';
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 // components
@@ -14,7 +15,11 @@ import { MHidden } from '../../components/@material-extend';
 import MenuDesktop from './MenuDesktop';
 import MenuMobile from './MenuMobile';
 import navConfig from './MenuConfig';
-
+import LoginModal from '../../components/auth/LoginModal'
+import AccountPopover from './AccountPopover';
+import { Icon } from '@iconify/react';
+import plusFill from '@iconify/icons-eva/plus-fill';
+// import Link from 'next/link'
 // ----------------------------------------------------------------------
 
 const APP_BAR_MOBILE = 64;
@@ -47,6 +52,7 @@ const ToolbarShadowStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function MainNavbar() {
+  const [ session, loading ] = useSession()
   const isOffset = useOffSetTop(100);
   const { pathname } = useRouter();
   const isHome = pathname === '/';
@@ -70,8 +76,9 @@ export default function MainNavbar() {
             justifyContent: 'space-between',
           }}
         >
+        
           <Label color="info" sx={{ ml: 1 }}>
-            QLICK
+            <a href="/" style={{ textDecoration: "none"}}>QLICK</a>
           </Label>
           <Box sx={{ flexGrow: 1 }} />
 
@@ -82,9 +89,20 @@ export default function MainNavbar() {
           <MHidden width="mdUp">
             <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
           </MHidden>
+          {!session ? (
+            <LoginModal/>
+          ) : (
+              <>
+                <NextLink href="/blog/blogNewPost" passHref>
+                  <Button variant="contained" startIcon={<Icon icon={plusFill} />}>글쓰기</Button>
+                </NextLink>
+                <AccountPopover  />
+                </>
+            )
+          }
+          
         </Container>
       </ToolbarStyle>
-
       {isOffset && <ToolbarShadowStyle />}
     </AppBar>
   );

@@ -1,7 +1,4 @@
 import { orderBy } from 'lodash';
-import { Icon } from '@iconify/react';
-import plusFill from '@iconify/icons-eva/plus-fill';
-import Link from 'next/link'
 
 //import { Link as RouterLink } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -58,12 +55,12 @@ const SkeletonLoad = (
 );
 
 export default function BlogPosts() {
-    const ContentStyle = styled('div')(({ theme }) => ({
-        overflow: 'hidden',
-        position: 'flex',
-        paddingTop: 100,
-        backgroundColor: theme.palette.background.default,
-      }));
+  const ContentStyle = styled('div')(({ theme }) => ({
+      overflow: 'hidden',
+      position: 'flex',
+      paddingTop: 100,
+      backgroundColor: theme.palette.background.default,
+    }));
   const dispatch = useDispatch();
   const [filters, setFilters] = useState('latest');
   const { posts, hasMore, index, step } = useSelector((state) => state.blog);
@@ -83,18 +80,16 @@ export default function BlogPosts() {
         <ContentStyle>
             <Page title="Page One | Minimal-UI">
             <Container>
-                <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
+                {/* <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
                 
                 
-                </Stack>
+                </Stack> */}
 
-                <Link href="blogNewPost" passHref>
-                  <Button variant="contained" startIcon={<Icon icon={plusFill} />}>글쓰기</Button>
-                </Link>
-              
+                
+{/*               
                 <Grid container spacing={3}>
                     BlogPostCard
-                </Grid>
+                </Grid> */}
 
             
             <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">

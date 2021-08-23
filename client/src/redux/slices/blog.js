@@ -66,7 +66,9 @@ const slice = createSlice({
      // ADD POST
     addPostSuccess(state, action) {
       state.isLoading = false;
-      state.push(action.payload)
+      //console.log(state, "state");
+      //console.log(action, "action");
+      state.posts.push(action.payload)
       // state.post = action.payload;
     },
   },
@@ -110,7 +112,6 @@ export function getPostsInitial(index, step) {
       const { maxLength } = response.data;
 
       dispatch(slice.actions.getPostsInitial(response.data.data));
-
       if (results >= maxLength) {
         dispatch(slice.actions.noHasMore());
       }
@@ -129,6 +130,7 @@ export function getPost(postId) {
       const response = await axios.get(`${API_URL}/post/view?postId=${postId}`, {
         params: { postId : postId },
       });
+      console.log(response, "response");
       dispatch(slice.actions.getPostSuccess(response.data.data));
     } catch (error) {
       console.error(error);
@@ -150,10 +152,14 @@ export function addPost(post) {
           token: "ya29.a0ARrdaM_pgXp_BDrQ_jvXiR2-nEE5gNFMudlNFVhE-Reu8ckz7vZvK-dEptDT8DR9MW7mcywcWbjBgLwMZl17D4N3JurOMjVZxexuhcOL1rYVWdfDdRqu5Xz17SWPzaGIfjBy_4mbWlJLJN188Ya-KqFRbXmu"
         }
       });
+      //console.log(response);
       // const response = await axios.post(`${API_URL}/post/insert`, null, {
       //   params: post ,
       // });
-      dispatch(slice.actions.addPostSuccess(response.data.data));
+      if (response.data.status === 200) {
+        dispatch(slice.actions.addPostSuccess(response.data.data));
+        return response.data.data;
+      }
     } catch (error) {
       console.error(error);
       dispatch(slice.actions.hasError(error));

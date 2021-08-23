@@ -2,6 +2,7 @@
 import "simplebar/src/simplebar.css";
 import { Provider } from 'react-redux';
 import { store } from 'src/redux/store';
+import { Provider as AuthProvider } from 'next-auth/client'
 
 import { useEffect } from "react";
 // next
@@ -28,25 +29,28 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <Provider store={store}>
-      <SettingsProvider>
-        <ThemeConfig>
-          <ThemePrimaryColor>
-            <RtlLayout>
-              <Settings />
-              <Head>
-                <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1, shrink-to-fit=no"
-                />
-              </Head>
-              <TopProgressBar />
-              <Component {...pageProps} />
-            </RtlLayout>
-          </ThemePrimaryColor>
-        </ThemeConfig>
-      </SettingsProvider>
-    </Provider>
+    <AuthProvider session={pageProps.session} >
+      <Provider store={store}>
+        <SettingsProvider>
+          <ThemeConfig>
+            <ThemePrimaryColor>
+              <RtlLayout>
+                <Settings />
+                <Head>
+                  <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                  />
+                </Head>
+                <TopProgressBar />
+                <Component {...pageProps} />
+              </RtlLayout>
+            </ThemePrimaryColor>
+          </ThemeConfig>
+        </SettingsProvider>
+      </Provider>
+    </AuthProvider>
+   
     
   );
 }

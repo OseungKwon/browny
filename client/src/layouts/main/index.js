@@ -4,6 +4,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import { useRouter } from 'next/router';
 // material
 import { Box, Link, Container, Typography } from '@material-ui/core';
+import { experimentalStyled as styled } from '@material-ui/core/styles';
 // components
 import Logo from '../../components/Logo';
 //

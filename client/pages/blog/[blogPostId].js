@@ -5,11 +5,14 @@ import { sentenceCase } from 'change-case';
 //import { useParams } from 'react-router-dom';
 // material
 import { Box, Card, Divider, Skeleton, Container, Typography, Pagination } from '@material-ui/core';
+import { experimentalStyled as styled } from '@material-ui/core/styles';
 // redux
 import { useDispatch, useSelector } from 'src/redux/store';
 import { getPost, getRecentPosts } from 'src/redux/slices/blog';
 // routes
 import { PATH_DASHBOARD } from 'src/routes/paths';
+// layouts
+import MainLayout from 'src/layouts/main';
 // components
 import Page from 'src/components/Page';
 // import Markdown from 'src/components/Markdown';
@@ -45,75 +48,85 @@ const SkeletonLoad = (
 );
 
 export default function BlogPost() {
-  const router = useRouter();
-    const postId = router.query.blogPostId;
-  //console.log(postId);
-  const dispatch = useDispatch();
-  //const { title } = useParams();
-  const { post, error, recentPosts } = useSelector((state) => state.blog);
+    const ContentStyle = styled('div')(({ theme }) => ({
+      overflow: 'hidden',
+      position: 'flex',
+      paddingTop: 100,
+      backgroundColor: theme.palette.background.default,
+    }));
+    const router = useRouter();
+        const postId = router.query.blogPostId;
+    //console.log(postId);
+    const dispatch = useDispatch();
+    //const { title } = useParams();
+    const { post, error, recentPosts } = useSelector((state) => state.blog);
 
-  useEffect(() => {
-    dispatch(getPost(postId));
-    // dispatch(getRecentPosts(postId));
-  }, [dispatch, postId]);
-  console.log(post)
-  return (
-    <Page title="Blog: Post Details | Minimal-UI">
-      <Container>
-        {/* <HeaderBreadcrumbs
-          heading="Post Details"
-          links={[
-            { name: 'Dashboard', href: PATH_DASHBOARD.root },
-            { name: 'Blog', href: PATH_DASHBOARD.blog.root },
-            { name: sentenceCase(title) }
-          ]}
-        /> */}
+    useEffect(() => {
+        dispatch(getPost(postId));
+        // dispatch(getRecentPosts(postId));
+    }, [dispatch, postId]);
+    console.log(post)
+    return (
+        <MainLayout>
+            <ContentStyle>
+                <Page title="Blog: Post Details | Minimal-UI">
+                    <Container>
+                        {/* <HeaderBreadcrumbs
+                        heading="Post Details"
+                        links={[
+                            { name: 'Dashboard', href: PATH_DASHBOARD.root },
+                            { name: 'Blog', href: PATH_DASHBOARD.blog.root },
+                            { name: sentenceCase(title) }
+                        ]}
+                        /> */}
 
-        {post && (
-          <Card>
-            <BlogPostHero post={post} />
+                        {post && (
+                        <Card>
+                            <BlogPostHero post={post} />
 
-            <Box sx={{ p: { xs: 3, md: 5 } }}>
-              <Typography variant="h6" sx={{ mb: 5 }}>
-                {post.title}
-              </Typography>
-                          
-                          
-                          <Viewer
-                            initialValue="hello111 react editor world!"
-                          />
-              {/* <Markdown children={post.body} /> */}
+                            <Box sx={{ p: { xs: 3, md: 5 } }}>
+                            <Typography variant="h6" sx={{ mb: 5 }}>
+                                {post.title}
+                            </Typography>
+                                        
+                                        
+                                        <Viewer
+                                            initialValue="hello111 react editor world!"
+                                        />
+                            {/* <Markdown children={post.body} /> */}
 
-              <Box sx={{ my: 5 }}>
-                <Divider />
-                <BlogPostTags post={post} />
-                <Divider />
-              </Box>
+                            <Box sx={{ my: 5 }}>
+                                <Divider />
+                                <BlogPostTags post={post} />
+                                <Divider />
+                            </Box>
 
-              <Box sx={{ display: 'flex', mb: 2 }}>
-                <Typography variant="h4">Comments</Typography>
-                <Typography variant="subtitle2" sx={{ color: 'text.disabled' }}>
-                  {/* ({post.comments.length}) */}
-                </Typography>
-              </Box>
+                            <Box sx={{ display: 'flex', mb: 2 }}>
+                                <Typography variant="h4">Comments</Typography>
+                                <Typography variant="subtitle2" sx={{ color: 'text.disabled' }}>
+                                {/* ({post.comments.length}) */}
+                                </Typography>
+                            </Box>
 
-              <BlogPostCommentList post={post} />
+                            <BlogPostCommentList post={post} />
 
-              <Box sx={{ mb: 5, mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
-                <Pagination count={8} color="primary" />
-              </Box>
+                            <Box sx={{ mb: 5, mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
+                                <Pagination count={8} color="primary" />
+                            </Box>
 
-              <BlogPostCommentForm />
-            </Box>
-          </Card>
-        )}
+                            <BlogPostCommentForm />
+                            </Box>
+                        </Card>
+                        )}
 
-        {/* {!post && SkeletonLoad}
+                        {/* {!post && SkeletonLoad}
 
-        {error && <Typography variant="h6">404 Post not found</Typography>}
+                        {error && <Typography variant="h6">404 Post not found</Typography>}
 
-        {recentPosts.length > 0 && <BlogPostRecent posts={recentPosts} />} */}
-      </Container>
-    </Page>
+                        {recentPosts.length > 0 && <BlogPostRecent posts={recentPosts} />} */}
+                    </Container>
+                </Page> 
+            </ContentStyle>
+      </MainLayout>
   );
 }
