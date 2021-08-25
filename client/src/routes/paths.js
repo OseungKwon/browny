@@ -44,6 +44,7 @@ export const PATH_BLOG = {
     list: path(ROOTS_BLOG, '/blogList'),
     post: path(ROOTS_BLOG, '/blogPost'),
     newPost: path(ROOTS_BLOG, '/blogNewPost'),
+    // editPost: path(ROOTS_BLOG, '/blogEditPost'),
   },
   app: {
     root: path(QnA_Board, '/app'),

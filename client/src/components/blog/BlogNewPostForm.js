@@ -60,14 +60,13 @@ const LabelStyle = styled(Typography)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function BlogNewPostForm(props) {
+export default function BlogNewPostForm({ post }) {
   const router = useRouter();
   const editorRef = useRef(null);
-
   const dispatch = useDispatch();
   //const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
-
+  console.log(post);
   const handleOpenPreview = () => {
     setOpen(true);
   };

@@ -69,7 +69,7 @@ export default function AccountPopover() {
       >
         <Avatar
           alt="My Avatar"
-          src="/static/mock-images/avatars/avatar_default.jpg"
+          src={session?.user.image}
         />
       </MIconButton>
 

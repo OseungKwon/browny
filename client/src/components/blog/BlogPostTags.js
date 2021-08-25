@@ -17,12 +17,12 @@ BlogPostTags.propTypes = {
 
 export default function BlogPostTags({ post, sx }) {
   const { favorite, tags, favoritePerson } = post;
-
+  const category = post?.category.split(",");
   return (
     <Box sx={{ py: 3, ...sx }}>
-      {/* {tags.map((tag) => (
+      {category.map((tag) => (
         <Chip key={tag} label={tag} sx={{ m: 0.5 }} />
-      ))} */}
+      ))}
 
       <Box sx={{ display: 'flex', alignItems: 'center', mt: 3 }}>
         <FormControlLabel
