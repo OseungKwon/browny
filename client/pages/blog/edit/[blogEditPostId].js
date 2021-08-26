@@ -1,3 +1,6 @@
+
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 // material
 import { Container } from '@material-ui/core';
 import { experimentalStyled as styled } from '@material-ui/core/styles';
@@ -7,13 +10,25 @@ import { PATH_BLOG } from 'src/routes/paths';
 import Page from 'src/components/Page';
 import { BlogNewPostForm } from 'src/components/blog';
 import React from 'react';
-import { useSelector } from 'src/redux/store';
+import { useDispatch, useSelector } from 'src/redux/store';
+import { getPost } from 'src/redux/slices/blog';
 // layouts
 import MainLayout from 'src/layouts/main';
+import { useSession } from 'next-auth/client';
 // ----------------------------------------------------------------------
 
 export default function blogNewPost() {
+    const router = useRouter();
+    const postId = router.query.blogEditPostId;
+    const dispatch = useDispatch();
     const { post, error, recentPosts } = useSelector((state) => state.blog);
+    const [session, loading] = useSession();
+    const checkUserSession = post?.email === session?.user?.email ? true : false;
+    
+    useEffect(() => {
+        dispatch(getPost(postId));
+    }, [dispatch, postId]);
+    
     const ContentStyle = styled('div')(({ theme }) => ({
         overflow: 'hidden',
         position: 'flex',
@@ -25,7 +40,11 @@ export default function blogNewPost() {
             <ContentStyle>
                 <Page title="Blog: Edit Post | Minimal-UI">
                     <Container>
-                        <BlogNewPostForm post={post} />
+                        {session && checkUserSession && (
+                            <>
+                                <BlogNewPostForm post={post} />
+                            </>
+                        )}
                     </Container>
                 </Page>
             </ContentStyle>

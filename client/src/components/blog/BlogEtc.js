@@ -25,22 +25,27 @@ import { MCheckbox } from '../@material-extend';
 import Block from '../Block';
 // utils
 import { fShortenNumber } from '../../utils/formatNumber';
+// routes
+import { PATH_BLOG } from '../../routes/paths';
+import { useSession } from 'next-auth/client';
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 function BlogEtc({ post }) {
+    const [session, loading] = useSession();
+    const checkUserSession = post?.email === session?.user?.email ? true : false;
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    const { favorite, tags, favoritePerson } = post;
+    const { favorite, tags, favoritePerson, postId } = post;
     const ListWrapperStyle = styled(Paper)(({ theme }) => ({
         width: '100%',
         border: `solid 1px ${theme.palette.divider}`
     }));
-    
+    const editLink = `${PATH_BLOG.general.editPost}/${postId}`;
     return (
         <>
             <ListWrapperStyle>
-                <List component="nav" aria-label="main mailbox folders" >
+                <List component="nav" aria-label="좋아요" >
                     <ListItem button>
                         <Checkbox
                             style={{paddingLeft:'12px'}}
@@ -49,28 +54,33 @@ function BlogEtc({ post }) {
                     </ListItem>
                     <Divider />
                     <ListItem button>
-                        <IconButton color="secondary" aria-label="add an alarm">
+                        <IconButton color="secondary" aria-label="공유">
                             <ShareOutlinedIcon/>
                         </IconButton>
                         {/* <ListItemText primary="Inbox" /> */}
                     </ListItem>
-                    <Divider />
-                    <ListItem button>
-                        <NextLink href="/blog/blogEditPost" passHref>
-                            <IconButton aria-label="add an alarm">
-                                <EditOutlinedIcon/>
-                            </IconButton>
-                        </NextLink>
-                        
-                        {/* <ListItemText primary="Inbox" /> */}
-                    </ListItem>
-                    <Divider />
-                    <ListItem button>
-                        <IconButton aria-label="add an alarm">
-                            <DeleteOutlineOutlinedIcon/>
-                        </IconButton>
-                        {/* <ListItemText primary="Inbox" /> */}
-                    </ListItem>
+                    
+                    {session && checkUserSession && (
+                        <>
+                            <Divider />
+                            <ListItem button>
+                                <NextLink href={editLink} passHref>
+                                    <IconButton aria-label="수정">
+                                        <EditOutlinedIcon/>
+                                    </IconButton>
+                                </NextLink>
+                                
+                                {/* <ListItemText primary="Inbox" /> */}
+                            </ListItem>
+                            <Divider />
+                            <ListItem button>
+                                <IconButton aria-label="삭제">
+                                    <DeleteOutlineOutlinedIcon/>
+                                </IconButton>
+                                {/* <ListItemText primary="Inbox" /> */}
+                            </ListItem>
+                        </>
+                    )}
                     
 
                 </List>

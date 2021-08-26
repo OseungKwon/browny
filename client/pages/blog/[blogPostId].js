@@ -56,12 +56,12 @@ export default function BlogPost() {
       backgroundColor: theme.palette.background.default,
     }));
     const router = useRouter();
-        const postId = router.query.blogPostId;
+    const postId = router.query.blogPostId;
     //console.log(postId);
     const dispatch = useDispatch();
     //const { title } = useParams();
     const { post, error, recentPosts } = useSelector((state) => state.blog);
-    console.log(post?.category.split(","));
+    //console.log(post?.category.split(","));
     useEffect(() => {
         dispatch(getPost(postId));
         // dispatch(getRecentPosts(postId));

@@ -10,9 +10,12 @@ import React from 'react';
 
 // layouts
 import MainLayout from 'src/layouts/main';
+
+import { useSession } from 'next-auth/client';
 // ----------------------------------------------------------------------
 
 export default function blogNewPost() {
+  const [session, loading] = useSession();
   const ContentStyle = styled('div')(({ theme }) => ({
     overflow: 'hidden',
     position: 'flex',
@@ -24,9 +27,13 @@ export default function blogNewPost() {
       <ContentStyle>
         <Page title="Blog: New Post | Minimal-UI">
           <Container>
-          
-
-            <BlogNewPostForm />
+            {session &&
+              (
+                <>
+                  <BlogNewPostForm />
+                </>
+              )
+            }          
           </Container>
         </Page>
         </ContentStyle>

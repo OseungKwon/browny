@@ -31,7 +31,6 @@ import fakeRequest from '../../utils/fakeRequest';
 import UploadSingleFile from '../upload/UploadSingleFile';
 //
 import React from 'react';
-
 // ----------------------------------------------------------------------
 
 const Editor = dynamic(() => import('../editor/TuiEditor'), { ssr: false })
@@ -66,7 +65,7 @@ export default function BlogNewPostForm({ post }) {
   const dispatch = useDispatch();
   //const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
-  console.log(post);
+  //console.log(post);
   const handleOpenPreview = () => {
     setOpen(true);
   };
@@ -74,14 +73,12 @@ export default function BlogNewPostForm({ post }) {
   const handleClosePreview = () => {
     setOpen(false);
   };
-
   const NewBlogSchema = Yup.object().shape({
     title: Yup.string().required('제목을 입력하세요'),
     //description: Yup.string().required('설명을 입력하세요'),
     //content: Yup.string().min(1000).required('내용을 입력해 주세요.'),
     //cover: Yup.mixed().required('Cover is required'),
   });
-
   const formik = useFormik({
     initialValues: {
       title: '',
@@ -130,13 +127,13 @@ export default function BlogNewPostForm({ post }) {
     },
     [setFieldValue],
   );
-
   return (
     <>
       <FormikProvider value={formik}>
         <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={12}>
+             
               <Card sx={{ p: 3 }}>
                 <Stack spacing={3}>
                   <TextField
@@ -145,23 +142,12 @@ export default function BlogNewPostForm({ post }) {
                     {...getFieldProps('title')}
                     error={Boolean(touched.title && errors.title)}
                     helperText={touched.title && errors.title}
+                    value={post?.title}
                   />
-
-                  {/* <TextField
-                    fullWidth
-                    multiline
-                    minRows={3}
-                    maxRows={5}
-                    label="설명"
-                    {...getFieldProps('description')}
-                    error={Boolean(touched.description && errors.description)}
-                    helperText={touched.description && errors.description}
-                  /> */}
-
                   <Autocomplete
                     multiple
                     freeSolo
-                    value={values.tags}
+                    value={post?.category.split(',')}
                     onChange={(event, newValue) => {
                       setFieldValue('tags', newValue);
                     }}
@@ -175,8 +161,8 @@ export default function BlogNewPostForm({ post }) {
                   <div>
                     <LabelStyle>내용</LabelStyle>
                     <EditorWithForwardedRef
-                      placeholder="필수 입력사항 입니다."
-                      initialValue="# 내용..."
+                      placeholder="머릿 속 풍부한 내용들을 정리해 주세요."
+                      initialValue={post?.content}
                       previewStyle="vertical"
                       height="600px"
                       initialEditType="markdown"
@@ -244,63 +230,6 @@ export default function BlogNewPostForm({ post }) {
               </Card>
             </Grid>
 
-            {/* <Grid item xs={12} md={4}>
-              <Card sx={{ p: 3 }}>
-                <Stack spacing={3}>
-                  <div>
-                    <FormControlLabel
-                      control={<Switch {...getFieldProps('publish')} checked={values.publish} />}
-                      label="Publish"
-                      labelPlacement="start"
-                      sx={{ mb: 1, mx: 0, width: '100%', justifyContent: 'space-between' }}
-                    />
-
-                    <FormControlLabel
-                      control={<Switch {...getFieldProps('comments')} checked={values.comments} />}
-                      label="Enable comments"
-                      labelPlacement="start"
-                      sx={{ mx: 0, width: '100%', justifyContent: 'space-between' }}
-                    />
-                  </div>
-
-                  <Autocomplete
-                    multiple
-                    freeSolo
-                    value={values.tags}
-                    onChange={(event, newValue) => {
-                      setFieldValue('tags', newValue);
-                    }}
-                    options={TAGS_OPTION.map((option) => option)}
-                    renderTags={(value, getTagProps) =>
-                      value.map((option, index) => <Chip key={option} size="small" label={option} {...getTagProps({ index })} />)
-                    }
-                    renderInput={(params) => <TextField {...params} label="Tags" />}
-                  />
-
-                  <TextField fullWidth label="Meta title" {...getFieldProps('metaTitle')} />
-
-                  <TextField fullWidth multiline minRows={3} maxRows={5} label="Meta description" {...getFieldProps('metaDescription')} />
-                </Stack>
-              </Card>
-
-              <Stack direction="row" justifyContent="flex-end" sx={{ mt: 3 }}>
-                
-                <LoadingButton fullWidth type="submit" variant="contained" size="large" loading={isSubmitting}>
-                  작성하기
-                </LoadingButton>
-                <Button
-                  fullWidth
-                  type="button"
-                  color="inherit"
-                  variant="outlined"
-                  size="large"
-                  onClick={handleOpenPreview}
-                  sx={{ ml: 1.5 }}
-                >
-                  나가기
-                </Button>
-              </Stack>
-            </Grid> */}
           </Grid>
         </Form>
       </FormikProvider>
