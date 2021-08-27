@@ -7,7 +7,7 @@ import { useCallback, useState, useRef, forwardRef} from 'react';
 // redux
 import { useDispatch } from 'src/redux/store';
 
-import { addPost } from 'src/redux/slices/blog';
+import { addPost, editPost } from 'src/redux/slices/blog';
 import { Form, FormikProvider, useFormik } from 'formik';
 // material
 import { LoadingButton } from '@material-ui/lab';
@@ -29,8 +29,7 @@ import {
 import fakeRequest from '../../utils/fakeRequest';
 //import { QuillEditor } from '../editor';
 import UploadSingleFile from '../upload/UploadSingleFile';
-//
-import React from 'react';
+
 // ----------------------------------------------------------------------
 
 const Editor = dynamic(() => import('../editor/TuiEditor'), { ssr: false })
@@ -65,11 +64,9 @@ export default function BlogNewPostForm({ post }) {
   const dispatch = useDispatch();
   //const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
-  //console.log(post);
   const handleOpenPreview = () => {
     setOpen(true);
   };
-
   const handleClosePreview = () => {
     setOpen(false);
   };
@@ -81,11 +78,12 @@ export default function BlogNewPostForm({ post }) {
   });
   const formik = useFormik({
     initialValues: {
-      title: '',
+      postId : post?.postId,
+      title: post?.title,
       description: '',
-      content: '',
+      content: post?.content,
       cover: null,
-      tags: [],
+      tags: post?.category.split(','),
       publish: true,
       comments: true,
       metaTitle: '',
@@ -99,7 +97,7 @@ export default function BlogNewPostForm({ post }) {
       try {
         const instance = editorRef.current.getInstance();
         values.content = instance.getMarkdown();
-        const res = await dispatch(addPost(values));
+        const res = post ? await dispatch(editPost(values)) : await dispatch(addPost(values));
         router.push(`/blog/${res.postId}`)
         // blog/blogNewPost
         // resetForm();
@@ -113,7 +111,7 @@ export default function BlogNewPostForm({ post }) {
     },
   });
 
-  const { errors, values, touched, handleSubmit, isSubmitting, setFieldValue, getFieldProps } = formik;
+  const { errors, values, touched, handleSubmit, isSubmitting, setFieldValue, getFieldProps, handleChange } = formik;
 
   const handleDrop = useCallback(
     (acceptedFiles) => {
@@ -140,14 +138,15 @@ export default function BlogNewPostForm({ post }) {
                     fullWidth
                     label="제목"
                     {...getFieldProps('title')}
-                    error={Boolean(touched.title && errors.title)}
+                    error={touched.title && Boolean(errors.title)}
                     helperText={touched.title && errors.title}
-                    value={post?.title}
+                    value={values.title}
+                    onChange={handleChange}
                   />
                   <Autocomplete
                     multiple
                     freeSolo
-                    value={post?.category.split(',')}
+                    value={values.tags}
                     onChange={(event, newValue) => {
                       setFieldValue('tags', newValue);
                     }}
@@ -162,7 +161,7 @@ export default function BlogNewPostForm({ post }) {
                     <LabelStyle>내용</LabelStyle>
                     <EditorWithForwardedRef
                       placeholder="머릿 속 풍부한 내용들을 정리해 주세요."
-                      initialValue={post?.content}
+                      initialValue={values.content}
                       previewStyle="vertical"
                       height="600px"
                       initialEditType="markdown"

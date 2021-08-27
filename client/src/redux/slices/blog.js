@@ -71,6 +71,14 @@ const slice = createSlice({
       state.posts.push(action.payload)
       // state.post = action.payload;
     },
+    // EDIT POST
+    editPostSuccess(state, action) {
+      state.isLoading = false;
+      //console.log(state, "state");
+      //console.log(action, "action");
+      state.post = action.payload;
+      // state.post = action.payload;
+    },
   },
 });
 
@@ -139,7 +147,6 @@ export function getPost(postId) {
   };
 }
 export function addPost(post) {
-  console.log(post, "post");
   post.email = "korea4127@gmail.com";
   post.token = "ya29.a0ARrdaM_pgXp_BDrQ_jvXiR2-nEE5gNFMudlNFVhE-Reu8ckz7vZvK-dEptDT8DR9MW7mcywcWbjBgLwMZl17D4N3JurOMjVZxexuhcOL1rYVWdfDdRqu5Xz17SWPzaGIfjBy_4mbWlJLJN188Ya-KqFRbXmu";
   post.category = post.tags.join(",");
@@ -165,22 +172,36 @@ export function addPost(post) {
       dispatch(slice.actions.hasError(error));
     }
   };
+};
 
-    // const response = await axios.post('/api/account/register', {
-    //   email,
-    //   password,
-    //   firstName,
-    //   lastName
-    // });
-    // const { accessToken, user } = response.data;
 
-    // window.localStorage.setItem('accessToken', accessToken);
-    // dispatch({
-    //   type: 'REGISTER',
-    //   payload: {
-    //     user
-    //   }
-    // });
+export function editPost(post) {
+  console.log(post);
+  post.email = "korea4127@gmail.com";
+  post.token = "ya29.a0ARrdaM_pgXp_BDrQ_jvXiR2-nEE5gNFMudlNFVhE-Reu8ckz7vZvK-dEptDT8DR9MW7mcywcWbjBgLwMZl17D4N3JurOMjVZxexuhcOL1rYVWdfDdRqu5Xz17SWPzaGIfjBy_4mbWlJLJN188Ya-KqFRbXmu";
+  post.category = post.tags.join(",");
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const response = await axios.post(`${API_URL}/post/update`, post, {
+        params: {
+          email: "korea4127@gmail.com",
+          token: "ya29.a0ARrdaM_Qix6PiN68mPfVPHB7xmhD9cB8Y8NzUfaI0-NawnICWSZEqBUSKKkUYsakRzv2L3efzLcVGqxMhM3K80L5g9yKkDQ67VoLNBPMwDKwI5Ve5ajr_uR_LOR-9PzdhXVVQpd-COqGCHT2Bns_hz-Vsqot"
+        }
+      });
+      //console.log(response);
+      // const response = await axios.post(`${API_URL}/post/insert`, null, {
+      //   params: post ,
+      // });
+      if (response.data.status === 200) {
+        dispatch(slice.actions.editPostSuccess(response.data.data));
+        return response.data.data;
+      }
+    } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
+  };
 };
 
 // ----------------------------------------------------------------------
