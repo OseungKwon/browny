@@ -16,4 +16,6 @@ public interface LoginMapper{
 
 	public int githubInsert(String email, String token);
 	
+	public int kakaoInsert(String email, String token);
+	
 }
