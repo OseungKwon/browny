@@ -7,6 +7,9 @@ import facebookFill from '@iconify/icons-eva/facebook-fill';
 import { Stack, Button, Divider, Typography } from '@material-ui/core';
 import { signIn, callback , signOut, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
+import { useDispatch } from 'src/redux/store';
+import { login as socialLogin} from 'src/redux/slices/auth';
+
 
 // hooks
 //import useAuth from '../../hooks/useAuth';
@@ -14,10 +17,12 @@ import { useRouter } from 'next/router'
 // ----------------------------------------------------------------------
 
 export default function AuthSocials() {
+  const dispatch = useDispatch();
   // const { loginWithGoogle, loginWithFaceBook, loginWithTwitter } = useAuth();
 
   const handleLoginGoogle = async () => {
     try {
+
       signIn("google");
       // await loginWithGoogle();
     } catch (error) {
@@ -25,9 +30,11 @@ export default function AuthSocials() {
     }
   };
 
-  const handleLoginFaceBook = async () => {
+  const handleLoginGithub = async () => {
     try {
-      signIn("github");
+      
+      dispatch(socialLogin({loginType: 'github'}));
+      // signIn("github");
       // await loginWithFaceBook();
     } catch (error) {
       console.error(error);
@@ -44,17 +51,12 @@ export default function AuthSocials() {
 
   return (
     <>
-      <Divider sx={{ my: 3 }}>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          SNS로 로그인하기
-        </Typography>
-      </Divider>
       <Stack direction="row" spacing={2}>
         <Button fullWidth size="large" color="inherit" variant="outlined" onClick={handleLoginGoogle}>
           <Icon icon={googleFill} color="#DF3E30" height={24} />
         </Button>
 
-        <Button fullWidth size="large" color="inherit" variant="outlined" onClick={handleLoginFaceBook}>
+        <Button fullWidth size="large" color="inherit" variant="outlined" onClick={handleLoginGithub}>
           <GitHubIcon height={24} />
           {/* <Icon icon={facebookFill} color="#1877F2" height={24} /> */}
         </Button>

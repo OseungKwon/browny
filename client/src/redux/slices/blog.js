@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from '../../utils/axios';
 
 // ----------------------------------------------------------------------
-const API_URL = "http://localhost:8080"
+const API_URL = "http://localhost:8080";
 const initialState = {
   isLoading: false,
   error: false,

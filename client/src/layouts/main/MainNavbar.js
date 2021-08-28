@@ -52,7 +52,7 @@ const ToolbarShadowStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function MainNavbar() {
-  const [ session, loading ] = useSession()
+  const [session, loading] = useSession();
   const isOffset = useOffSetTop(100);
   const { pathname } = useRouter();
   const isHome = pathname === '/';
