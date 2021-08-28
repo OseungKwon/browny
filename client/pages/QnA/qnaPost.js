@@ -1,7 +1,5 @@
-// import { PATH_DASHBOARD } from ' src/routes/paths';
-
 function QnaPost() {
-  return <></>;
+  return <>not implemented yet</>;
 }
 
 export default QnaPost;
