@@ -125,7 +125,7 @@ export default function QnaList() {
     <MainLayout>
       <RootStyle title="QnaList" id="move_top">
         <ContentStyle>
-          <LabelStyle>추천 전문가</LabelStyle>
+          {/* <LabelStyle>추천 전문가</LabelStyle> */}
           
           <Tabs
             value={currentTab}
