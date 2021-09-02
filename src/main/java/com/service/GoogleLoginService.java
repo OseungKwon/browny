@@ -21,7 +21,7 @@ import com.mapper.LoginMapper;
 public class GoogleLoginService{
 	@Autowired
 	private LoginMapper loginMapper;
-	private HttpServletResponse response;
+//	private HttpServletResponse response;
 	
 	//구글 상수
     @Value("${sns.google.url}")

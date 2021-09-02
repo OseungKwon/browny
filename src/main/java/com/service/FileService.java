@@ -1,7 +1,6 @@
 package com.service;
 
 
-
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -66,7 +65,7 @@ public class FileService{
 			data.put("originFileName",originFileName);
 			data.put("serverFilePath",renameFile.getAbsolutePath());
 			data.put("serverFileName",serverFileName);
-			int result = fileMapper.saveFile(data);
+			int result = 0;
 			if(result<=0) {
 				throw new Exception("server error : "+originFileName);
 			}

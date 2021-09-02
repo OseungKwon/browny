@@ -24,7 +24,7 @@ public class PostController {
 	@Autowired
 	private GoogleLoginService loginService;
 	
-	@PostMapping(value="/post/list")
+	@GetMapping(value="/post/list")
 	@ResponseBody
 	public Map<String, Object> getPostListJson() {
 		Map<String, Object> data = new HashMap<>();
@@ -56,7 +56,7 @@ public class PostController {
 	//포스트 등록
 	@PostMapping(value="/post/insert")
 	@ResponseBody
-	public Map<String, Object> insert(@RequestParam(name="email")String email,@RequestParam(name="token")String token,PostDto post) {
+	public Map<String, Object> insert(@RequestParam(name="email")String email,@RequestParam(name="token")String token,@RequestBody PostDto post) {
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
 		if(!loginService.confirmLogin(email,token)) {
@@ -86,7 +86,7 @@ public class PostController {
 	//포스트 수정
 	@PostMapping(value="/post/update")
 	@ResponseBody
-	public Map<String, Object> update(@RequestParam(name="email")String email,@RequestParam(name="token")String token, PostDto post) {
+	public Map<String, Object> update(@RequestParam(name="email")String email,@RequestParam(name="token")String token,@RequestBody PostDto post) {
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
 		if(!loginService.confirmLogin(email,token)) {
