@@ -186,7 +186,7 @@ export function editPost(post) {
       const response = await axios.post(`${API_URL}/post/update`, post, {
         params: {
           email: "korea4127@gmail.com",
-          token: "ya29.a0ARrdaM_Qix6PiN68mPfVPHB7xmhD9cB8Y8NzUfaI0-NawnICWSZEqBUSKKkUYsakRzv2L3efzLcVGqxMhM3K80L5g9yKkDQ67VoLNBPMwDKwI5Ve5ajr_uR_LOR-9PzdhXVVQpd-COqGCHT2Bns_hz-Vsqot"
+          token: "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"
         }
       });
       //console.log(response);

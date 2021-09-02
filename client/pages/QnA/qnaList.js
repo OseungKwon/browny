@@ -6,10 +6,12 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import MainLayout from 'src/layouts/main';
 // components
 import Page from 'src/components/Page';
-import { Typography } from '@material-ui/core';
+import { Typography, Tabs, Tab } from '@material-ui/core';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { useEffect, useState } from 'react';
+// redux
+import { useSelector, useDispatch } from 'react-redux'
 
 const RootStyle = styled(Page)({
   height: '100%',
@@ -27,6 +29,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 const RefExpertContainer = styled('div')({
   marginLeft: 'auto',
+  marginBottom: '5rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-around',
@@ -52,8 +55,13 @@ const NextItemButton = () => {
 };
 
 export default function QnaList() {
-  let [currentPage, setCurrentPage] = useState(0);
-  let [numOfAllItems, setNumOfAllItems] = useState(0);
+  const [currentTab, setCurrentTab] = useState('1');
+  const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(0);
+  const [numOfAllItems, setNumOfAllItems] = useState(0);
+  const handleChangeTab = (event, newValue) => {
+    setCurrentTab(newValue);
+  };
   const sampleQnaRefExpertInfo = {
     image: `/static/brand/logo_single.svg`,
     title: `JamesKoo`,
@@ -76,6 +84,7 @@ export default function QnaList() {
   const sampleQnaInfo = {
     id: 1,
     title: `안녕하세요 회사에서 웹서비스를 만드는데 javascript를 어떻게 활용해야 하는지 궁금합니다. 알려주세요!`,
+    content: `내용쓰ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅁㅁㅁㅁㅁ`,
     image: `/static/brand/logo_single.svg`,
     Tags: [
       {
@@ -117,7 +126,21 @@ export default function QnaList() {
       <RootStyle title="QnaList" id="move_top">
         <ContentStyle>
           <LabelStyle>추천 전문가</LabelStyle>
-          <RefExpertContainer>
+          
+          <Tabs
+            value={currentTab}
+            scrollButtons="auto"
+            variant="scrollable"
+            allowScrollButtonsMobile
+            onChange={handleChangeTab}
+          >
+            <Tab disableRipple key={"days"} label={"최신순"} value={"1"} />
+            <Tab disableRipple key={"likes"} label={"인기순"} value={"2"} />
+            <Tab disableRipple key={"favorites"} label={"즐겨찾기순"} value={"3"} />
+            <Tab disableRipple key={"noCompletes"} label={"답변필요"}  value={"4"} />
+          </Tabs>
+          
+          {/* <RefExpertContainer>
             <PrevItemButton />
             {qnaRefExpertList.map((item, index) => {
               return (
@@ -133,7 +156,7 @@ export default function QnaList() {
               );
             })}
             <NextItemButton />
-          </RefExpertContainer>
+          </RefExpertContainer> */}
         </ContentStyle>
         <ContentStyle>
           <QnaTable list={qnaList}></QnaTable>

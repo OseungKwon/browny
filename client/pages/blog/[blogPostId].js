@@ -66,7 +66,6 @@ export default function BlogPost() {
         dispatch(getPost(postId));
         // dispatch(getRecentPosts(postId));
     }, [dispatch, postId]);
-    // console.log(post)
     return (
         <MainLayout>
             <ContentStyle>
