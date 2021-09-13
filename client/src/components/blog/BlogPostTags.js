@@ -25,7 +25,7 @@ export default function BlogPostTags({ post, sx }) {
       ))}
 
       <Box sx={{ display: 'flex', alignItems: 'center', mt: 3 }}>
-        <FormControlLabel
+        {/* <FormControlLabel
           control={
             <MCheckbox
               defaultChecked
@@ -36,7 +36,7 @@ export default function BlogPostTags({ post, sx }) {
             />
           }
           label={fShortenNumber(favorite)}
-        />
+        /> */}
         <AvatarGroup max={4} sx={{ '& .MuiAvatar-root': { width: 32, height: 32 } }}>
           {/* {favoritePerson.map((person) => (
             <Avatar key={person.name} alt={person.name} src={person.avatarUrl} />

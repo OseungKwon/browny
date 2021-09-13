@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import NextLink from 'next/link';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
@@ -34,6 +35,8 @@ function ListItemLink(props) {
 }
 function BlogEtc({ post }) {
     const [session, loading] = useSession();
+    const [checked, setChecked] = useState(post.likeCount);
+
     const checkUserSession = post?.email === session?.user?.email ? true : false;
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     const { favorite, tags, favoritePerson, postId } = post;
@@ -41,17 +44,26 @@ function BlogEtc({ post }) {
         width: '100%',
         border: `solid 1px ${theme.palette.divider}`
     }));
+    // console.log(post, "etcpost")
     const editLink = `${PATH_BLOG.general.editPost}/${postId}`;
+    const checkHandler = e => {
+        setChecked(!checked);
+        // checkedItemHandler(issue.id, target.checked);
+    };
     return (
         <>
             <ListWrapperStyle>
-                <List component="nav" aria-label="좋아요" >
+                <List component="nav" aria-label="좋아요" style={{textAlign:'center'}}>
                     <ListItem button>
                         <Checkbox
                             style={{paddingLeft:'12px'}}
-                            color="error" icon={<FavoriteBorder />} checkedIcon={<Favorite />}
+                            color="error" icon={<FavoriteBorder />}
+                            checked={checked}
+                            checkedIcon={((<Favorite />))}
+                            onChange={checkHandler}
                         />
                     </ListItem>
+                    {post.likeCount}
                     <Divider />
                     <ListItem button>
                         <IconButton color="secondary" aria-label="공유">
@@ -84,6 +96,7 @@ function BlogEtc({ post }) {
                     
 
                 </List>
+
             </ListWrapperStyle>
             
         </>

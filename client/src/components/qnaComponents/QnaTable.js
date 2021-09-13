@@ -8,6 +8,9 @@ import CommentIcon from '@material-ui/icons/Comment';
 import { useRouter } from 'next/router';
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+// redux
+import { useDispatch } from 'react-redux'
+import { addViewCount } from 'src/redux/slices/qna';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,51 +64,51 @@ function InfoItem(name, number) {
 }
 
 export default function QnaTable({ list }) {
+  const dispatch = useDispatch();
   const router = useRouter();
   const classes = useStyles();
   const [checked, setChecked] = React.useState([0]);
 
-  const onListItemClick = (e) => {
+  const onListItemClick = (e, qnaId) => {
     e.preventDefault();
-    router.push(href);
+    dispatch(addViewCount(qnaId));
+    router.push(`${qnaId}`);
   };
-
   return (
     <>
       <List className={classes.root}>
         {list.map((qnaInfo, index) => {
           const labelId = `qna-${index}`;
-
+          console.log(qnaInfo);;
           return (
             <>
               <Divider />
 
               <Grid container sx={{ py: 3, textAlign: 'center' }}>
                  
-                {InfoItem("조회수",1)}
-                {InfoItem("좋아요",10)}
-                {InfoItem("답변",15)}
+                {InfoItem("조회수", qnaInfo.views)}
+                {InfoItem("좋아요", qnaInfo.likeCount)}
+                {InfoItem("답변", qnaInfo.commentCnt)}
                 <Grid item xs={9}>
-                  <ListItem className={classes.listItem} key={index} role={undefined} href={qnaInfo.id} dense button onClick={onListItemClick}>
-                  <ListItem>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                    <ListItemText primary="Chelsea Otakan" />
-                    </ListItem>
+                  <ListItem className={classes.listItem} key={index} role={undefined} dense button onClick={e => onListItemClick(e, qnaInfo.qnaId)}>
                     <ListItem>
                       <Typography variant="subtitle1" gutterBottom>
                         {qnaInfo.title}
                       </Typography>
+                    </ListItem>
+                    <ListItem>
+                      <Avatar style={ {marginRight:10} }alt="Remy Sharp" src={ qnaInfo.avartarUrl }/>
+                      <ListItemText primary={ qnaInfo.name } />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText className={classes.listItemText} id={labelId} primary={qnaInfo.content} />
+                      <ListItemSecondaryAction>
+                        <IconButton edge="end" aria-label="comments">
+                          <CommentIcon />
+                        </IconButton>
+                      </ListItemSecondaryAction>
+                    </ListItem>
                   </ListItem>
-                  <ListItem>
-                    <ListItemText className={classes.listItemText} id={labelId} primary={qnaInfo.content} />
-                    <ListItemSecondaryAction>
-                      <IconButton edge="end" aria-label="comments">
-                        <CommentIcon />
-                      </IconButton>
-                    </ListItemSecondaryAction>
-                  </ListItem>
-                  
-                </ListItem>
                 </Grid>
               </Grid>
             

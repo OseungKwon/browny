@@ -66,7 +66,6 @@ export default function BlogPosts() {
   const { posts, hasMore, index, step } = useSelector((state) => state.blog);
   const sortedPosts = applySort(posts, filters);
   const onScroll = useCallback(() => dispatch(getMorePosts()), [dispatch]);
-      console.log(posts)
   useEffect(() => {
     dispatch(getPostsInitial(index, step));
   }, [dispatch, index, step]);

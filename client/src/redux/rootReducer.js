@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './slices/auth';
 import blogReducer from './slices/blog';
 import userReducer from './slices/user';
+import qnaReducer from './slices/qna';
 
 // ----------------------------------------------------------------------
 const rootPersistConfig = {
@@ -16,6 +17,7 @@ const rootPersistConfig = {
 const rootReducer = combineReducers({
   auth: authReducer,
   blog: blogReducer,
+  qna: qnaReducer,
   user: userReducer,
 });
 

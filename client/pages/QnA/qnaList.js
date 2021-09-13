@@ -9,9 +9,10 @@ import Page from 'src/components/Page';
 import { Typography, Tabs, Tab } from '@material-ui/core';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 // redux
 import { useSelector, useDispatch } from 'react-redux'
+import { getQnasInitial, getMoreQnas } from 'src/redux/slices/qna';
 
 const RootStyle = styled(Page)({
   height: '100%',
@@ -55,8 +56,12 @@ const NextItemButton = () => {
 };
 
 export default function QnaList() {
-  const [currentTab, setCurrentTab] = useState('1');
   const dispatch = useDispatch();
+  const [filters, setFilters] = useState('latest');
+  const { qnaList, hasMore, index, step } = useSelector((state) => state.qna);
+  const onScroll = useCallback(() => dispatch(getMoreQnas()), [dispatch]);
+
+  const [currentTab, setCurrentTab] = useState('1');
   const [currentPage, setCurrentPage] = useState(0);
   const [numOfAllItems, setNumOfAllItems] = useState(0);
   const handleChangeTab = (event, newValue) => {
@@ -104,23 +109,24 @@ export default function QnaList() {
     comments: 50,
   }; // Todo  추후 api 요청으로 Qna 리스트 얻어오도록 변경
   const qnaRefExpertList = [sampleQnaRefExpertInfo, sampleQnaRefExpertInfo, sampleQnaRefExpertInfo]; // Todo 추후 api 요청으로 qna 추천 전문가 리스트 얻어오도록 변경
-  const qnaList = [
-    sampleQnaInfo,
-    sampleQnaInfo,
-    sampleQnaInfo,
-    sampleQnaInfo,
-    sampleQnaInfo,
-    sampleQnaInfo,
-    sampleQnaInfo,
-    sampleQnaInfo,
-    sampleQnaInfo,
-    sampleQnaInfo,
-  ]; // Todo 추후 api 요청으로 Qna 리스트 얻어오도록 변경
+  // const qnaList = [
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  //   sampleQnaInfo,
+  // ]; // Todo 추후 api 요청으로 Qna 리스트 얻어오도록 변경
   useEffect(() => {
+    dispatch(getQnasInitial(index, step));
     // Todo 추후 이곳에서 api 요청 하도록 코드 추가
     setNumOfAllItems(100); // Todo 추후 api 요청으로 Qna 리스트 갯수 얻어오도록 변경
     setCurrentPage(1);
-  });
+  }, [dispatch, index, step]);
   return (
     <MainLayout>
       <RootStyle title="QnaList" id="move_top">

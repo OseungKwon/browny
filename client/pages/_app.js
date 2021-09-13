@@ -11,6 +11,8 @@ import Head from "next/head";
 import ThemeConfig from "src/theme";
 // contexts
 import { SettingsProvider } from "src/contexts/SettingsContext";
+import { SnackbarProvider } from 'notistack';
+
 // components
 import Settings from "src/components/settings";
 import RtlLayout from "src/components/RtlLayout";
@@ -43,7 +45,9 @@ export default function MyApp({ Component, pageProps }) {
                   />
                 </Head>
                 <TopProgressBar />
-                <Component {...pageProps} />
+                <SnackbarProvider maxSnack={3}>
+                  <Component {...pageProps} />
+                </SnackbarProvider>
               </RtlLayout>
             </ThemePrimaryColor>
           </ThemeConfig>

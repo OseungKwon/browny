@@ -97,7 +97,8 @@ export default function BlogPost() {
                                         </Typography>
                                                     
                                                     
-                                                    <Viewer
+                                            <Viewer
+                                                post
                                                         initialValue="hello111 react editor world!"
                                                     />
                                         {/* <Markdown children={post.body} /> */}
