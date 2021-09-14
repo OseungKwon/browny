@@ -13,6 +13,7 @@ public class PostDto{
 	private Integer likeCount=0;
 	private String email;
 	private String createdDate;
+	private Integer commentCnt;
 	
 	public Integer getPostId() {
 		return postId;

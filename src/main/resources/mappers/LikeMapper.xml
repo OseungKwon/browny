@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.LikeMapper">
+	
+	<select id="select" resultType="com.model.PostDto">
+		SELECT * FROM POST WHERE POST_ID = #{postId}
+	</select>
+	
+	<insert id="insertUserLike" parameterType="hashmap">
+		INSERT INTO
+		POPULAR (
+			like_id,
+	        contents_id, 
+			blog_id, 
+			liked_user_email, 
+			content_type
+			)
+		VALUES (
+			(SELECT MAX(LIKE_ID)+1 as like_id FROM POPULAR A),
+			#{contentId}, 
+			#{blogId}, 
+			#{userEmail}, 
+			#{contentType}
+		)
+	</insert>
+	<update id="updateUserLike" parameterType="hashmap">
+	   	UPDATE POPULAR
+	   	SET
+			delete_yn=#{deleteYn}
+		WHERE
+		like_id = #{likeId}
+		AND liked_user_email =  #{userEmail}
+	</update>
+	
+	
+</mapper>

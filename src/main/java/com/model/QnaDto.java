@@ -3,6 +3,7 @@ package com.model;
 public class QnaDto{
 	
 	private Integer qnaId=0;
+	private Integer likeId;
 	private Integer blogId;
 	private String category="";
 	private String title="";
@@ -16,7 +17,28 @@ public class QnaDto{
 	private String email;
 	private String createdDate;
 	private String answerDate;
+	private String name;
+	private String avartarUrl;
+	private Integer commentCnt;
 	
+	public Integer getCommentCnt() {
+		return commentCnt;
+	}
+	public void setCommentCnt(Integer commentCnt) {
+		this.commentCnt = commentCnt;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAvartarUrl() {
+		return avartarUrl;
+	}
+	public void setAvartarUrl(String avartarUrl) {
+		this.avartarUrl = avartarUrl;
+	}
 	public Integer getBlogId() {
 		return blogId;
 	}
@@ -109,6 +131,12 @@ public class QnaDto{
 	}
 	public void setAnswerDate(String answerDate) {
 		this.answerDate = answerDate;
+	}
+	public Integer getLikeId() {
+		return likeId;
+	}
+	public void setLikeId(Integer likeId) {
+		this.likeId = likeId;
 	}
 	
 }

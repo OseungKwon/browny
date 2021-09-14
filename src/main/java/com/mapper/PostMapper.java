@@ -1,6 +1,7 @@
 package com.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,5 +18,5 @@ public interface PostMapper{
 	public int getCount(PostDto data);
 	public int confirmCreate(String email, Integer postId);
 	public int getMaxId();
-	
+	public int updateLikeCount(PostDto data);
 }

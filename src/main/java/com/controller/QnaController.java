@@ -8,35 +8,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.model.QnaDto;
 import com.service.GoogleLoginService;
 import com.service.QnaService;
 
 
-@Controller
+@RestController
 public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	@Autowired
 	private GoogleLoginService loginService;
 	
-	@PostMapping(value="/qna/list")
-	@ResponseBody
+	@GetMapping(value="/qna/list")
 	public Map<String, Object> getQnaListJson() {
 		Map<String, Object> data = new HashMap<>();
 		List<QnaDto> list = qnaService.getList(new QnaDto());
 		data.put("data", list);
 		data.put("status", 200);
 		data.put("msg", "success");
-		return data;
+		return data; 
 	}
 	//포스트뷰
-	@GetMapping(value="/qna/view")
-	@ResponseBody
-	public Map<String, Object> view(QnaDto param) {
+	@PostMapping(value="/qna/view")
+	public Map<String, Object> view(QnaDto param, @RequestParam(name="email") String email) {
 		Map<String, Object> data = new HashMap<>();
 		//읽어오기
 		param = qnaService.select(param);
@@ -52,9 +53,29 @@ public class QnaController {
 		data.put("msg", "success");
 		return data;
 	}
+	
+	/*
+	 * 조회수증가 
+	 * */
+	@PutMapping(value="/qna/updateViews")
+	public Map<String, Object> updateViews(@RequestParam(name="qnaId") String qnaId ,@RequestBody QnaDto param) {
+		Map<String, Object> data = new HashMap<>();
+		//등록
+		Integer result = qnaService.updateViews(param);
+		//등록 성공 여부 체크
+		if(result<=0) {
+			data.put("status", 500);
+			data.put("msg", "server error");
+		}
+		//성공 출력
+		data.put("data", param);
+		data.put("status", 200);
+		data.put("msg", "success");
+		return data;
+	}
+	
 	//포스트 등록
 	@PostMapping(value="/qna/insert")
-	@ResponseBody
 	public Map<String, Object> insert(@RequestParam(name="email")String email,@RequestParam(name="token")String token,QnaDto param) {
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
@@ -84,7 +105,6 @@ public class QnaController {
 	}
 	//포스트 수정
 	@PostMapping(value="/qna/update")
-	@ResponseBody
 	public Map<String, Object> update(@RequestParam(name="email")String email,@RequestParam(name="token")String token, QnaDto qna) {
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
@@ -120,7 +140,6 @@ public class QnaController {
 	}
 	//답변 등록 /수정
 	@PostMapping(value="/qna/answer")
-	@ResponseBody
 	public Map<String, Object> answer(@RequestParam(name="email")String email,@RequestParam(name="token")String token, QnaDto qna) {
 		Map<String, Object> data = new HashMap<>();
 		//로그인 체크
@@ -156,7 +175,6 @@ public class QnaController {
 	}
 	//포스트 삭제
 	@PostMapping(value="/qna/delete")
-	@ResponseBody
 	public Map<String, Object> delete(@RequestParam(name="email")String email,@RequestParam(name="token")String token, QnaDto qna) {
 		Map<String, Object> json = new HashMap<>();
 		Map<String, Object> data = new HashMap<>();
@@ -188,7 +206,6 @@ public class QnaController {
 	}
 	//이전 글 보기
 	@GetMapping(value="/qna/view/prev")
-	@ResponseBody
 	public Map<String, Object> viewPrev(QnaDto qna) {
 		Map<String, Object> data = new HashMap<>();
 		//없으면 그 이전으로
@@ -216,7 +233,6 @@ public class QnaController {
 	}
 	//이전 글 보기
 	@GetMapping(value="/qna/view/next")
-	@ResponseBody
 	public Map<String, Object> viewNext(QnaDto param) {
 		Map<String, Object> data = new HashMap<>();
 		//최대값을 구함

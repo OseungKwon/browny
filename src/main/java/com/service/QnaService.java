@@ -41,5 +41,11 @@ public class QnaService{
 	public Integer answer(QnaDto data) {
 		return qnaMapper.answer(data);
 	}
+	public Integer updateViews(QnaDto data) {
+		return qnaMapper.updateViews(data);
+	}
+	public Integer updateLikeCount(QnaDto data) {
+		return qnaMapper.updateLikeCount(data);
+	}
 	
 }

@@ -1,6 +1,7 @@
 package com.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -18,5 +19,6 @@ public interface QnaMapper{
 	public int confirmCreate(String email, Integer qnaId);
 	public int getMaxId();
 	public Integer answer(QnaDto data);
-	
+	public Integer updateViews(QnaDto data);
+	public int updateLikeCount(QnaDto data);
 }

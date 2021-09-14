@@ -48,6 +48,14 @@
 			,post_title = #{title}
 		WHERE post_id = #{postId}
 	</update>
+	
+	
+	<update id="updateLikeCount" parameterType="com.model.QnaDto">
+		UPDATE POST SET
+			like_count = IFNULL(like_count,0) + #{likeCount}
+		WHERE POST_ID = #{postId}
+	</update>
+	
 	<update id="delete" parameterType="com.model.PostDto">
 		UPDATE POST SET
 			delete_yn = 'Y'

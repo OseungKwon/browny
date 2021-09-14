@@ -27,7 +27,13 @@
 		)
 	</insert>
 	<select id="select" resultType="com.model.QnaDto">
-		SELECT * FROM QNA WHERE QNA_ID = #{qnaId}
+		SELECT 
+			A.*
+			,B.like_id
+		FROM 
+			QNA A
+			LEFT JOIN POPULAR B ON A.QNA_ID = B.CONTENTS_ID AND B.CONTENT_TYPE='qna' AND B.LIKED_USER_EMAIL = #{email}
+		WHERE A.QNA_ID = #{qnaId}
 	</select>
 	<select id="getMaxId" resultType="int">
 		SELECT MAX(QNA_ID) FROM QNA WHERE delete_yn!='Y'
@@ -36,7 +42,15 @@
 		SELECT COUNT(*) FROM QNA WHERE created_email=#{email} AND QNA_ID=#{qnaId} 
 	</select>
 	<select id="getList" resultType="com.model.QnaDto">
-		SELECT * FROM QNA WHERE delete_yn!='Y'
+		SELECT 
+			A.*
+			, (SELECT COUNT(qna_id) FROM COMMENT WHERE qna_id = A.qna_id and delete_yn !='Y') as comment_cnt
+			, C.name
+			, C.avatarUrl 
+		FROM 
+			QNA A
+		 	LEFT JOIN USER C ON C.EMAIL = A.CREATED_EMAIL
+		WHERE A.delete_yn!='Y'
 	</select>
 	<select id="getCount" resultType="com.model.QnaDto">
 		SELECT COUNT(*) FROM QNA
@@ -48,6 +62,19 @@
 			,question_content = #{content}
 		WHERE QNA_ID = #{qnaId}
 	</update>
+	
+	<update id="updateViews" parameterType="com.model.QnaDto">
+		UPDATE QNA SET
+			views = IFNULL(views,0)+1
+		WHERE QNA_ID = #{qnaId}
+	</update>
+	
+	<update id="updateLikeCount" parameterType="com.model.QnaDto">
+		UPDATE QNA SET
+			like_count = IFNULL(like_count,0) + #{likeCount}
+		WHERE QNA_ID = #{qnaId}
+	</update>
+	
 	<update id="answer" parameterType="com.model.QnaDto">
 		UPDATE QNA SET
 			answer_title = #{answerTitle}
@@ -60,5 +87,5 @@
 			delete_yn = 'Y'
 		WHERE QNA_ID = #{qnaId}
 	</update>
-
+	
 </mapper>

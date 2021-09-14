@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.CommentMapper">
+
+	<sql id="commentColumns">
+		comment_id
+		, comment_parent_id
+		, post_id
+		, blog_id
+		, writer_user_id
+		, comment_content
+		open_yn
+		user_id
+		fix_yn
+		like_count
+		qna_id
+	</sql>
+
+
+</mapper>
