@@ -1,5 +1,6 @@
 
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/client';
 import { useEffect } from 'react';
 // material
 import { Container } from '@material-ui/core';
@@ -14,7 +15,6 @@ import { useDispatch, useSelector } from 'src/redux/store';
 import { getPost } from 'src/redux/slices/blog';
 // layouts
 import MainLayout from 'src/layouts/main';
-import { useSession } from 'next-auth/client';
 // ----------------------------------------------------------------------
 
 export default function blogNewPost() {

@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { useSession } from 'next-auth/client';
 import { sentenceCase } from 'change-case';
 //import { useParams } from 'react-router-dom';
 // material
@@ -27,6 +28,7 @@ import {
   BlogPostCommentForm
 } from 'src/components/blog';
 import BlogEtc from 'src/components/blog/BlogEtc';
+
 // ----------------------------------------------------------------------
 
 
@@ -57,21 +59,21 @@ export default function Qna() {
       paddingTop: 100,
       backgroundColor: theme.palette.background.default,
     }));
+    const [session, loading] = useSession();
     const router = useRouter();
     const qnaId = router.query.qnaId;
     //console.log(qnaId);
     const dispatch = useDispatch();
     //const { title } = useParams();
     const { qna, error, recentPosts } = useSelector((state) => state.qna);
-    //console.log(post?.category.split(","));
     useEffect(() => {
-        dispatch(getQna(qnaId));
+        dispatch(getQna(qnaId, session?.user));
         // dispatch(getRecentPosts(qnaId));
-    }, [dispatch, qnaId]);
+    }, [dispatch, qnaId, session]);
     return (
         <MainLayout>
             <ContentStyle>
-                <Page title="Blog: Post Details | Minimal-UI">
+                <Page title="Qna 상세">
                     <Container>
                         
                         {qna && (

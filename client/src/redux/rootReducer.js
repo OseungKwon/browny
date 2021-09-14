@@ -5,6 +5,8 @@ import authReducer from './slices/auth';
 import blogReducer from './slices/blog';
 import userReducer from './slices/user';
 import qnaReducer from './slices/qna';
+import likeReducer from './slices/like';
+
 
 // ----------------------------------------------------------------------
 const rootPersistConfig = {
@@ -19,6 +21,7 @@ const rootReducer = combineReducers({
   blog: blogReducer,
   qna: qnaReducer,
   user: userReducer,
+  like: likeReducer,
 });
 
 export { rootPersistConfig, rootReducer };

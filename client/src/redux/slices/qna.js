@@ -137,12 +137,17 @@ export function getQnasInitial(index, step) {
 
 // ----------------------------------------------------------------------
 
-export function getQna(qnaId) {
+export function getQna(qnaId, user) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get(`${API_URL}/qna/view?qnaId=${qnaId}`, {
-        params: { qnaId : qnaId },
+      const response = await axios.post(`${API_URL}/qna/view`,
+        user?.user,
+        {
+          params: {
+            qnaId: qnaId,
+            email: user?.email
+          },
       });
       console.log(response, "response");
       dispatch(slice.actions.getQnaSuccess(response.data.data));
@@ -246,20 +251,3 @@ export function addViewCount(qnaId) {
   };
 }
 
-export function editQnaLike(qnaId) {
-  return async (dispatch) => {
-    dispatch(slice.actions.startLoading());
-    try {
-      const response = await axios.put(`${API_URL}/qna/updateLikes`,
-        { qnaId: qnaId },
-        {
-          params: { qnaId: qnaId },
-        }
-      );
-      dispatch(slice.actions.addViewCountSuccess(response.data.data));
-    } catch (error) {
-      console.error(error);
-      dispatch(slice.actions.hasError(error));
-    }
-  };
-}

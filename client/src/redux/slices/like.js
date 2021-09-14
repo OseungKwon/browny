@@ -29,7 +29,7 @@ const slice = createSlice({
     },
 
      // like
-    contentsLike(state, action) {
+    editLikesSuccess(state, action) {
       state.isLoading = false;
       //console.log(state, "state");
       //console.log(action, "action");
@@ -49,7 +49,7 @@ export const { getMoreComments } = slice.actions;
 
 // ----------------------------------------------------------------------
 
-export function getcomment(commentId) {
+export function getLikesCount(contentId) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
@@ -64,55 +64,23 @@ export function getcomment(commentId) {
     }
   };
 }
-export function addcomment(comment) {
-  comment.email = "korea4127@gmail.com";
-  comment.token = "ya29.a0ARrdaM_pgXp_BDrQ_jvXiR2-nEE5gNFMudlNFVhE-Reu8ckz7vZvK-dEptDT8DR9MW7mcywcWbjBgLwMZl17D4N3JurOMjVZxexuhcOL1rYVWdfDdRqu5Xz17SWPzaGIfjBy_4mbWlJLJN188Ya-KqFRbXmu";
-  comment.category = comment.tags.join(",");
+
+
+export function editLikes(requsetBody, contentType) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.comment(`${API_URL}/comment/insert`, comment, {
+      const response = await axios.put(`${API_URL}/${contentType}/editLikes`,
+        requsetBody, {
         params: {
-          email: "korea4127@gmail.com",
-          token: "ya29.a0ARrdaM_pgXp_BDrQ_jvXiR2-nEE5gNFMudlNFVhE-Reu8ckz7vZvK-dEptDT8DR9MW7mcywcWbjBgLwMZl17D4N3JurOMjVZxexuhcOL1rYVWdfDdRqu5Xz17SWPzaGIfjBy_4mbWlJLJN188Ya-KqFRbXmu"
-        }
-      });
-      //console.log(response);
-      // const response = await axios.comment(`${API_URL}/comment/insert`, null, {
-      //   params: comment ,
-      // });
-      if (response.data.status === 200) {
-        dispatch(slice.actions.addcommentSuccess(response.data.data));
-        return response.data.data;
-      }
-    } catch (error) {
-      console.error(error);
-      dispatch(slice.actions.hasError(error));
-    }
-  };
-};
-
-
-export function editcomment(comment) {
-  console.log(comment);
-  comment.email = "korea4127@gmail.com";
-  comment.token = "ya29.a0ARrdaM_pgXp_BDrQ_jvXiR2-nEE5gNFMudlNFVhE-Reu8ckz7vZvK-dEptDT8DR9MW7mcywcWbjBgLwMZl17D4N3JurOMjVZxexuhcOL1rYVWdfDdRqu5Xz17SWPzaGIfjBy_4mbWlJLJN188Ya-KqFRbXmu";
-  comment.category = comment.tags.join(",");
-  return async (dispatch) => {
-    dispatch(slice.actions.startLoading());
-    try {
-      const response = await axios.comment(`${API_URL}/comment/update`, comment, {
-        params: {
+          contentType: contentType,  
           email: "korea4127@gmail.com",
           token: "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"
         }
       });
-      //console.log(response);
-      // const response = await axios.comment(`${API_URL}/comment/insert`, null, {
-      //   params: comment ,
-      // });
+     
       if (response.data.status === 200) {
-        dispatch(slice.actions.editcommentSuccess(response.data.data));
+        dispatch(slice.actions.editLikesSuccess(response.data.data));
         return response.data.data;
       }
     } catch (error) {

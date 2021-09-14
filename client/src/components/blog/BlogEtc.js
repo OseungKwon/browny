@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import NextLink from 'next/link';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import { Icon } from '@iconify/react';
-import heartFill from '@iconify/icons-eva/heart-fill';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import Favorite from '@material-ui/icons/Favorite';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
@@ -26,6 +22,9 @@ import { MCheckbox } from '../@material-extend';
 import Block from '../Block';
 // utils
 import { fShortenNumber } from '../../utils/formatNumber';
+// redux
+import { useDispatch } from 'src/redux/store';
+import { editLikes } from 'src/redux/slices/like';
 // routes
 import { PATH_BLOG } from '../../routes/paths';
 import { useSession } from 'next-auth/client';
@@ -34,8 +33,9 @@ function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 function BlogEtc({ post }) {
+    const dispatch = useDispatch(); 
     const [session, loading] = useSession();
-    const [checked, setChecked] = useState(post.likeCount);
+    const [checked, setChecked] = useState(post.likeId);
 
     const checkUserSession = post?.email === session?.user?.email ? true : false;
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -44,10 +44,17 @@ function BlogEtc({ post }) {
         width: '100%',
         border: `solid 1px ${theme.palette.divider}`
     }));
-    // console.log(post, "etcpost")
     const editLink = `${PATH_BLOG.general.editPost}/${postId}`;
     const checkHandler = e => {
         setChecked(!checked);
+        const requsetBody = {
+            likeId: post.likeId,
+            contentId: post.postId ?? post.qnaId,
+            likeCount: checked ? -1 : 1,
+            userEmail: session?.user?.email,
+            contentType: 'qna'
+        }
+        dispatch(editLikes(requsetBody,'qna'))
         // checkedItemHandler(issue.id, target.checked);
     };
     return (
