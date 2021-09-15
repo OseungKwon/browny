@@ -35,3 +35,5 @@ build/
 ### client ###
 client/node_modules/
 client/public/
+
+client/yarn.lock
