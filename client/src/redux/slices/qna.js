@@ -7,8 +7,11 @@ const API_URL = "http://localhost:8080";
 const initialState = {
   isLoading: false,
   error: false,
-  qnaList: [],
-  qna: null,
+  qnaList: [{
+    "title": "aaa",
+    "content": "22"
+  }],
+  qna: true,
   recentQnas: [],
   hasMore: true,
   index: 0,
@@ -63,7 +66,7 @@ const slice = createSlice({
       state.recentQnas = action.payload;
     },
 
-     // ADD qna
+    // ADD qna
     addQnaSuccess(state, action) {
       state.isLoading = false;
       //console.log(state, "state");
@@ -82,7 +85,7 @@ const slice = createSlice({
     // ADD VIEW COUNT
     addViewCountSuccess(state, action) {
       state.isLoading = false;
-      
+
       // state.qna = action.payload;
     },
   },
@@ -100,7 +103,7 @@ export function getAllqnas() {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get(`${API_URL}/qna/list`);
+      const response = await axios.get(`${API_URL}/list`);
       //const response = await axios.get('/api/blog/qnas/all');
       dispatch(slice.actions.getQnasSuccess(response.data.qnas));
     } catch (error) {
@@ -115,7 +118,7 @@ export function getQnasInitial(index, step) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get(`${API_URL}/qna/list`, {
+      const response = await axios.get(`${API_URL}/list`, {
         params: { index, step },
       });
       //console.log(response.data.data)
@@ -141,14 +144,14 @@ export function getQna(qnaId, user) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.post(`${API_URL}/qna/view`,
+      const response = await axios.post(`${API_URL}/view`,
         user?.user,
         {
           params: {
             qnaId: qnaId,
             email: user?.email
           },
-      });
+        });
       console.log(response, "response");
       dispatch(slice.actions.getQnaSuccess(response.data.data));
     } catch (error) {

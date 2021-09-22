@@ -132,7 +132,7 @@ export default function QnaList() {
       <RootStyle title="QnaList" id="move_top">
         <ContentStyle>
           {/* <LabelStyle>추천 전문가</LabelStyle> */}
-          
+
           <Tabs
             value={currentTab}
             scrollButtons="auto"
@@ -143,10 +143,10 @@ export default function QnaList() {
             <Tab disableRipple key={"days"} label={"최신순"} value={"1"} />
             <Tab disableRipple key={"likes"} label={"인기순"} value={"2"} />
             <Tab disableRipple key={"favorites"} label={"즐겨찾기순"} value={"3"} />
-            <Tab disableRipple key={"noCompletes"} label={"답변필요"}  value={"4"} />
+            <Tab disableRipple key={"noCompletes"} label={"답변필요"} value={"4"} />
           </Tabs>
-          
-          {/* <RefExpertContainer>
+
+          <RefExpertContainer>
             <PrevItemButton />
             {qnaRefExpertList.map((item, index) => {
               return (
@@ -162,7 +162,7 @@ export default function QnaList() {
               );
             })}
             <NextItemButton />
-          </RefExpertContainer> */}
+          </RefExpertContainer>
         </ContentStyle>
         <ContentStyle>
           <QnaTable list={qnaList}></QnaTable>
