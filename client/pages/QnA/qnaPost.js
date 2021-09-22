@@ -2,7 +2,7 @@ import { Container, Typography, Box, Tabs } from "@material-ui/core"
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import Page from 'src/components/Page';
 
-import BlogPostCommentForm from '../../src/components/qnaComponents/QnaCommentForm'
+import QnaComment from '../../src/components/qnaComponents/QnaComment'
 const RootStyle = styled(Page)({
   height: '100%',
   top: '80px',
@@ -68,7 +68,7 @@ function QnaPost() {
         <ContentStyle>{sampleQnaInfo.content}</ContentStyle>
         <hr />
         <div>답변</div>
-        <input placeholder="답변 추가" />
+        <QnaComment />
       </Box>
     </Container>);
 }
