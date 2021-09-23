@@ -18,7 +18,7 @@ export default function QnaComment() {
 
     const onSubmitRecomment = e => {
         e.preventDefault();
-
+        
     }
     return (
         <>
